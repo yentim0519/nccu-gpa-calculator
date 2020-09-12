@@ -1,5 +1,5 @@
 Flask
 Bs4
-Request
+Requests
 Selenium
 
