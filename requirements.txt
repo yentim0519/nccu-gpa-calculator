@@ -1,5 +1,7 @@
-Flask 
+Pip3
+Flask
+Os
 Bs4
-Requests
+Request
 Selenium
-time
+
