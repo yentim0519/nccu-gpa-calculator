@@ -1,2 +1,5 @@
 Flask 
-Flask_MySQLdb
+Bs4
+Requests
+Selenium
+time
