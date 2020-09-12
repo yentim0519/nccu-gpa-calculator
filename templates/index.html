@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
+{% endblock head %}
+
+
+{% block body %}
+
+<div class='whole-block'>
+    <div class = 'title'>
+        NCCU GPA CALCULATOR
+    </div>
+
+    <form action="{{ url_for('result') }}" method="post">
+
+        <!-- Search form -->
+        <div class="active-pink-3 active-pink-4 mb-4">
+            <input class="form-control" name = "username" type="text" placeholder="username" aria-label="Search">
+        </div>
+
+        <div class="active-pink-3 active-pink-4 mb-4">
+            <input class="form-control" name = "password" type="password" placeholder="password" aria-label="Search">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-outline-secondary">Search</button>
+        </div>
+    </form>
+</div>
+
+<div class = 'designer'>
+    Designed by Tim Yen
+</div>
+{% endblock body %}
+        
+
+

@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <form action="{{ url_for('result') }}" method="post">
+
+    <!-- Search form -->
+    <div class="active-pink-3 active-pink-4 mb-4">
+        <input class="form-control" name = "brand_name" type="text" placeholder="Type any letter from a to z" aria-label="Search">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Search</button>
+    </div>
+  </form>
+
+
+  <form action="{{ url_for('result1') }}" method="post">
+
+        <!-- Search form -->
+        <div class="active-pink-3 active-pink-4 mb-4">
+            <input class="form-control" name = "top_notes" type="text" placeholder="Top Notes - you can try '豆蔻'" aria-label="Search">
+        </div>
+
+        <div class="active-pink-3 active-pink-4 mb-4">
+            <input class="form-control" name = "middle_notes" type="text" placeholder="Middle Notes - you can try '豆蔻'" aria-label="Search">
+        </div>
+
+        <div class="active-pink-3 active-pink-4 mb-4">
+            <input class="form-control" name = "base_notes" type="text" placeholder="Base Notes - you can try '麝香'" aria-label="Search">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Search</button>
+        </div>
+  </form>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Fragrance Notes</th>
+            <th scope="col">Top Notes</th>
+            <th scope="col">Middle Notes</th>
+            <th scope="col">Base Notes</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+            {% for row in brand_datas %}  
+            <tr>
+              <td>{{ row['product_brand'] }}</td>
+              <td>{{ row['product_name'] }}</td>
+              <td>{{ row['fragrance_notes'] }}</td>
+              <td>{{ row['top_notes'] }}</td>
+              <td>{{ row['middle_notes'] }}</td>
+              <td>{{ row['base_notes'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock body %}

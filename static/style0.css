@@ -1,0 +1,40 @@
+body {
+    background-image: url(../static/index_background.jpg);
+}
+
+.whole-block{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.title { 
+    text-align: center;
+    font-size: 550%;
+    font-family:kaushan_script;
+
+}
+
+.form-control{
+    margin: auto;
+    height: 35px;
+    width: 800px;
+}
+
+.form-group{
+    text-align: center;
+    color:black;
+}
+
+.btn{
+    margin: auto;
+}
+
+.designer{
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}

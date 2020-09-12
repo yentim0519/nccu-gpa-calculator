@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+{% endblock head %}
+
+{% block body %}
+<div id = 'main'>
+
+  <form  action="{{ url_for('result') }}" method="post">
+    <div class = 'title'>
+      GPA Calculator
+    </div>
+</div>
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Brand</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Fragrance Notes</th>
+      <th scope="col">Top Notes</th>
+      <th scope="col">Middle Notes</th>
+      <th scope="col">Base Notes</th>
+    </tr>
+  </thead>
+        
+  <tbody>
+    {% for row in brand_datas %}  
+    <tr>
+      <td>{{ row['product_brand'] }}</td>
+      <td>{{ row['product_name'] }}</td>
+      <td>{{ row['fragrance_notes'] }}</td>
+      <td>{{ row['top_notes'] }}</td>
+      <td>{{ row['middle_notes'] }}</td>
+      <td>{{ row['base_notes'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table> -->
+<div>
+  {% tables %}
+</div>
+
+{% endblock body %}
+

@@ -1,0 +1,15 @@
+.title { 
+    text-align: left;
+    font-size: 300%;
+    font-family:kaushan_script;
+}
+
+
+#title, #search-box,#search-botton{
+    float:left
+}
+
+.form-control{
+    height: 35px;
+    width: 600px;
+}
