@@ -1,4 +1,3 @@
-Pip3
 Flask
 Os
 Bs4
