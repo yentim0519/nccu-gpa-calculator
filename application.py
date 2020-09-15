@@ -21,7 +21,7 @@ def index():
 def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
-
+    print(username)
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     # chrome_options = webdriver.ChromeOptions()
