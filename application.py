@@ -21,7 +21,7 @@ def index():
 def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
-    print(username)
+    
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     # chrome_options = webdriver.ChromeOptions()
@@ -59,7 +59,7 @@ def result():
     #         for td in all_td:
     #             print(td.string)
         
-    return flask.render_template('page1.html', tables = username)
+    return flask.render_template('page1.html', tables = [username])
 
 @application.route('/result1', methods=["POST"])
 def result1():

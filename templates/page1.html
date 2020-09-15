@@ -39,7 +39,11 @@
   </tbody>
 </table> -->
 <div>
-  {% tables %}
+  {% for element in tables %}
+  <tr>
+      <th>{{ element[0] }}</th>
+  </tr>
+  {% endfor %}
 </div>
 
 {% endblock body %}
