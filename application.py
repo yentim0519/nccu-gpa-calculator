@@ -59,7 +59,7 @@ def result():
     #         for td in all_td:
     #             print(td.string)
         
-    return flask.render_template('page1.html', tables = "hello")
+    return flask.render_template('page1.html', tables = username)
 
 @application.route('/result1', methods=["POST"])
 def result1():
