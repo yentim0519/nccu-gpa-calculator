@@ -48,8 +48,8 @@ def result():
 
     html = driver.page_source
     soup = BeautifulSoup(html)
-    data = []
-    all_table = soup.find_all("table")
+    # data = []
+    # all_table = soup.find_all("table")
     # for table in all_table[5:]:
     #     table_data = []
     #     all_tr = table.find_all("tr")
@@ -61,7 +61,7 @@ def result():
     #         table_data.append(tr_data)
     #     data.append(table_data)
         
-    return flask.render_template('page1.html', tables = [all_table])
+    return flask.render_template('page1.html', tables = ['hello'])
 
 @application.route('/result1', methods=["POST"])
 def result1():
