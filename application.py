@@ -32,9 +32,7 @@ def result():
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
-    a = driver.current_url
     
-
     driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
     driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
     driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
@@ -48,20 +46,20 @@ def result():
     time.sleep(2)
     driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
-    # # html = driver.page_source
-    # # soup = BeautifulSoup(html)
-    # data = []
-    # all_table = soup.find_all("table")
-    # for table in all_table[5:]:
-    #     table_data = []
-    #     all_tr = table.find_all("tr")
-    #     for tr in all_tr[2:]:
-    #         tr_data = []
-    #         all_td = tr.find_all("td")
-    #         for td in all_td:
-    #             tr_data.append(td)
-    #         table_data.append(tr_data)
-    #     data.append(table_data)
+    html = driver.page_source
+    soup = BeautifulSoup(html)
+    data = []
+    all_table = soup.find_all("table")
+    for table in all_table[5:]:
+        table_data = []
+        all_tr = table.find_all("tr")
+        for tr in all_tr[2:]:
+            tr_data = []
+            all_td = tr.find_all("td")
+            for td in all_td:
+                tr_data.append(td)
+            table_data.append(tr_data)
+        data.append(table_data)
         
     return flask.render_template('page1.html', tables = ["hello"])
 
