@@ -24,7 +24,7 @@ def result():
 
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
-    chrome_options = webdriver.ChromeOptions()
+    # chrome_options = webdriver.ChromeOptions()
     # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     # chrome_options.add_argument("--headless") #無頭模式
     # chrome_options.add_argument("--disable-dev-shm-usage")
