@@ -21,7 +21,7 @@ def index():
 def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
-
+    return username
 
     # target_url = 'https://i.nccu.edu.tw/Home.aspx'
     # driver = webdriver.Chrome('/Users/owner/Desktop/Github/Self_practice/Selenium_動態爬蟲/chromedriver')
