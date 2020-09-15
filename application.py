@@ -22,38 +22,38 @@ def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
 
-    target_url = 'https://i.nccu.edu.tw/Home.aspx'
-    driver = webdriver.Chrome('/Users/owner/Desktop/Github/Self_practice/Selenium_動態爬蟲/chromedriver')
-    driver.get(target_url)
-    # print(driver.current_url)
-    username = "105208036"
-    password = "Helloyen123@"
 
-    driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
-    driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
-    driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
-    time.sleep(4) #讓javasciprt的東西跑出來，才能進入全人系統 # 這邊應該改得更彈性
-    driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
-    driver.switch_to.window(driver.window_handles[-1])
-    # print(driver.current_url) # 不知道為什麼一定要print才行
-    time.sleep(3)
-    driver.switch_to_alert().dismiss()
-    # print(driver.current_url)
-    time.sleep(2)
-    driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    # driver = webdriver.Chrome('/Users/owner/Desktop/Github/Self_practice/Selenium_動態爬蟲/chromedriver')
+    # driver.get(target_url)
+    # # print(driver.current_url)
+    
 
-    # html = driver.page_source
-    # soup = BeautifulSoup(html)
-    data = []
-    all_table = soup.find_all("table")
-    for table in all_table[5:]:
-        all_tr = table.find_all("tr")
-        for tr in all_tr[2:]:
-            all_td = tr.find_all("td")
-            for td in all_td:
-                print(td.string)
+    # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
+    # driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
+    # driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
+    # time.sleep(4) #讓javasciprt的東西跑出來，才能進入全人系統 # 這邊應該改得更彈性
+    # driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
+    # driver.switch_to.window(driver.window_handles[-1])
+    # # print(driver.current_url) # 不知道為什麼一定要print才行
+    # time.sleep(3)
+    # driver.switch_to_alert().dismiss()
+    # # print(driver.current_url)
+    # time.sleep(2)
+    # driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+
+    # # html = driver.page_source
+    # # soup = BeautifulSoup(html)
+    # data = []
+    # all_table = soup.find_all("table")
+    # for table in all_table[5:]:
+    #     all_tr = table.find_all("tr")
+    #     for tr in all_tr[2:]:
+    #         all_td = tr.find_all("td")
+    #         for td in all_td:
+    #             print(td.string)
         
-    return flask.render_template('page1.html', tables = all_table)
+    return flask.render_template('page1.html', tables = username)
 
 @application.route('/result1', methods=["POST"])
 def result1():
