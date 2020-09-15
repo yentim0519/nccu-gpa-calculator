@@ -24,15 +24,15 @@ def result():
     
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
-    # chrome_options = webdriver.ChromeOptions()
-    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # chrome_options.add_argument("--headless") #無頭模式
-    # chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("--no-sandbox")
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless") #無頭模式
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
 
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    # driver.get(target_url)
-    # a = driver.current_url
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver.get(target_url)
+    a = driver.current_url
     
 
     # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
@@ -59,7 +59,7 @@ def result():
     #         for td in all_td:
     #             print(td.string)
         
-    return flask.render_template('page1.html', tables = [username])
+    return flask.render_template('page1.html', tables = [a])
 
 @application.route('/result1', methods=["POST"])
 def result1():
