@@ -2,4 +2,5 @@ Flask
 Bs4
 Requests
 Selenium
+Gunicorn
 
