@@ -21,12 +21,11 @@ def index():
 def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
-    return username
 
-    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
-    # driver = webdriver.Chrome('/Users/owner/Desktop/Github/Self_practice/Selenium_動態爬蟲/chromedriver')
-    # driver.get(target_url)
-    # # print(driver.current_url)
+    target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    driver = webdriver.Chrome('/Users/owner/Desktop/Github/Self_practice/Selenium_動態爬蟲/chromedriver')
+    driver.get(target_url)
+    a = driver.current_url
     
 
     # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
@@ -53,7 +52,7 @@ def result():
     #         for td in all_td:
     #             print(td.string)
         
-    return flask.render_template('page1.html', tables = username)
+    return flask.render_template('page1.html', tables = a)
 
 @application.route('/result1', methods=["POST"])
 def result1():
