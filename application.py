@@ -10,7 +10,7 @@ from rq import Queue
 from worker import conn
 from get_course_data import get_course_data
 
-# application = flask.Flask(__name__)
+application = flask.Flask(__name__)
 # # engine = sqlalchemy.create_engine("mysql+pymysql://yentim0519:helloyen@database-1.crc98fdcbodi.us-east-2.rds.amazonaws.com/innodb")
 # # db = sqlalchemy.orm.scoped_session(sqlalchemy.orm.sessionmaker(bind=engine))  # 這行出問題
 # # Config MySQL
