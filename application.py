@@ -65,3 +65,7 @@ def result():
 
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
+
+
+# 1. 要有登入錯誤的介面
+# 2.  
