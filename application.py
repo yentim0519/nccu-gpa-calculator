@@ -10,25 +10,25 @@ from rq import Queue
 from worker import conn
 from get_course_data import get_course_data
 
-q = Queue(connection=conn)
 # application = flask.Flask(__name__)
 # # engine = sqlalchemy.create_engine("mysql+pymysql://yentim0519:helloyen@database-1.crc98fdcbodi.us-east-2.rds.amazonaws.com/innodb")
 # # db = sqlalchemy.orm.scoped_session(sqlalchemy.orm.sessionmaker(bind=engine))  # 這行出問題
 # # Config MySQL
 
 
-# @application.route('/')
-# def index():
-#     return flask.render_template('index.html')
+@application.route('/')
+def index():
+    return flask.render_template('index.html')
     
-# @application.route('/result', methods=["POST"])
-# def result():
-#     username = flask.request.form['username']
-#     password = flask.request.form['password']
+@application.route('/result', methods=["POST"])
+def result():
+    username = flask.request.form['username']
+    password = flask.request.form['password']
+    q = Queue(connection=conn)
     
-#     data = q.enqueue(get_course_data(), username, password)
+    # data = q.enqueue(get_course_data(), username, password)
         
-#     return flask.render_template('page1.html', tables = ['hello'])
+    return flask.render_template('page1.html', tables = ['hello'])
 
 
 # @application.route('/result1', methods=["POST"])
