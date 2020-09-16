@@ -28,7 +28,7 @@ def result():
     
     data = q.enqueue(get_course_data, username, password)
         
-    return flask.render_template('page1.html', tables = ['hello'])
+    return flask.render_template('page1.html', tables = [data])
 
 
 # @application.route('/result1', methods=["POST"])
