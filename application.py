@@ -79,6 +79,7 @@ def result():
 
     # 計算gpa
     gpa = total_score/total_credit
+    driver.close()
     
     return flask.render_template('page1.html', data_all = data, gpa = gpa)
 
