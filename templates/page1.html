@@ -13,38 +13,45 @@
     </div>
 </div>
 
-<!-- <table class="table">
+<table class="table">
   <thead>
     <tr>
-      <th scope="col">Brand</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Fragrance Notes</th>
-      <th scope="col">Top Notes</th>
-      <th scope="col">Middle Notes</th>
-      <th scope="col">Base Notes</th>
+      <th scope="col">學年</th>
+      <th scope="col">學期</th>
+      <th scope="col">科目代號</th>
+      <th scope="col">科目名稱</th>
+      <th scope="col">修別</th>
+      <th scope="col">學分數</th>
+      <th scope="col">成績</th>
+      <th scope="col">備註</th>
     </tr>
   </thead>
         
   <tbody>
-    {% for row in brand_datas %}  
-    <tr>
-      <td>{{ row['product_brand'] }}</td>
-      <td>{{ row['product_name'] }}</td>
-      <td>{{ row['fragrance_notes'] }}</td>
-      <td>{{ row['top_notes'] }}</td>
-      <td>{{ row['middle_notes'] }}</td>
-      <td>{{ row['base_notes'] }}</td>
-    </tr>
+    {% for semester in data_all %}  
+      {% for semester_data in semester %}
+      <tr>
+        <td>{{ semester_data[0] }}</td>
+        <td>{{ semester_data[1] }}</td>
+        <td>{{ semester_data[2] }}</td>
+        <td>{{ semester_data[3] }}</td>
+        <td>{{ semester_data[4] }}</td>
+        <td>{{ semester_data[5] }}</td>
+        <td>{{ semester_data[6] }}</td>
+        <td>{{ semester_data[7] }}</td>
+      </tr>
+      {% endfor %}
     {% endfor %}
   </tbody>
-</table> -->
-<div>
+</table>
+
+<!-- <div>
   {% for element in tables %}
   <tr>
       <th>{{ element }}</th>
   </tr>
   {% endfor %}
-</div>
+</div> -->
 
 {% endblock body %}
 

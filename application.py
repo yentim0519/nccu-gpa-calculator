@@ -12,7 +12,9 @@ application = flask.Flask(__name__)
 @application.route('/')
 def index():
     return flask.render_template('index.html')
-    
+
+
+# try catch 還沒做好
 @application.route('/result', methods=["POST"])
 def result():
     username = flask.request.form['username']
@@ -58,7 +60,7 @@ def result():
             table_data.append(tr_data)
         data.append(table_data)
     
-    return flask.render_template('page1.html', tables = [data])
+    return flask.render_template('page1.html', data_all = data)
 
 
 if __name__ == '__main__':
