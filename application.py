@@ -6,14 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select 
 from selenium.webdriver.common.keys import Keys
 import time
-from rq import Queue
-from worker import conn
-from get_course_data import get_course_data
 
 application = flask.Flask(__name__)
-# # engine = sqlalchemy.create_engine("mysql+pymysql://yentim0519:helloyen@database-1.crc98fdcbodi.us-east-2.rds.amazonaws.com/innodb")
-# # db = sqlalchemy.orm.scoped_session(sqlalchemy.orm.sessionmaker(bind=engine))  # 這行出問題
-# # Config MySQL
 
 @application.route('/')
 def index():
@@ -23,9 +17,6 @@ def index():
 def result():
     username = flask.request.form['username']
     password = flask.request.form['password']
-    # q = Queue(connection=conn)
-    
-    # job = q.enqueue(get_course_data, username, password)
 
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
@@ -53,17 +44,21 @@ def result():
 
     html = driver.page_source
     soup = BeautifulSoup(html)
+
+    data = []
+    all_table = soup.find_all("table")
+    for table in all_table[5:]:
+        table_data = []
+        all_tr = table.find_all("tr")
+        for tr in all_tr[2:]:
+            tr_data = []
+            all_td = tr.find_all("td")
+            for td in all_td:
+                tr_data.append(td)
+            table_data.append(tr_data)
+        data.append(table_data)
     
-    return flask.render_template('page1.html', tables = [soup])
-
-
-@application.route('/result1', methods=["GET"])
-def result1():
-    if job.status == True:
-        return flask.render_template('page1.html', tables = [job.result])
-    else:
-        return flask.render_template('page1.html', tables = ["Not Yet!"])
-
+    return flask.render_template('page1.html', tables = [data])
 
 
 if __name__ == '__main__':
