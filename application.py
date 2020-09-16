@@ -54,7 +54,7 @@ def result():
             tr_data = []
             all_td = tr.find_all("td")
             for td in all_td:
-                tr_data.append(td)
+                tr_data.append(td.string)
             table_data.append(tr_data)
         data.append(table_data)
     
