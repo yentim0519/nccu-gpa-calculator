@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select 
 from selenium.webdriver.common.keys import Keys
 import time
+from score_to_gpa import score_to_gpa
 
 application = flask.Flask(__name__)
 
@@ -47,20 +48,34 @@ def result():
     html = driver.page_source
     soup = BeautifulSoup(html)
 
+    # 將資料存成array並且計算GPA
     data = []
+    total_score = 0
+    total_credit = 0
+
     all_table = soup.find_all("table")
     for table in all_table[5:]:
+        
         table_data = []
         all_tr = table.find_all("tr")
         for tr in all_tr[2:]:
+            
             tr_data = []
             all_td = tr.find_all("td")
             for td in all_td:
                 tr_data.append(td.string)
+            
+            total_credit += int(float(tr_data[5])) 
+            total_score += float(tr_data[6]) * int(float(tr_data[5])) 
+            
             table_data.append(tr_data)
+        
         data.append(table_data)
+
+    # 計算gpa
+    gpa = total_score/total_credit
     
-    return flask.render_template('page1.html', data_all = data)
+    return flask.render_template('page1.html', data_all = data, gpa = gpa)
 
 
 if __name__ == '__main__':
