@@ -30,7 +30,7 @@ def result():
     return flask.render_template('page1.html', tables = ["processing"])
 
 
-@application.route('/result1', methods=["POST"])
+@application.route('/result1', methods=["GET"])
 def result1():
     if job.status == True:
         return flask.render_template('page1.html', tables = [job.result])
