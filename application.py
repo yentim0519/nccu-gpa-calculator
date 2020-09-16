@@ -26,7 +26,7 @@ def result():
     password = flask.request.form['password']
     q = Queue(connection=conn)
     
-    # data = q.enqueue(get_course_data(), username, password)
+    data = q.enqueue(get_course_data(), username, password)
         
     return flask.render_template('page1.html', tables = ['hello'])
 
