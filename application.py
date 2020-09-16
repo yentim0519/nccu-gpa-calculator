@@ -15,11 +15,6 @@ application = flask.Flask(__name__)
 # # db = sqlalchemy.orm.scoped_session(sqlalchemy.orm.sessionmaker(bind=engine))  # 這行出問題
 # # Config MySQL
 
-def task_handler(args):
-    
-    # this function takes around 2 minutes to complete
-    return True
-
 @application.route('/')
 def index():
     return flask.render_template('index.html')
@@ -30,15 +25,15 @@ def result():
     password = flask.request.form['password']
     q = Queue(connection=conn)
     
-    job = q.enqueue(task_handler, args)
+    job = q.enqueue(get_course_data, username, password)
     
-    return flask.render_template('page1.html', tables = "processing")
+    return flask.render_template('page1.html', tables = ["processing"])
 
 
 @application.route('/result1', methods=["POST"])
 def result1():
     if job.status == True:
-        return flask.render_template('page1.html', tables = "processing")
+        return flask.render_template('page1.html', tables = [job.result])
 
 
 
