@@ -67,6 +67,8 @@ def result():
             
             if tr_data[6] == "棄修":
                 continue
+            elif tr_data[6] == "通過":
+                continue
             else:
                 total_credit += int(float(tr_data[5])) 
                 total_score += score_to_gpa(float(tr_data[6])) * int(float(tr_data[5])) 
