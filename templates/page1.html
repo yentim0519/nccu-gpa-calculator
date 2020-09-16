@@ -28,7 +28,8 @@
   </thead>
         
   <tbody>
-    {% for semester in data_all %}  
+    {% for semester in data_all %} 
+      <tr class="table-primary"></tr>
       {% for semester_data in semester %}
       <tr>
         <td>{{ semester_data[0] }}</td>
