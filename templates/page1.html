@@ -3,14 +3,42 @@
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
 
-<link href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css" rel="stylesheet">
-<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+<script src="jquery.js"></script>
 
 <script>
+  var calculator = document.querySelector("table");
+  var total_score_4point3 = 0;
+  var total_score_4 = 0;
+  var total_credit = 0;
+
+  $(".table").click(function(){
+    $('.example tr input[type="checkbox"]:checked').each(function(){
+      var $row = $(this).closest('tr');
+      //used :not(:first-child) to skip first element (the checkbox td)
+      $('td:not(:first-child)', $row).each(function(i){
+          var abc = $(this).text();
+          alert(abc);
+      })
+    });              
+  });
+
   function calculate_gpa() {
-    var sum = 0;
-    // document.getElementsByClassName("demo").innerHTML = "Paragraph changed.";
+
+    var course = calculator.elements["course"];
+    
+    for (var i = 0; i < course.length; i++) {
+      if (course[i].checked) {
+        var row = checkBoxes[i].parentNode.parentNode;
+        total_credit += int(float(row[5])) 
+        total_score_4point3 += score_to_gpa_4point3(float(row[6].innertHTML)) * int(float(row[5].innertHTML)) 
+        total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
+      }
+    }
+    var gpa0 = total_score_4point3/total_credit
+	  return gpa0;
+    
   }
+  
 </script>
 {% endblock head %}
 
@@ -28,10 +56,10 @@
   GPA {{ gpa1 }} / 4.0
 </div>
 
-<!-- <table class="table" data-toggle="table">
+<table class="table" data-toggle="table">
   <thead>
     <tr>
-      <th scope="col" data-checkbox="true"></th>
+      <th scope="col"></th>
       <th scope="col">學年</th>
       <th scope="col">學期</th>
       <th scope="col">科目代號</th>
@@ -51,6 +79,7 @@
       </tr>
       {% for semester_data in semester %}
       <tr>
+        <td class="bs-checkbox"><input name="course" type="checkbox" onclick="calculate_gpa()"></td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
@@ -63,20 +92,6 @@
       {% endfor %}
     {% endfor %}
   </tbody>
-</table> -->
-
-<table
-  id="table"
-  data-toggle="table"
-  data-height="460"
-  data-url="json/data1.json">
-  <thead>
-  <tr>
-    <th data-checkbox="true"></th>
-    <th data-field="name">Item Name</th>
-    <th data-field="price">Item Price</th>
-  </tr>
-  </thead>
 </table>
 
 
