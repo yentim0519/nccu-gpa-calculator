@@ -11,16 +11,16 @@
   var total_score_4 = 0;
   var total_credit = 0;
 
-  $(".table").click(function(){
-    $('.example tr input[type="checkbox"]:checked').each(function(){
-      var $row = $(this).closest('tr');
-      //used :not(:first-child) to skip first element (the checkbox td)
-      $('td:not(:first-child)', $row).each(function(i){
-          var abc = $(this).text();
-          alert(abc);
-      })
-    });              
-  });
+  // $(".table").click(function(){
+  //   $('.example tr input[type="checkbox"]:checked').each(function(){
+  //     var $row = $(this).closest('tr');
+  //     //used :not(:first-child) to skip first element (the checkbox td)
+  //     $('td:not(:first-child)', $row).each(function(i){
+  //         var abc = $(this).text();
+  //         alert(abc);
+  //     })
+  //   });              
+  // });
 
   function calculate_gpa() {
 
@@ -35,7 +35,7 @@
       }
     }
     var gpa0 = total_score_4point3/total_credit
-	  return gpa0;
+	  document.getElementById("gpa0").innerHTML = gpa0;
     
   }
 
@@ -51,8 +51,8 @@
     </div>
 </div>
 
-<div>
-  GPA {{ gpa0 }} / 4.3
+<div id = "gpa0">
+  <!-- GPA {{ gpa0 }} / 4.3 -->
   <!-- GPA {{ gpa1 }} / 4.0 -->
 </div>
 
