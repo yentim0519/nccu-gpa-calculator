@@ -5,6 +5,7 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select 
 from selenium.webdriver.common.keys import Keys
+import selenium.webdriver.support.ui as ui
 import time
 from score_to_gpa import score_to_gpa_4point3, score_to_gpa_4
 
@@ -35,14 +36,18 @@ def result():
     driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
     driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
     driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
-    time.sleep(4) #讓javasciprt的東西跑出來，才能進入全人系統 # 這邊應該改得更彈性
+    # time.sleep(4) #讓javasciprt的東西跑出來，才能進入全人系統 # 這邊應該改得更彈性
+
+    wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
+    wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
     driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
+    
     driver.switch_to.window(driver.window_handles[-1])
     # print(driver.current_url) # 不知道為什麼一定要print才行
     time.sleep(3)
     driver.switch_to_alert().dismiss()
     # print(driver.current_url)
-    time.sleep(2)
+    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1]）
     driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
     html = driver.page_source
