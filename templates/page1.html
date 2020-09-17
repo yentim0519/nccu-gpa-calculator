@@ -17,6 +17,7 @@
     var total_score_4point3 = 0;
     var total_score_4 = 0;
     var total_credit = 0;
+    var total_credit0 = 0;
     var gpa0 = 0;
 
     var course = document.getElementsByClassName("course");
@@ -28,13 +29,14 @@
         credit = row.getElementsByTagName("td")[6].textContent
         score = row.getElementsByTagName("td")[7].textContent
         total_credit += parseInt(parseFloat(credit)) 
-        total_score_4point3 += score_to_gpa_4point3(parseFloat(score)) * parseInt(parseFloat(credit)) 
+        total_credit0 += score_to_gpa_4point3(total_credit)
+        // total_score_4point3 += score_to_gpa_4point3(parseFloat(score)) * parseInt(parseFloat(credit)) 
         // total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
       }
     }
     // alert(total_credit)
     // gpa0 = total_score_4point3/total_credit
-	  document.getElementById("gpa0").innerHTML = total_score_4point3;
+	  document.getElementById("gpa0").innerHTML = total_credit0;
   }
 
 </script>
@@ -51,7 +53,7 @@
 
 <div >
   <span>GPA</span>
-  <span id = "gpa0">GPA</span>
+  <span id = "gpa0"></span>
   <!-- GPA {{ gpa0 }} / 4.3 -->
   <!-- GPA {{ gpa1 }} / 4.0 -->
 </div>
