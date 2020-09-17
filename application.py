@@ -90,7 +90,7 @@ def result():
     driver.close()
     
     # return flask.render_template('page1.html', data_all = data, gpa0 = gpa0, gpa1 = gpa1)
-    return flask.render_template('page1.html')
+    return flask.render_template('page1.html', data_all = data)
 
 
 if __name__ == '__main__':
