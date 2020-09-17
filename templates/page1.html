@@ -3,9 +3,9 @@
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
 
-<script src="jquery.js"></script>
+<script type="text/javascript" src="score_to_gpa.js"></script>
 
-<script type="module" >
+<script type="module">
 
   // import { score_to_gpa_4point3 } from './score_to_gpa.js';
   // 一開始就算一次
@@ -17,7 +17,7 @@
     var total_score_4point3 = 0;
     var total_score_4 = 0;
     var total_credit = 2;
-    // var total_credit0 = score_to_gpa_4point3(total_credit);
+    var total_credit0 = score_to_gpa_4point3(total_credit);
     var gpa0 = 0;
 
     var course = document.getElementsByClassName("course");
@@ -36,7 +36,7 @@
     // }
     // alert(total_credit)
     // gpa0 = total_score_4point3/total_credit
-	  document.getElementById("gpa0").innerHTML = total_credit;
+	  document.getElementById("gpa0").innerHTML = total_credit0;
   }
 
 </script>
