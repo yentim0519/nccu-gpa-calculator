@@ -21,6 +21,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">選擇</th>
       <th scope="col">學年</th>
       <th scope="col">學期</th>
       <th scope="col">科目代號</th>
@@ -40,6 +41,11 @@
       </tr>
       {% for semester_data in semester %}
       <tr>
+        <td>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" checked>
+          </div>
+        </td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
