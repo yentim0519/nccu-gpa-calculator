@@ -96,7 +96,9 @@ if __name__ == '__main__':
     application.run(host='0.0.0.0')
 
 
-# 1. handle登入錯誤, handle chrome 找不到item, handle sleep
-# 2. handle還沒修過的
-# 3. 符合各平台版本
-# 4. 紀錄使用人次
+# handle登入錯誤, handle chrome 找不到item, handle sleep
+# handle beautiful soup那行有時會有問題
+# handle還沒修過的
+# 符合各平台版本
+# 紀錄使用人次
+# 
