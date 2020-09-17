@@ -47,7 +47,7 @@ def result():
     time.sleep(3)
     driver.switch_to_alert().dismiss()
     # print(driver.current_url)
-    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1]）
+    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
     driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
     html = driver.page_source
