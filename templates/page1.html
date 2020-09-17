@@ -29,7 +29,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th data-checkbox="true">選擇</th>
+      <th data-checkbox="true"></th>
       <th scope="col">學年</th>
       <th scope="col">學期</th>
       <th scope="col">科目代號</th>
@@ -54,8 +54,8 @@
         <td>{{ semester_data[2] }}</td>
         <td>{{ semester_data[3] }}</td>
         <td>{{ semester_data[4] }}</td>
-        <td>{{ semester_data[5] }}</td>
-        <td>{{ semester_data[6] }}</td>
+        <td class = "credit">{{ semester_data[5] }}</td>
+        <td class = "score">{{ semester_data[6] }}</td>
         <td>{{ semester_data[7] }}</td>
       </tr>
       {% endfor %}
