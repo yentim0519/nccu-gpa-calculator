@@ -7,10 +7,7 @@
 
 <script>
   // var calculator = document.getElementsByClassName("table");
-  var total_score_4point3 = 0;
-  var total_score_4 = 0;
-  var total_credit = 0;
-  var gpa0 = 0;
+
 
   // $(".table").click(function(){
   //   $('.example tr input[type="checkbox"]:checked').each(function(){
@@ -24,10 +21,16 @@
   // });
 
   function calculate_gpa() {
+    
+    var total_score_4point3 = 0;
+    var total_score_4 = 0;
+    var total_credit = 0;
+    var gpa0 = 0;
 
     var course = document.getElementsByClassName("course");
     
     for (var i = 0; i < course.length; i++) {
+      
       if (course[i].checked) {
         var row = course[i].parentNode.parentNode;
         credit = row.getElementsByTagName("td")[6].textContent
@@ -37,9 +40,9 @@
         // total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
       }
     }
-    alert(total_credit)
+    // alert(total_credit)
     // gpa0 = total_score_4point3/total_credit
-	  // document.getElementById("gpa0").innerHTML = gpa0;
+	  document.getElementById("gpa0").innerHTML = total_credit;
     
   }
 
@@ -84,7 +87,7 @@
       </tr>
       {% for semester_data in semester %}
       <tr>
-        <td class="bs-checkbox"><input class="course" type="checkbox" onclick="calculate_gpa()"></td>
+        <td class="bs-checkbox"><input class="course" type="checkbox" onclick="calculate_gpa()" checked></td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
