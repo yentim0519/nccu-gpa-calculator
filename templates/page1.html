@@ -6,7 +6,7 @@
 <script src="jquery.js"></script>
 
 <script>
-  var calculator = document.querySelector("table");
+  // var calculator = document.getElementsByClassName("table");
   var total_score_4point3 = 0;
   var total_score_4 = 0;
   var total_credit = 0;
@@ -25,7 +25,7 @@
 
   function calculate_gpa() {
 
-    var course = calculator.elements["course"];
+    var calculator = document.getElementsByClassName("table");
     
     // for (var i = 0; i < course.length; i++) {
     //   if (course[i].checked) {
@@ -84,7 +84,7 @@
       </tr>
       {% for semester_data in semester %}
       <tr>
-        <td class="bs-checkbox"><input name="course" type="checkbox" onclick="calculate_gpa()"></td>
+        <td class="bs-checkbox"><input class="course" type="checkbox" onclick="calculate_gpa()"></td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
