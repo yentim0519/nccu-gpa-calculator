@@ -17,9 +17,9 @@ def index():
 
 
 # try catch 還沒做好
-@application.route('/result', methods=["POST"])
+@application.route('/result', methods=["GET", "POST"])
 def result():
-    try :
+    if request.method == 'POST':
         username = flask.request.form['username']
         password = flask.request.form['password']
 
@@ -27,7 +27,7 @@ def result():
 
         chrome_options = webdriver.ChromeOptions()
         chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
         chrome_options.add_argument("--headless") #無頭模式
         chrome_options.add_argument("--disable-dev-shm-usage")
         # chrome_options.add_argument("--no-sandbox")
@@ -94,10 +94,9 @@ def result():
         
         # return flask.render_template('page1.html')
         return flask.render_template('page1.html', data_all = data)
-    
-    except Exception:
-
+    else:
         return flask.render_template('index.html')
+    
 
 
 if __name__ == '__main__':
