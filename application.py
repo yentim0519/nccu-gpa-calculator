@@ -95,6 +95,9 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
+    global finished
+    finished = "True"
+
     
 
     # return data
@@ -104,10 +107,10 @@ def generate_data_thread(username, password):
 @application.route('/status')
 def thread_status():
     global finished
-    global thread
+    # global thread
 
-    if thread.is_alive == False: # 這裏無法確定有吃到
-        finished = "True"
+    # if thread.is_alive == False: # 這裏無法確定有吃到
+    #     finished = "True"
     
     return finished 
 
