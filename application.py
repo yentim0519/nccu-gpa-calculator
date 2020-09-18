@@ -92,8 +92,6 @@ def generate_data_thread(username, password):
                 tr_data.append(td.string)
 
             table_data.append(tr_data)
-
-    
         data.append(table_data)
     driver.close()
 
@@ -108,18 +106,21 @@ def thread_status():
     global finished
     global thread
 
-    if not thread: # 這裏無法確定有吃到
+    if thread.is_alive == False: # 這裏無法確定有吃到
         finished = "True"
     
-
     return finished 
+
+
 
 @application.route('/result', methods=["GET"])
 def result():  
-    # global future
+    
     global data
-    # data = future.result()
-    return flask.render_template('page1.html', data_all = data)
+    if request.method == 'post':
+        return flask.render_template('page1.html', data_all = data)
+    else:
+        return flask.render_template('index.html')
 
             
 
