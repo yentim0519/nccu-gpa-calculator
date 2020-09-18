@@ -1,4 +1,5 @@
 import flask
+from flask import request
 import os
 from bs4 import BeautifulSoup
 import requests
