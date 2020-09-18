@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
 from threading import Thread
-from generate_data import generate_data
+from generate_data_thread import generate_data_thread
 
 
 application = flask.Flask(__name__)
@@ -28,7 +28,7 @@ def generate_data():
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
     thread.start()
-    
+
     return jsonify({'thread_name': str(thread.name),
                     'started': True})
 
