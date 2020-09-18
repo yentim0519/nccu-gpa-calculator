@@ -17,6 +17,7 @@ import concurrent.futures
 application = flask.Flask(__name__)
 thread = 0
 finished = "False"
+data = []
 
 @application.route('/')
 def index():
@@ -79,8 +80,6 @@ def generate_data_thread(username, password):
     soup = BeautifulSoup(html)
 
     # 將資料存成array並且計算GPA
-    global data 
-    data = []
     total_score_4point3 = 0
     total_score_4 = 0
     total_credit = 0
@@ -99,6 +98,7 @@ def generate_data_thread(username, password):
 
         table_data.append(tr_data)
         
+    global data 
     data.append(table_data)
     driver.close()
 
