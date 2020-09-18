@@ -71,7 +71,7 @@ def generate_data_thread(username, password):
             return flask.render_template('page1.html', data_all = data)
             global finished
             time.sleep(5)
-            finished = True
+            finished = "True"
         else:
             return flask.render_template('index.html')
 

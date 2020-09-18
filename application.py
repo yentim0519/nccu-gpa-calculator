@@ -13,7 +13,7 @@ from generate_data_thread import generate_data_thread
 
 
 application = flask.Flask(__name__)
-finished = False
+finished = "False"
 
 @application.route('/')
 def index():
@@ -28,7 +28,7 @@ def generate_data():
 
     global thread
     global finished # 在外面定義，這裏代表這個def在用global的finish
-    finished = False
+    finished = "False"
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
     thread.start()
