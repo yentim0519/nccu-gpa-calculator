@@ -13,10 +13,10 @@
                 /*這邊的data就是url return 的值*/
                 function(data) { 
                     console.log(data);
-                    alert(data)
-                    // if (data == "True") {
-                    // window.location.replace("{{ url_for('result') }}");
-                    // }
+                    
+                    if (data == "True") {
+                        window.location.replace("{{ url_for('result') }}");
+                    }
                 }
                 )}
             , 1000);
