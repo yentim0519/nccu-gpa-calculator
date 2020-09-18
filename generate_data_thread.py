@@ -65,9 +65,8 @@ def generate_data_thread(username, password):
         
     data.append(table_data)
     driver.close()
-    
+
     global finished
-    time.sleep(5)
     finished = "True"
 # return flask.render_template('page1.html')
     return flask.render_template('page1.html', data_all = data)
