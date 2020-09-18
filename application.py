@@ -35,7 +35,7 @@ def generate_data():
     return flask.render_template('loading_page.html')
 
 
-@app.route('/status')
+@application.route('/status')
 def thread_status():
     """ Return the status of the worker thread """
     return jsonify(dict(status=('finished' if finished else 'running')))
