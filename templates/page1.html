@@ -6,7 +6,7 @@
 <script type="text/javascript" src="./score_to_gpa.js"></script>
 
 <script>
-  score_to_gpa_4point3();
+  // score_to_gpa_4point3();
   // import { score_to_gpa_4point3 } from './score_to_gpa.js';
   // 一開始就算一次
   // window.addEventListener('load', calculate_gpa ,false);
@@ -43,6 +43,11 @@
 {% endblock head %}
 
 {% block body %}
+
+<script type="text/javascript" src="./score_to_gpa.js"></script>
+
+<script>score_to_gpa_4point3();</script>
+
 <div id = 'main'>
 
   <form  action="{{ url_for('result') }}" method="post">
