@@ -114,6 +114,7 @@ def thread_status():
 @application.route('/result', methods=["GET"])
 def result():  
     global future
+    global data
     data = future.result()
     return flask.render_template('page1.html', data_all = data)
 
