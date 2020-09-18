@@ -9,9 +9,7 @@ from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
 from threading import Thread
-import concurrent.futures
 
-# from generate_data_thread import generate_data_thread
 
 
 application = flask.Flask(__name__)
@@ -29,12 +27,12 @@ def index():
 def generate_data():  
     username = flask.request.form['username']
     password = flask.request.form['password']
+    # grad_or_not = flask.request.form['password']
 
     global thread
     global finished # 在外面定義，這裏代表這個def在用global的finish
     finished = "False"
-    # with concurrent.futures.ThreadPoolExecutor() as executor:
-    #     future = executor.submit(generate_data_thread, username, password)
+   
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
     thread.start()
@@ -43,8 +41,7 @@ def generate_data():
 
 # get data
 def generate_data_thread(username, password):
-   
-            
+          
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     chrome_options = webdriver.ChromeOptions()
@@ -132,12 +129,11 @@ if __name__ == '__main__':
     application.run(host='0.0.0.0')
 
 
-# handle登入錯誤, handle chrome 找不到item, handle sleep
-# handle 重新按一次/result的
-# handle beautiful soup那行有時會有問題
-# handle selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: crashed.
+
+
 # handle還沒修過的
+# GPA應該一直浮在一個地方
 # handle 晚上學校系統維修的狀況
-# 符合各平台版本
+# 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
-#
+# 給延畢生

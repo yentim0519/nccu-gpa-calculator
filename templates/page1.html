@@ -92,7 +92,21 @@
 
 {% block body %}
 
-<div id = 'main'>
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div>
+    <a class="navbar-brand" href="#">NCCU GPA CALCULATOR</a>
+  </div>
+
+  <div >
+    <span>GPA</span>
+    <span id = "gpa0"></span>
+    <!-- GPA {{ gpa0 }} / 4.3 -->
+    <!-- GPA {{ gpa1 }} / 4.0 -->
+  </div>
+  
+</nav>
+
+<!-- <div id = 'main'>
     <div class = 'title'>
       NCCU GPA CALCULATOR
     </div>
@@ -101,9 +115,7 @@
 <div >
   <span>GPA</span>
   <span id = "gpa0"></span>
-  <!-- GPA {{ gpa0 }} / 4.3 -->
-  <!-- GPA {{ gpa1 }} / 4.0 -->
-</div>
+</div> -->
 
 <table class="table" data-toggle="table">
   <thead>
