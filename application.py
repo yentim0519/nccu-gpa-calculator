@@ -22,6 +22,7 @@ def index():
 def result():
     try:
         if request.method == 'POST':
+            time.sleep(10)
             username = flask.request.form['username']
             password = flask.request.form['password']
 
