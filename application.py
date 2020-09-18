@@ -9,6 +9,8 @@ from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
 from threading import Thread
+import concurrent.futures
+
 # from generate_data_thread import generate_data_thread
 
 
@@ -29,9 +31,12 @@ def generate_data():
     global thread
     global finished # 在外面定義，這裏代表這個def在用global的finish
     finished = "False"
-    thread = Thread(target=generate_data_thread, args=(username, password))
-    thread.daemon = True
-    thread.start()
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        global future
+        future = executor.submit(generate_data_thread, username, password)
+    # thread = Thread(target=generate_data_thread, args=(username, password))
+    # thread.daemon = True
+    # thread.start()
 
     return flask.render_template('loading_page.html')
 
@@ -72,8 +77,8 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    將資料存成array並且計算GPA
-    data = []
+    # 將資料存成array並且計算GPA
+    global data = []
     total_score_4point3 = 0
     total_score_4 = 0
     total_credit = 0
@@ -89,39 +94,27 @@ def generate_data_thread(username, password):
             all_td = tr.find_all("td")
             for td in all_td:
                 tr_data.append(td.string)
-            
-            if tr_data[6] == "棄修":
-                continue
-            elif tr_data[6] == "通過":
-                continue
-            else:
-                total_credit += int(float(tr_data[5])) 
-                total_score_4point3 += score_to_gpa_4point3(float(tr_data[6])) * int(float(tr_data[5])) 
-                total_score_4 += score_to_gpa_4(float(tr_data[6])) * int(float(tr_data[5])) 
 
         table_data.append(tr_data)
         
     data.append(table_data)
     driver.close()
 
-
-
-# return flask.render_template('page1.html')
-    return flask.render_template('page1.html', data_all = data)
-
-
+    
 
 @application.route('/status')
 def thread_status():
     global finished
-    global thread
-    if not thread.is_alive():
+    global future
+    if future.done():
         finished == "True"
     """ Return the status of the worker thread """
     return finished 
 
 @application.route('/result', methods=["GET"])
 def result():  
+    global future
+    data = future.result()
     return flask.render_template('page1.html', data_all = data)
 
             

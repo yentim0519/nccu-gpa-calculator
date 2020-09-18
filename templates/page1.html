@@ -63,7 +63,8 @@
     for (var i = 0; i < course.length; i++) {
       
       if (course[i].checked) {
-    
+        
+        // 沒有處理「通過」和「汽修」
         var row = course[i].parentNode.parentNode;
         credit = row.getElementsByTagName("td")[6].textContent
         score = row.getElementsByTagName("td")[7].textContent

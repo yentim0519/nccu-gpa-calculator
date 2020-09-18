@@ -34,7 +34,7 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    將資料存成array並且計算GPA
+    # 將資料存成array並且計算GPA
     data = []
     total_score_4point3 = 0
     total_score_4 = 0
