@@ -13,6 +13,7 @@ from generate_data_thread import generate_data_thread
 
 
 application = flask.Flask(__name__)
+finished = False
 
 @application.route('/')
 def index():
@@ -40,7 +41,7 @@ def thread_status():
     """ Return the status of the worker thread """
     return jsonify(dict(status=('finished' if finished else 'running')))
 
-@application.route('/result', methods=["GET"])
+@a  pplication.route('/result', methods=["GET"])
 def result():  
     return flask.render_template('page1.html', data_all = data)
 
