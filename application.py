@@ -104,8 +104,8 @@ def generate_data_thread(username, password):
     data.append(table_data)
     driver.close()
 
-    global finished
-    finished = "True"
+
+
 # return flask.render_template('page1.html')
     return flask.render_template('page1.html', data_all = data)
 
@@ -114,8 +114,11 @@ def generate_data_thread(username, password):
 @application.route('/status')
 def thread_status():
     global finished
+    global thread
+    if not thread.is_alive():
+        finished == "True"
     """ Return the status of the worker thread """
-    return finished
+    return finished 
 
 @application.route('/result', methods=["GET"])
 def result():  
