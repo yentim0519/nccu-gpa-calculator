@@ -26,9 +26,10 @@ def result():
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--headless") #無頭模式
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--no-sandbox")
 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
@@ -98,7 +99,9 @@ if __name__ == '__main__':
 
 
 # handle登入錯誤, handle chrome 找不到item, handle sleep
+# handle 重新按一次/result的
 # handle beautiful soup那行有時會有問題
+# handle selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: crashed.
 # handle還沒修過的
 # 符合各平台版本
 # 紀錄使用人次
