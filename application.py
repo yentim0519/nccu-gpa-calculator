@@ -21,7 +21,21 @@ def index():
 
 
 # try catch 還沒做好
-@application.route('/generate_data', methods=["GET", "POST"])
+@application.route('/generate_data', methods=["GET", "POST"])       
+def generate_data():  
+    username = flask.request.form['username']
+    password = flask.request.form['password']
+
+    global thread
+    global finished # 在外面定義，這裏代表這個def在用global的finish
+    finished = "False"
+    thread = Thread(target=generate_data_thread, args=(username, password))
+    thread.daemon = True
+    thread.start()
+
+    return flask.render_template('loading_page.html')
+
+# get data
 def generate_data_thread(username, password):
    
             
@@ -95,19 +109,6 @@ def generate_data_thread(username, password):
 # return flask.render_template('page1.html')
     return flask.render_template('page1.html', data_all = data)
 
-        
-def generate_data():  
-    username = flask.request.form['username']
-    password = flask.request.form['password']
-
-    global thread
-    global finished # 在外面定義，這裏代表這個def在用global的finish
-    finished = "False"
-    thread = Thread(target=generate_data_thread, args=(username, password))
-    thread.daemon = True
-    thread.start()
-
-    return flask.render_template('loading_page.html')
 
 
 @application.route('/status')
