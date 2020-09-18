@@ -32,11 +32,11 @@ def generate_data():
     global finished # 在外面定義，這裏代表這個def在用global的finish
     global future
     finished = "False"
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future = executor.submit(generate_data_thread, username, password)
-    # thread = Thread(target=generate_data_thread, args=(username, password))
-    # thread.daemon = True
-    # thread.start()
+    # with concurrent.futures.ThreadPoolExecutor() as executor:
+    #     future = executor.submit(generate_data_thread, username, password)
+    thread = Thread(target=generate_data_thread, args=(username, password))
+    thread.daemon = True
+    thread.start()
 
     return flask.render_template('loading_page.html')
 
@@ -103,11 +103,15 @@ def generate_data_thread(username, password):
 
     
 
+    # return data
+
+    
+
 @application.route('/status')
 def thread_status():
     global finished
-    global future
-    if future.done():
+    global thread
+    if not thread:
         finished == "True"
 
     return finished 
