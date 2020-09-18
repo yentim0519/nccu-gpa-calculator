@@ -25,12 +25,24 @@ def generate_data():
     username = flask.request.form['username']
     password = flask.request.form['password']
 
+    global thread
+    global finished
+    finished = False
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
     thread.start()
 
-    return jsonify({'thread_name': str(thread.name),
-                    'started': True})
+    return flask.render_template('loading_page.html')
+
+
+@app.route('/status')
+def thread_status():
+    """ Return the status of the worker thread """
+    return jsonify(dict(status=('finished' if finished else 'running')))
+
+@application.route('/result', methods=["GET"])
+def result():  
+    return flask.render_template('page1.html', data_all = data)
 
             
 

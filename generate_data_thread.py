@@ -66,12 +66,12 @@ def generate_data_thread(username, password):
                 
                 data.append(table_data)
 
-            # 計算gpa
-            gpa0 = total_score_4point3/total_credit
-            gpa1 = total_score_4/total_credit
             driver.close()
         # return flask.render_template('page1.html')
             return flask.render_template('page1.html', data_all = data)
+            global finished
+            time.sleep(5)
+            finished = True
         else:
             return flask.render_template('index.html')
 
