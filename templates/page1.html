@@ -99,7 +99,7 @@
 <table class="table" data-toggle="table">
   <thead>
     <tr>
-      <th scope="col"></th>
+      <th scope="col">選擇</th>
       <th scope="col">學年</th>
       <th scope="col">學期</th>
       <th scope="col">科目代號</th>
@@ -114,6 +114,7 @@
   <tbody>
     {% for semester in data_all %} 
       <tr class="table-primary">
+        <td></td>
         <td>{{ semester[0][0] }}</td>
         <td>{{ semester[0][1] }}</td>
       </tr>
