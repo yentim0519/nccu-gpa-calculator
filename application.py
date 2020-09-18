@@ -120,10 +120,8 @@ def thread_status():
 def result():  
     
     global data
-    if request.method == 'post':
-        return flask.render_template('page1.html', data_all = data)
-    else:
-        return flask.render_template('index.html')
+    return flask.render_template('page1.html', data_all = data)
+    
 
             
 
