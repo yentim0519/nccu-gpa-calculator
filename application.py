@@ -35,6 +35,8 @@ def result():
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
         driver.get(target_url)
         
+        wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
+        wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
         driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
         driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
         driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
@@ -45,8 +47,7 @@ def result():
         driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
         
         driver.switch_to.window(driver.window_handles[-1])
-        # print(driver.current_url) # 不知道為什麼一定要print才行
-        time.sleep(3)
+        time.sleep(3) # 改成wait until
         driver.switch_to_alert().dismiss()
         # print(driver.current_url)
         wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
