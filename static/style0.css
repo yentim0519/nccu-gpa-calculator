@@ -1,6 +1,6 @@
-body {
+/* body {
     background-image: url(../static/index_background.jpg);
-}
+} */
 
 .whole-block{
     position: fixed;
@@ -21,6 +21,7 @@ body {
     margin: auto;
     height: 35px;
     width: 800px;
+    color:black;
 }
 
 .form-group{

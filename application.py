@@ -60,43 +60,43 @@ def result():
             soup = BeautifulSoup(html)
 
             # 將資料存成array並且計算GPA
-            data = []
-            total_score_4point3 = 0
-            total_score_4 = 0
-            total_credit = 0
+            # data = []
+            # total_score_4point3 = 0
+            # total_score_4 = 0
+            # total_credit = 0
 
-            all_table = soup.find_all("table")
-            for table in all_table[5:]:
+            # all_table = soup.find_all("table")
+            # for table in all_table[5:]:
                 
-                table_data = []
-                all_tr = table.find_all("tr")
-                for tr in all_tr[2:]:
+            #     table_data = []
+            #     all_tr = table.find_all("tr")
+            #     for tr in all_tr[2:]:
                     
-                    tr_data = []
-                    all_td = tr.find_all("td")
-                    for td in all_td:
-                        tr_data.append(td.string)
+            #         tr_data = []
+            #         all_td = tr.find_all("td")
+            #         for td in all_td:
+            #             tr_data.append(td.string)
                     
-                    if tr_data[6] == "棄修":
-                        continue
-                    elif tr_data[6] == "通過":
-                        continue
-                    else:
-                        total_credit += int(float(tr_data[5])) 
-                        total_score_4point3 += score_to_gpa_4point3(float(tr_data[6])) * int(float(tr_data[5])) 
-                        total_score_4 += score_to_gpa_4(float(tr_data[6])) * int(float(tr_data[5])) 
+            #         if tr_data[6] == "棄修":
+            #             continue
+            #         elif tr_data[6] == "通過":
+            #             continue
+            #         else:
+            #             total_credit += int(float(tr_data[5])) 
+            #             total_score_4point3 += score_to_gpa_4point3(float(tr_data[6])) * int(float(tr_data[5])) 
+            #             total_score_4 += score_to_gpa_4(float(tr_data[6])) * int(float(tr_data[5])) 
 
-                    table_data.append(tr_data)
+            #         table_data.append(tr_data)
                 
-                data.append(table_data)
+            #     data.append(table_data)
 
-            # 計算gpa
-            gpa0 = total_score_4point3/total_credit
-            gpa1 = total_score_4/total_credit
+            # # 計算gpa
+            # gpa0 = total_score_4point3/total_credit
+            # gpa1 = total_score_4/total_credit
             driver.close()
             
-            # return flask.render_template('page1.html')
-            return flask.render_template('page1.html', data_all = data)
+            return flask.render_template('page1.html')
+            # return flask.render_template('page1.html', data_all = data)
         else:
             return flask.render_template('index.html')
 
