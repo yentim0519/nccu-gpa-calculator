@@ -3,5 +3,5 @@ Bs4
 Requests
 Selenium==3.8.0
 Gunicorn
-Threading
+threading
 
