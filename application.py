@@ -32,7 +32,6 @@ def generate_data():
 
     global thread
     global finished # 在外面定義，這裏代表這個def在用global的finish
-    global future
     finished = "False"
     # with concurrent.futures.ThreadPoolExecutor() as executor:
     #     future = executor.submit(generate_data_thread, username, password)
@@ -79,11 +78,7 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    # 將資料存成array並且計算GPA
-    total_score_4point3 = 0
-    total_score_4 = 0
-    total_credit = 0
-
+    global data
     all_table = soup.find_all("table")
     for table in all_table[5:]:
         
@@ -96,10 +91,10 @@ def generate_data_thread(username, password):
             for td in all_td:
                 tr_data.append(td.string)
 
-        table_data.append(tr_data)
-        
-    global data 
-    data.append(table_data)
+            table_data.append(tr_data)
+
+    
+        data.append(table_data)
     driver.close()
 
     
@@ -113,7 +108,7 @@ def thread_status():
     global finished
     global thread
 
-    if not thread:
+    if not thread: # 這裏無法確定有吃到
         finished = "True"
     
 
