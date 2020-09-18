@@ -67,7 +67,7 @@
         var row = course[i].parentNode.parentNode;
         credit = row.getElementsByTagName("td")[6].textContent
         score = row.getElementsByTagName("td")[7].textContent
-        // total_credit += parseInt(parseFloat(credit)) 
+        total_credit += parseInt(parseFloat(credit)) 
         // total_credit0 += score_to_gpa_4point3(total_credit)
         total_score_4point3 += score_to_gpa_4point3(parseFloat(score)) * parseInt(parseFloat(credit)) 
         // total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
