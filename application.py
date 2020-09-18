@@ -30,9 +30,9 @@ def generate_data():
 
     global thread
     global finished # 在外面定義，這裏代表這個def在用global的finish
+    global future
     finished = "False"
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        global future
         future = executor.submit(generate_data_thread, username, password)
     # thread = Thread(target=generate_data_thread, args=(username, password))
     # thread.daemon = True
@@ -109,7 +109,7 @@ def thread_status():
     global future
     if future.done():
         finished == "True"
-    """ Return the status of the worker thread """
+
     return finished 
 
 @application.route('/result', methods=["GET"])
