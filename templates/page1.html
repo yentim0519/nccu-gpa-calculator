@@ -5,22 +5,22 @@
 
 <script type="text/javascript" src="./score_to_gpa.js"></script>
 
-<script type="module">
-
+<script>
+  score_to_gpa_4point3();
   // import { score_to_gpa_4point3 } from './score_to_gpa.js';
   // 一開始就算一次
-  window.addEventListener('load', calculate_gpa ,false);
+  // window.addEventListener('load', calculate_gpa ,false);
 
-  // 計算的function
-  function calculate_gpa() {
+  // // 計算的function
+  // function calculate_gpa() {
     
-    var total_score_4point3 = 0;
-    var total_score_4 = 0;
-    var total_credit = 2;
-    var total_credit0 = score_to_gpa_4point3(total_credit);
-    var gpa0 = 0;
+  //   var total_score_4point3 = 0;
+  //   var total_score_4 = 0;
+  //   var total_credit = 2;
+  //   var total_credit0 = score_to_gpa_4point3(total_credit);
+  //   var gpa0 = 0;
 
-    var course = document.getElementsByClassName("course");
+  //   var course = document.getElementsByClassName("course");
     
     // for (var i = 0; i < course.length; i++) {
       
@@ -36,8 +36,8 @@
     // }
     // alert(total_credit)
     // gpa0 = total_score_4point3/total_credit
-	  document.getElementById("gpa0").innerHTML = total_credit0;
-  }
+	  // document.getElementById("gpa0").innerHTML = total_credit0;
+  // }
 
 </script>
 {% endblock head %}

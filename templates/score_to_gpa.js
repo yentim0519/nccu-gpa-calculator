@@ -1,4 +1,4 @@
-function score_to_gpa_4point3(score) {
+function score_to_gpa_4point3() {
     // var score_interval = [90, 85, 80, 77, 73, 70, 67, 63, 60, 50, 0];
 
     // if (score >= score_interval[0]){
@@ -46,7 +46,8 @@ function score_to_gpa_4point3(score) {
     // else if (score >= score_interval[10] & score < score_interval[9]){
     //     return 0.0;
     // }
-    return score * 2;
+    // return score * 2;
+    alert("it works!")
     
 }
 
