@@ -15,7 +15,7 @@ import concurrent.futures
 
 
 application = flask.Flask(__name__)
-thread = 0
+thread = None
 finished = "False"
 data = []
 
