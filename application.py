@@ -15,6 +15,7 @@ import concurrent.futures
 
 
 application = flask.Flask(__name__)
+thread = 0
 finished = "False"
 
 @application.route('/')
@@ -110,11 +111,11 @@ def generate_data_thread(username, password):
 @application.route('/status')
 def thread_status():
     global finished
-    # global thread
-    # if not thread:
-    #     finished = "True"
-    time.sleep(5)
-    finished = "True"
+    global thread
+
+    if not thread:
+        finished = "True"
+    
 
     return finished 
 
