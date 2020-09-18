@@ -112,9 +112,9 @@ def thread_status():
     global finished
     # global thread
     # if not thread:
-    #     finished == "True"
+    #     finished = "True"
     time.sleep(5)
-    finished == "True"
+    finished = "True"
 
     return finished 
 
