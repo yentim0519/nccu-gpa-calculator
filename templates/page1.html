@@ -6,13 +6,13 @@
 <script type="text/javascript" src="./score_to_gpa.js"></script>
 
 <script>
-  // score_to_gpa_4point3();
+  
   // import { score_to_gpa_4point3 } from './score_to_gpa.js';
   // 一開始就算一次
   // window.addEventListener('load', calculate_gpa ,false);
 
   // // 計算的function
-  // function calculate_gpa() {
+  function calculate_gpa() {
     
   //   var total_score_4point3 = 0;
   //   var total_score_4 = 0;
@@ -20,11 +20,12 @@
   //   var total_credit0 = score_to_gpa_4point3(total_credit);
   //   var gpa0 = 0;
 
-  //   var course = document.getElementsByClassName("course");
+    var course = document.getElementsByClassName("course");
     
-    // for (var i = 0; i < course.length; i++) {
+    for (var i = 0; i < course.length; i++) {
       
-    //   if (course[i].checked) {
+      if (course[i].checked) {
+        score_to_gpa_4point3()
     //     var row = course[i].parentNode.parentNode;
     //     credit = row.getElementsByTagName("td")[6].textContent
     //     score = row.getElementsByTagName("td")[7].textContent
@@ -32,21 +33,21 @@
     //     total_credit0 += score_to_gpa_4point3(total_credit)
     //     // total_score_4point3 += score_to_gpa_4point3(parseFloat(score)) * parseInt(parseFloat(credit)) 
     //     // total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
-    //   }
-    // }
+      }
+    }
     // alert(total_credit)
     // gpa0 = total_score_4point3/total_credit
 	  // document.getElementById("gpa0").innerHTML = total_credit0;
-  // }
+  }
 
 </script>
 {% endblock head %}
 
 {% block body %}
 
-<script type="text/javascript" src="./score_to_gpa.js"></script>
+<!-- <script type="text/javascript" src="./score_to_gpa.js"></script>
 
-<script>score_to_gpa_4point3();</script>
+<script>score_to_gpa_4point3();</script> -->
 
 <div id = 'main'>
 
