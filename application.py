@@ -27,7 +27,7 @@ def generate_data():
     password = flask.request.form['password']
 
     global thread
-    global finished
+    global finished # 在外面定義，這裏代表這個def在用global的finish
     finished = False
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
@@ -38,8 +38,9 @@ def generate_data():
 
 @application.route('/status')
 def thread_status():
+    global finished
     """ Return the status of the worker thread """
-    return jsonify(dict(status=('finished' if finished else 'running')))
+    return finished
 
 @application.route('/result', methods=["GET"])
 def result():  

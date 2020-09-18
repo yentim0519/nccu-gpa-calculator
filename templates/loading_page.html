@@ -9,10 +9,11 @@
         $(document).ready(function() {
             var refresh_id = setInterval(function() {
                 $.get(
-                "{{ url_for('thread_status') }}",
-                function(data) {
+                "{{ url_for('thread_status') }}", 
+                /*這邊的data就是url return 的值*/
+                function(data) { 
                     console.log(data);
-                    if (data.status == 'finished') {
+                    if (data == True) {
                     window.location.replace("{{ url_for('result') }}");
                     }
                 }
