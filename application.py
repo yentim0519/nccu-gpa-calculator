@@ -41,7 +41,7 @@ def thread_status():
     """ Return the status of the worker thread """
     return jsonify(dict(status=('finished' if finished else 'running')))
 
-@a  pplication.route('/result', methods=["GET"])
+@application.route('/result', methods=["GET"])
 def result():  
     return flask.render_template('page1.html', data_all = data)
 
