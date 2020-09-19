@@ -2,7 +2,12 @@
     text-align: left;
     font-size: 300%;
     font-family:kaushan_script;
+    min-height:65px;
     color:white
+}
+
+.table{
+    padding-top: 65px;
 }
 
 
