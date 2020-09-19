@@ -1,10 +1,10 @@
-#navbar-brand { 
+/* #navbar-brand { 
     text-align: left;
     font-size: 300%;
     font-family:kaushan_script;
     min-height:65px;
     color:white !important;
-}
+} */
 
 #navbar{
     list-style-type: none;
@@ -14,7 +14,8 @@
 }
   
 .navbar_element {
-    float: left;
+    display: inline;
+    /* float: left; */
 }
 
 a.navbar_element{
@@ -24,16 +25,12 @@ a.navbar_element{
 }
 
 
-.table{
+/* .table{
     margin-top:100px !important;
 }
 
 
 #navbar_words0, #gpa0{
     color:white !important;
-}
+} */
 
-.form-control{
-    height: 35px;
-    width: 600px;
-}
