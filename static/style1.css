@@ -6,21 +6,21 @@
     color:white !important;
 }
 
-ul{
+#navbar{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
   
-li {
-float: left;
+.navbar_element {
+    float: left;
 }
 
-li a {
-display: block;
-padding: 8px;
-background-color: #dddddd;
+a.navbar_element{
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
 }
 
 
