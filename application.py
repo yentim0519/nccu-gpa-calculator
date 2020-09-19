@@ -42,7 +42,7 @@ def generate_data():
 # get data
 def generate_data_thread(username, password):
     
-    logger.debug "****test****"
+    # logger.debug "****test****"
           
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
@@ -128,6 +128,7 @@ def result():
 
 
 if __name__ == '__main__':
+    # application.debug=True
     application.run(host='0.0.0.0')
 
 
