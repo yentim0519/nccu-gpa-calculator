@@ -38,8 +38,8 @@ def generate_data():
 
     # global finished # 在外面定義，這裏代表這個def在用global的finish
     # finished = "False"
-   
-    thread = Thread(target=generate_data_thread, args=(username, password))
+    global mysql
+    thread = Thread(target=generate_data_thread, args=(username, password, mysql))
     thread.daemon = True
     thread.start()
 
