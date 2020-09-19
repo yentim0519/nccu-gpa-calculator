@@ -132,7 +132,7 @@ if __name__ == '__main__':
 
 
 # handle還沒修過的
-# GPA應該一直浮在一個地方
+# handle 在generate時refresh
 # handle 晚上學校系統維修的狀況
 # 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
