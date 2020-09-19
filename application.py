@@ -132,6 +132,8 @@ if __name__ == '__main__':
 
 
 # handle還沒修過的
+# handle計算gpa進位
+# handle 一個學期全選
 # handle 在generate時refresh
 # handle 有時result跑出來會什麼都沒有，要refresh url才有東西
 # handle 晚上學校系統維修的狀況
