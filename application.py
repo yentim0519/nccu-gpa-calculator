@@ -9,13 +9,20 @@ from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
 from threading import Thread
+from flask_mysqldb import MySQL
 
 
 
 application = flask.Flask(__name__)
-thread = None
-finished = "False"
-data = []
+
+application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
+application.config['MYSQL_USER'] = 'b85e882ee53df8'
+application.config['MYSQL_PASSWORD'] = '0cc7e169'
+application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
+application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+mysql = MySQL(application)
+
 
 @application.route('/')
 def index():
@@ -29,9 +36,8 @@ def generate_data():
     password = flask.request.form['password']
     # grad_or_not = flask.request.form['password']
 
-    global thread
-    global finished # 在外面定義，這裏代表這個def在用global的finish
-    finished = "False"
+    # global finished # 在外面定義，這裏代表這個def在用global的finish
+    # finished = "False"
    
     thread = Thread(target=generate_data_thread, args=(username, password))
     thread.daemon = True
@@ -77,7 +83,7 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    global data
+    data = [] #要存進database
     all_table = soup.find_all("table")
     for table in all_table[5:]:
         
@@ -94,33 +100,39 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
-    global finished
-    finished = "True"
+
+    # 將資料存入database
+    cur = mysql.connection.cursor()
+    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(brand_name = brand_name))
+    
 
     
 
-    # return data
+    
+
 
     
 
-@application.route('/status')
-def thread_status():
-    global finished
-    # global thread
-
-    # if thread.is_alive == False: # 這裏無法確定有吃到
-    #     finished = "True"
+# @application.route('/thread_status/')
+# def thread_status():
+#     global finished
+#     # global thread
+#     # if thread.is_alive == False: # 這裏無法確定有吃到
+#     #     finished = "True"
     
-    return finished 
+#     return finished 
 
 
 
-@application.route('/result', methods=["GET"])
+@application.route('/result', methods=["POST"]) 
 def result():  
-    global finished
-    global data
+    # username 和 password從browser拿來
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT data FROM course_data WHERE username = '{username}' AND password LIKE '{password}' or middle_notes LIKE '%{brand_name}%' or base_notes LIKE '%{brand_name}%' '''.format(brand_name = brand_name))
+    # 一定要用.format
+    data = cur.fetchall()
 
-    finished = "False"
+    # finished = "False"
     return flask.render_template('page1.html', data_all = data)
     
 
@@ -133,6 +145,7 @@ if __name__ == '__main__':
 
 
 # Must:
+# data這個變數每個人都可以access
 # handle還沒修過的
 # handle result要按很多次才能跑出來
 # 手機版的可以把不重要的資訊拿掉，讓table變小
