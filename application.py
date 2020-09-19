@@ -43,7 +43,7 @@ def generate_data():
     thread.daemon = True
     thread.start()
 
-    return flask.render_template('loading_page.html')
+    return flask.render_template('error_page.html')
 
 # get data
 def generate_data_thread(username, password):
