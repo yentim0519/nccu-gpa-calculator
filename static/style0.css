@@ -12,15 +12,14 @@
 
 .title { 
     text-align: center;
-    font-size: 550%;
-    font-family:kaushan_script;
+    font-size: 400%;
 
 }
 
 .form-control{
     margin: auto;
     height: 35px;
-    width: 800px;
+    width: 500px;
     color:black;
 }
 
