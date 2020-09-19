@@ -3,16 +3,16 @@
     font-size: 300%;
     font-family:kaushan_script;
     min-height:65px;
-    color:white
+    color:white !important;
 }
 
 .table{
-    margin-top:100px
+    margin-top:100px !important;
 }
 
 
 #navbar_words0, #gpa0{
-    color:white
+    color:white !important;
 }
 
 .form-control{
