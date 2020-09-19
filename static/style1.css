@@ -6,34 +6,9 @@
     color:white !important;
 } */
 
-/* #navbar{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-  
- .navbar_element {
-    display: inline;
-  float: left; 
+
+
+.nav#nav-brand, #gpa0{
+    color:white !important;
 } 
 
-/* a.navbar_element{
-    display: block;
-    padding: 8px;
-    background-color: #dddddd;
-} */ 
-
-
-/* .table{
-    margin-top:100px !important;
-}
-
-
-#navbar_words0, #gpa0{
-    color:white !important;
-} */
-
-body { 
-    padding-top: 200px; 
-}
