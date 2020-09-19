@@ -133,6 +133,7 @@ if __name__ == '__main__':
 
 # handle還沒修過的
 # handle 在generate時refresh
+# handle 有時result跑出來會什麼都沒有，要refresh url才有東西
 # handle 晚上學校系統維修的狀況
 # 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
