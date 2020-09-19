@@ -2,10 +2,11 @@
     text-align: left;
     font-size: 300%;
     font-family:kaushan_script;
+    color:white
 }
 
 
-#navbar{
+.navbar-words, #gpa0{
     color:white
 }
 
