@@ -132,6 +132,7 @@ if __name__ == '__main__':
 
 
 # handle還沒修過的
+# 手機版的可以把不重要的資訊拿掉，讓table變小
 # handle計算gpa進位
 # handle 一個學期全選
 # handle 在generate時refresh
