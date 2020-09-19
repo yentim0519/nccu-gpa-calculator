@@ -103,13 +103,10 @@ def generate_data_thread(username, password):
 
     # 將資料存入database
     cur = mysql.connection.cursor()
-    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(brand_name = brand_name))
+    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
     
 
     
-
-    
-
 
     
 
