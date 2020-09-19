@@ -13,16 +13,16 @@
     overflow: hidden;
 }
   
-.navbar_element {
+ .navbar_element {
     display: inline;
-    /* float: left; */
-}
+  float: left; 
+} 
 
-a.navbar_element{
+/* a.navbar_element{
     display: block;
     padding: 8px;
     background-color: #dddddd;
-} */
+} */ 
 
 
 /* .table{
@@ -35,5 +35,5 @@ a.navbar_element{
 } */
 
 body { 
-    padding-top: 100px; 
+    padding-top: 200px; 
 }
