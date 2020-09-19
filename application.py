@@ -41,6 +41,8 @@ def generate_data():
 
 # get data
 def generate_data_thread(username, password):
+    
+    logger.debug "****test****"
           
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
@@ -129,10 +131,13 @@ if __name__ == '__main__':
     application.run(host='0.0.0.0')
 
 
-
-
+# Must:
 # handle還沒修過的
+# handle result要按很多次才能跑出來
 # 手機版的可以把不重要的資訊拿掉，讓table變小
+
+
+
 # handle計算gpa進位
 # handle 一個學期全選
 # handle 在generate時refresh
