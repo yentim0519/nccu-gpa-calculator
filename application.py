@@ -40,14 +40,14 @@ def generate_data():
     # global finished # 在外面定義，這裏代表這個def在用global的finish
     # finished = "False"
     global mysql
-    thread = Thread(target=generate_data_thread, args=(username, password, mysql.connection.cursor()))
+    thread = Thread(target=generate_data_thread, args=(username, password, application))
     thread.daemon = True
     thread.start()
 
     return flask.render_template('error_page.html')
 
 # get data
-def generate_data_thread(username, password, cursor):
+def generate_data_thread(username, password, application):
     
     # logger.debug "****test****"
           
@@ -103,7 +103,9 @@ def generate_data_thread(username, password, cursor):
 
 
     # 將資料存入database
-    cursor.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
+    mysql = MySQL(application)
+    cur = mysql.connection.cursor()
+    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
     
 
     
