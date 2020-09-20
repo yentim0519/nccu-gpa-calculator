@@ -60,7 +60,7 @@ def generate_data_thread(username, password, connection):
     # chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
 
-    cur.execute("INSERT INTO course_data (username) VALUES ('hello')")
+    cur.execute("INSERT INTO course_data (username) VALUES (%s)", ("hello"))
     connection.commit()
     
 
