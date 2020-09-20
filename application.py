@@ -47,7 +47,7 @@ def generate_data():
     return flask.render_template('error_page.html')
 
 # get data
-def generate_data_thread(username, password):
+def generate_data_thread(username, password, mysql):
     
     # logger.debug "****test****"
           
