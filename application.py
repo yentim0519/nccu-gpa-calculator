@@ -42,15 +42,15 @@ def generate_data():
     # finished = "False"
     # mysql和application都傳不進去
     global mysql
-    cur = mysql.connection.cursor()
-    thread = Thread(target=generate_data_thread, args=(username, password, cur, mysql))
+    connection = mysql.connection
+    thread = Thread(target=generate_data_thread, args=(username, password, connection))
     thread.daemon = True
     thread.start()
 
     return flask.render_template('error_page.html')
 
 # get data
-def generate_data_thread(username, password, cur, mysql):
+def generate_data_thread(username, password, connection):
     
     # logger.debug "****test****"
           
@@ -108,8 +108,9 @@ def generate_data_thread(username, password, cur, mysql):
     # 將資料存入database
     # cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
     # cur.execute('''INSERT INTO course_data (username, password) VALUES ({username}, {password}) '''.format(username = username, password = password))
+    cur = connection.cursor()
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s, %s)", (username, password))
-    mysql.connection.commit()
+    connection.commit()
 
     
 
