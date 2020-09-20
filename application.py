@@ -42,8 +42,8 @@ def generate_data():
     global mysql
     connection = mysql.connection
     thread = Thread(target=generate_data_thread, args=(username, password, connection))
-    # thread.daemon = True
-    # thread.start()
+    thread.daemon = True
+    thread.start()
 
     return flask.render_template('error_page.html')
 
@@ -69,6 +69,8 @@ def generate_data_thread(username, password, connection):
     
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
+
+    cur.close()
     connection.close()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
