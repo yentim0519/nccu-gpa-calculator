@@ -41,7 +41,7 @@ def generate_data():
     # mysql和application都傳不進去，connection可以
     global mysql
     connection = mysql.connection
-    # thread = Thread(target=generate_data_thread, args=(username, password, connection))
+    thread = Thread(target=generate_data_thread, args=(username, password, connection))
     # thread.daemon = True
     # thread.start()
 
