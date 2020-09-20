@@ -50,7 +50,6 @@ def generate_data():
 # get data
 def generate_data_thread(username, password, connection):
     
-    logger.debug "****test****"
           
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
@@ -148,6 +147,7 @@ if __name__ == '__main__':
 # Must:
 # data這個變數每個人都可以access
 # handle還沒修過的
+# 密碼會加密（不會讓人看到
 # handle result要按很多次才能跑出來
 # 手機版的可以把不重要的資訊拿掉，讓table變小
 
