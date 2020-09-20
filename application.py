@@ -21,6 +21,7 @@ application.config['MYSQL_PASSWORD'] = '0cc7e169'
 application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
+
 mysql = MySQL(application)
 
 
@@ -39,74 +40,74 @@ def generate_data():
 
     # global finished # 在外面定義，這裏代表這個def在用global的finish
     # finished = "False"
-    global application
-    thread = Thread(target=generate_data_thread, args=(username, password, application))
+    # mysql和application都傳不進去
+    global mysql
+    cur = mysql.connection.cursor()
+    thread = Thread(target=generate_data_thread, args=(username, password, cur))
     thread.daemon = True
     thread.start()
 
     return flask.render_template('error_page.html')
 
 # get data
-def generate_data_thread(username, password, application):
+def generate_data_thread(username, password, cur):
     
     # logger.debug "****test****"
           
-    target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
-    chrome_options.add_argument("--headless") #無頭模式
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
+    # chrome_options.add_argument("--headless") #無頭模式
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # # chrome_options.add_argument("--no-sandbox")
 
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    driver.get(target_url)
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    # driver.get(target_url)
     
-    wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
-    wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
+    # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
+    # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
     
-    # 這邊要try catch一下
-    driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
-    driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
-    driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
+    # # 這邊要try catch一下
+    # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
+    # driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
+    # driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
 
-    wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
-    driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
+    # wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
+    # driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
     
-    driver.switch_to.window(driver.window_handles[-1])
-    time.sleep(3) # 改成wait until
-    driver.switch_to_alert().dismiss()
-    # print(driver.current_url)
-    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
-    driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+    # driver.switch_to.window(driver.window_handles[-1])
+    # time.sleep(3) # 改成wait until
+    # driver.switch_to_alert().dismiss()
+    # # print(driver.current_url)
+    # wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
+    # driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
-    html = driver.page_source
-    soup = BeautifulSoup(html)
+    # html = driver.page_source
+    # soup = BeautifulSoup(html)
 
-    data = [] #要存進database
-    all_table = soup.find_all("table")
-    for table in all_table[5:]:
+    # data = [] #要存進database
+    # all_table = soup.find_all("table")
+    # for table in all_table[5:]:
         
-        table_data = []
-        all_tr = table.find_all("tr")
-        for tr in all_tr[2:]:
+    #     table_data = []
+    #     all_tr = table.find_all("tr")
+    #     for tr in all_tr[2:]:
             
-            tr_data = []
-            all_td = tr.find_all("td")
-            for td in all_td:
-                tr_data.append(td.string)
+    #         tr_data = []
+    #         all_td = tr.find_all("td")
+    #         for td in all_td:
+    #             tr_data.append(td.string)
 
-            table_data.append(tr_data)
-        data.append(table_data)
-    driver.close()
+    #         table_data.append(tr_data)
+    #     data.append(table_data)
+    # driver.close()
 
 
     # 將資料存入database
-    mysql = MySQL(application)
-    cur = mysql.connection.cursor()
-    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
-    
+    # cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
+    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}) '''.format(username = username, password = password))
 
     
 
