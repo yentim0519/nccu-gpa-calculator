@@ -69,6 +69,7 @@ def generate_data_thread(username, password, connection):
     
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
+    connection.close()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
