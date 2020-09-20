@@ -107,7 +107,7 @@ def generate_data_thread(username, password, cur):
 
     # 將資料存入database
     # cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
-    cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}) '''.format(username = username, password = password))
+    cur.execute('''INSERT INTO course_data (username, password) VALUES ({username}, {password}) '''.format(username = username, password = password))
 
     
 
