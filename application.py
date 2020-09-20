@@ -66,13 +66,11 @@ def generate_data_thread(username, password, connection):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
 
-    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
     connection.commit()
     
     wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
 
-    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
     connection.commit()
     
     # 這邊要try catch一下
@@ -80,14 +78,12 @@ def generate_data_thread(username, password, connection):
     driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
     driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
 
-    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
     connection.commit()
 
     wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
     driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
     
 
-    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
     connection.commit()
 
     driver.switch_to.window(driver.window_handles[-1])
@@ -96,8 +92,7 @@ def generate_data_thread(username, password, connection):
     # print(driver.current_url)
     wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
     driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
-
-    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    
     connection.commit()
 
     html = driver.page_source
