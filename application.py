@@ -60,18 +60,18 @@ def generate_data_thread(username, password, connection):
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver.get(target_url)
+
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
-    
-
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    # driver.get(target_url)
     
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
 
     cur.close()
     connection.close()
+    driver.close()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
