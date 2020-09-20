@@ -24,6 +24,7 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(application)
 
 
+
 @application.route('/')
 def index():
     return flask.render_template('index.html')
@@ -39,7 +40,7 @@ def generate_data():
     # global finished # 在外面定義，這裏代表這個def在用global的finish
     # finished = "False"
     global mysql
-    thread = Thread(target=generate_data_thread, args=(username, password))
+    thread = Thread(target=generate_data_thread, args=(username, password, mysql))
     thread.daemon = True
     thread.start()
 
