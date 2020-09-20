@@ -67,7 +67,7 @@ def generate_data_thread(username, password, connection):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
     
-    # cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
