@@ -39,8 +39,8 @@ def generate_data():
     # grad_or_not = flask.request.form['password']
 
     # mysql和application都傳不進去，connection可以
-    # global mysql
-    # connection = mysql.connection
+    global mysql
+    connection = mysql.connection
     # thread = Thread(target=generate_data_thread, args=(username, password, connection))
     # thread.daemon = True
     # thread.start()
