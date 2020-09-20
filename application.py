@@ -50,7 +50,7 @@ def generate_data():
 # get data
 def generate_data_thread(username, password, connection):
     
-          
+    cur = connection.cursor()
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     chrome_options = webdriver.ChromeOptions()
@@ -60,26 +60,45 @@ def generate_data_thread(username, password, connection):
     chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--no-sandbox")
 
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
+
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
+
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
     
     wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
+
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
     
     # 這邊要try catch一下
     driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
     driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
     driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
 
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
+
     wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
     driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
     
+
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
+
     driver.switch_to.window(driver.window_handles[-1])
     time.sleep(3) # 改成wait until
     driver.switch_to_alert().dismiss()
     # print(driver.current_url)
     wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
     driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+
+    cur.execute('''INSERT INTO course_data (username) VALUES ("hello") ''')
+    connection.commit()
 
     html = driver.page_source
     soup = BeautifulSoup(html)
@@ -103,7 +122,7 @@ def generate_data_thread(username, password, connection):
 
 
     # 將資料存入database
-    cur = connection.cursor()
+    # cur = connection.cursor()
     cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
     # cur.execute('''INSERT INTO course_data (username, password) VALUES ({username}, {password}) '''.format(username = username, password = password))
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s, %s)", (username, password))
