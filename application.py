@@ -103,7 +103,6 @@ def generate_data_thread(username, password, mysql):
 
 
     # 將資料存入database
-    global mysql
     cur = mysql.connection.cursor()
     cur.execute('''INSERT INTO course_data (username, password, data) VALUES ({username}, {password}, {data}) '''.format(username = username, password = password, data = data))
     
