@@ -66,8 +66,8 @@ def generate_data_thread(username, password, connection):
     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
     
-    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    connection.commit()
+    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # connection.commit()
 
     cur.close()
     connection.close()
