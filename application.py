@@ -42,7 +42,7 @@ def generate_data():
     global mysql
     connection = mysql.connection
     thread = Thread(target=generate_data_thread, args=(username, password, connection))
-    thread.daemon = True
+    # thread.daemon = True # 這會讓執行緒跟主程式一起結束
     thread.start()
 
     return flask.render_template('error_page.html')
@@ -71,7 +71,7 @@ def generate_data_thread(username, password, connection):
 
     cur.close()
     connection.close()
-    driver.close()
+    # driver.close()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
