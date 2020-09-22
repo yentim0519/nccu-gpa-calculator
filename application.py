@@ -38,10 +38,11 @@ def index():
 
         # mysql和application都傳不進去，connection可以
         global mysql
-        # connection = mysql.connection 
-        thread = threading.Thread(target=generate_data_thread, args=(username, password))
+        connection = mysql.connection 
+        thread = threading.Thread(target=generate_data_thread, args=(username, password, connection))
         # thread.daemon = True # 這會讓執行緒跟主程式一起結束
         thread.start()
+        print("when start active_threading",threading.active_count())
 
         return flask.render_template('error_page.html')
 
@@ -53,11 +54,10 @@ def index():
 # get data
 def generate_data_thread(username, password):
     print(f'thread {threading.current_thread().name} is running...')
-    for i in range(100):
-        print(threading.current_thread().name, i)
-        time.sleep(0.5)
     
-    # cur = connection.cursor()
+    
+    cur = connection.cursor()
+    print('cur', threading.current_thread().name)
     # target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     # chrome_options = webdriver.ChromeOptions()
@@ -70,8 +70,11 @@ def generate_data_thread(username, password):
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     # driver.get(target_url)
 
-    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    # connection.commit()
+    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    print('cur_execute', threading.current_thread().name)
+    connection.commit()
+    print('commit', threading.current_thread().name)
+    print("active_threading:",threading.active_count(),threading.current_thread().name)
     
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # connection.commit()
