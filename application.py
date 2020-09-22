@@ -1,5 +1,5 @@
 import flask
-from flask import request, jsonify
+from flask import request, jsonify,session
 import os
 from bs4 import BeautifulSoup
 import requests
@@ -21,8 +21,8 @@ application.config['MYSQL_PASSWORD'] = '0cc7e169'
 application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-SESSION_TYPE = 'filesystem'
-Session(application)
+# SESSION_TYPE = 'filesystem'
+# Session(application)
 
 
 # mysql = MySQL(application)
@@ -127,7 +127,7 @@ def generate_data_thread(username, password, connection):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    session["data"] = [] #要存進database
+    data = [] #要存進database
     all_table = soup.find_all("table")
     for table in all_table[5:]:
         
@@ -141,8 +141,11 @@ def generate_data_thread(username, password, connection):
                 tr_data.append(td.string)
 
             table_data.append(tr_data)
-        session["data"].append(table_data)
+        data.append(table_data)
     driver.close()
+
+    session["data"] = data
+    session["finished"] = "true"
 
 
     # # 將資料存入database
@@ -158,12 +161,12 @@ def generate_data_thread(username, password, connection):
 
 @application.route('/thread_status/')
 def thread_status():
-    global finished
+    
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
     
-    return finished 
+    return session.get('finished')
 
 
 
@@ -176,7 +179,7 @@ def result():
     # data = cur.fetchall()
 
     # finished = "False"
-    return flask.render_template('page1.html', data_all = session["data"])
+    return flask.render_template('page1.html', data_all = session.get("data"))
     
 
             
