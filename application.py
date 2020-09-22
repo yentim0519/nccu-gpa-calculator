@@ -24,8 +24,8 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(application)
 
 # 測試用pymysql
-import pymysql
-conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='35278479', db= 'us_states', charset='utf8')
+# import pymysql
+# conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='35278479', db= 'us_states', charset='utf8')
 
 
 
