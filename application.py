@@ -12,7 +12,6 @@ from threading import Thread
 from flask_mysqldb import MySQL
 
 
-
 application = flask.Flask(__name__)
 
 application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
@@ -23,6 +22,10 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
 mysql = MySQL(application)
+
+# 測試用pymysql
+import pymysql
+conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='35278479', db= 'us_states', charset='utf8')
 
 
 
@@ -69,8 +72,8 @@ def generate_data_thread(username, password, connection):
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # connection.commit()
 
-    cur.close()
-    connection.close()
+    # cur.close()
+    # connection.close()
     # driver.close()
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
