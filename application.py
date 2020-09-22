@@ -66,7 +66,7 @@ def generate_data_thread(username, password, connection):
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     # driver.get(target_url)
 
-    connection.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     connection.commit()
     
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
