@@ -10,6 +10,7 @@ import selenium.webdriver.support.ui as ui
 import time
 import threading
 from flask_mysqldb import MySQL
+from flask_session import Session
 
 
 application = flask.Flask(__name__)
@@ -20,8 +21,11 @@ application.config['MYSQL_PASSWORD'] = '0cc7e169'
 application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
+SESSION_TYPE = 'filesystem'
+Session(application)
 
-mysql = MySQL(application)
+
+# mysql = MySQL(application)
 
 # 測試用pymysql
 # import pymysql
@@ -37,14 +41,15 @@ def index():
         # grad_or_not = flask.request.form['password']
 
         # mysql和application都傳不進去，connection可以
-        global mysql
-        connection = mysql.connection 
-        thread = threading.Thread(target=generate_data_thread, args=(username, password, connection))
+        # global mysql
+        # connection = mysql.connection 
+        session["finished"] = "false"
+        thread = threading.Thread(target=generate_data_thread, args=(username, password))
         # thread.daemon = True # 這會讓執行緒跟主程式一起結束
         thread.start()
-        print("when start active_threading",threading.active_count())
+        # print("when start active_threading",threading.active_count())
 
-        return flask.render_template('error_page.html')
+        return flask.render_template('loading_page.html')
 
     return flask.render_template('index.html')
 
@@ -56,8 +61,8 @@ def generate_data_thread(username, password, connection):
     print(f'thread {threading.current_thread().name} is running...')
     
     
-    cur = connection.cursor()
-    print('cur', threading.current_thread().name)
+    # cur = connection.cursor()
+    # print('cur', threading.current_thread().name)
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     chrome_options = webdriver.ChromeOptions()
@@ -70,74 +75,74 @@ def generate_data_thread(username, password, connection):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
 
-    try:
-        cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    except Exception:
-        global mysql 
-        connection = mysql.connection
-        cur = connection.cursor()
-        cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # try:
+    #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # except Exception:
+    #     global mysql # mysql傳不進去，但又會有斷線的問題
+    #     connection = mysql.connection
+    #     cur = connection.cursor()
+    #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
 
 
-    print('cur_execute', threading.current_thread().name)
+    # print('cur_execute', threading.current_thread().name)
     # connection.commit()
     # print('commit', threading.current_thread().name)
-    print("active_threading:",threading.active_count(),threading.current_thread().name)
+    # print("active_threading:",threading.active_count(),threading.current_thread().name)
     
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # connection.commit()
 
-    cur.close()
+    # cur.close()
     # connection.close()
-    driver.close()
-    print("driver close:",threading.active_count(),threading.current_thread().name)
+    # driver.close()
+    # print("driver close:",threading.active_count(),threading.current_thread().name)
     
-    # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
-    # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
+    wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
+    wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
 
     # # connection.commit()
     
     # # 這邊要try catch一下
-    # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
-    # driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
-    # driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
+    driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
+    driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
+    driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
 
     # # connection.commit()
 
-    # wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
-    # driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
+    wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
+    driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
     
 
     # # connection.commit()
 
-    # driver.switch_to.window(driver.window_handles[-1])
-    # time.sleep(3) # 改成wait until
-    # driver.switch_to_alert().dismiss()
-    # # print(driver.current_url)
-    # wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
-    # driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+    driver.switch_to.window(driver.window_handles[-1])
+    time.sleep(3) # 改成wait until
+    driver.switch_to_alert().dismiss()
+    # print(driver.current_url)
+    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
+    driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
     # # connection.commit()
 
-    # html = driver.page_source
-    # soup = BeautifulSoup(html)
+    html = driver.page_source
+    soup = BeautifulSoup(html)
 
-    # data = [] #要存進database
-    # all_table = soup.find_all("table")
-    # for table in all_table[5:]:
+    session["data"] = [] #要存進database
+    all_table = soup.find_all("table")
+    for table in all_table[5:]:
         
-    #     table_data = []
-    #     all_tr = table.find_all("tr")
-    #     for tr in all_tr[2:]:
+        table_data = []
+        all_tr = table.find_all("tr")
+        for tr in all_tr[2:]:
             
-    #         tr_data = []
-    #         all_td = tr.find_all("td")
-    #         for td in all_td:
-    #             tr_data.append(td.string)
+            tr_data = []
+            all_td = tr.find_all("td")
+            for td in all_td:
+                tr_data.append(td.string)
 
-    #         table_data.append(tr_data)
-    #     data.append(table_data)
-    # driver.close()
+            table_data.append(tr_data)
+        session["data"].append(table_data)
+    driver.close()
 
 
     # # 將資料存入database
@@ -151,27 +156,27 @@ def generate_data_thread(username, password, connection):
 
     
 
-# @application.route('/thread_status/')
-# def thread_status():
-#     global finished
-#     # global thread
-#     # if thread.is_alive == False: # 這裏無法確定有吃到
-#     #     finished = "True"
+@application.route('/thread_status/')
+def thread_status():
+    global finished
+    # global thread
+    # if thread.is_alive == False: # 這裏無法確定有吃到
+    #     finished = "True"
     
-#     return finished 
+    return finished 
 
 
 
 @application.route('/result', methods=["POST"]) 
 def result():  
     # username 和 password從browser拿來
-    cur = mysql.connection.cursor()
-    cur.execute('''SELECT data FROM course_data WHERE username = '{username}' AND password LIKE '{password}' or middle_notes LIKE '%{brand_name}%' or base_notes LIKE '%{brand_name}%' '''.format(brand_name = brand_name))
-    # 一定要用.format
-    data = cur.fetchall()
+    # cur = mysql.connection.cursor()
+    # cur.execute('''SELECT data FROM course_data WHERE username = '{username}' AND password LIKE '{password}' or middle_notes LIKE '%{brand_name}%' or base_notes LIKE '%{brand_name}%' '''.format(brand_name = brand_name))
+    # # 一定要用.format
+    # data = cur.fetchall()
 
     # finished = "False"
-    return flask.render_template('page1.html', data_all = data)
+    return flask.render_template('page1.html', data_all = session["data"])
     
 
             
