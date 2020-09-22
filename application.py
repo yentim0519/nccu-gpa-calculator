@@ -70,7 +70,15 @@ def generate_data_thread(username, password, connection):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
 
-    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    try:
+        cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    except OperationalError:
+        global mysql 
+        connection = mysql.connection
+        cur = connection.cursor()
+        cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+
+
     print('cur_execute', threading.current_thread().name)
     # connection.commit()
     # print('commit', threading.current_thread().name)
