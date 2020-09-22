@@ -21,6 +21,11 @@ application.config['MYSQL_PASSWORD'] = '0cc7e169'
 application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
+# 要先設定global session variables
+session["finished"] = "false"
+session["data"] = 0
+
+
 # SESSION_TYPE = 'filesystem'
 # Session(application)
 
