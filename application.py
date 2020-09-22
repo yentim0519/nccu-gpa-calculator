@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
-from threading import Thread
+import threading
 from flask_mysqldb import MySQL
 
 
@@ -39,7 +39,7 @@ def index():
         # mysql和application都傳不進去，connection可以
         global mysql
         # connection = mysql.connection 
-        thread = Thread(target=generate_data_thread, args=(username, password))
+        thread = threading.Thread(target=generate_data_thread, args=(username, password))
         # thread.daemon = True # 這會讓執行緒跟主程式一起結束
         thread.start()
 
