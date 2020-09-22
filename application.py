@@ -60,15 +60,15 @@ def generate_data_thread(username, password, connection):
     print('cur', threading.current_thread().name)
     # target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
-    # chrome_options = webdriver.ChromeOptions()
-    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
-    # chrome_options.add_argument("--headless") #無頭模式
-    # chrome_options.add_argument("--disable-dev-shm-usage")
-    # chrome_options.add_argument("--no-sandbox")
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
+    chrome_options.add_argument("--headless") #無頭模式
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
 
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    # driver.get(target_url)
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver.get(target_url)
 
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # print('cur_execute', threading.current_thread().name)
@@ -81,7 +81,8 @@ def generate_data_thread(username, password, connection):
 
     # cur.close()
     # connection.close()
-    # driver.close()
+    driver.close()
+    print("driver close:",threading.active_count(),threading.current_thread().name)
     
     # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
     # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
