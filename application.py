@@ -26,8 +26,8 @@ session["finished"] = "false"
 session["data"] = 0
 
 
-# SESSION_TYPE = 'filesystem'
-# Session(application)
+SESSION_TYPE = 'filesystem'
+Session(application)
 
 
 # mysql = MySQL(application)
