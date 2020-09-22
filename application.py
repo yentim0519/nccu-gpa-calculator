@@ -38,8 +38,8 @@ def index():
 
         # mysql和application都傳不進去，connection可以
         global mysql
-        connection = mysql.connection
-        thread = Thread(target=generate_data_thread, args=(username, password, connection))
+        # connection = mysql.connection 
+        thread = Thread(target=generate_data_thread, args=(username, password))
         # thread.daemon = True # 這會讓執行緒跟主程式一起結束
         thread.start()
 
@@ -51,10 +51,12 @@ def index():
 
 
 # get data
-def generate_data_thread(username, password, connection):
+def generate_data_thread(username, password):
+    for i in range(10):
+        print("fuck")
     
-    cur = connection.cursor()
-    target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    # cur = connection.cursor()
+    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     # chrome_options = webdriver.ChromeOptions()
     # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -66,8 +68,8 @@ def generate_data_thread(username, password, connection):
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     # driver.get(target_url)
 
-    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    connection.commit()
+    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # connection.commit()
     
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # connection.commit()
