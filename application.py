@@ -58,7 +58,7 @@ def generate_data_thread(username, password, connection):
     
     cur = connection.cursor()
     print('cur', threading.current_thread().name)
-    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -70,8 +70,8 @@ def generate_data_thread(username, password, connection):
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     driver.get(target_url)
 
-    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    # print('cur_execute', threading.current_thread().name)
+    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    print('cur_execute', threading.current_thread().name)
     # connection.commit()
     # print('commit', threading.current_thread().name)
     print("active_threading:",threading.active_count(),threading.current_thread().name)
@@ -79,7 +79,7 @@ def generate_data_thread(username, password, connection):
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # connection.commit()
 
-    # cur.close()
+    cur.close()
     # connection.close()
     driver.close()
     print("driver close:",threading.active_count(),threading.current_thread().name)
