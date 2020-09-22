@@ -70,10 +70,10 @@ def generate_data_thread(username, password, connection):
     # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     # driver.get(target_url)
 
-    cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    print('cur_execute', threading.current_thread().name)
-    connection.commit()
-    print('commit', threading.current_thread().name)
+    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # print('cur_execute', threading.current_thread().name)
+    # connection.commit()
+    # print('commit', threading.current_thread().name)
     print("active_threading:",threading.active_count(),threading.current_thread().name)
     
     # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
