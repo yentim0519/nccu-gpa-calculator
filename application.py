@@ -52,7 +52,7 @@ def index():
 
 
 # get data
-def generate_data_thread(username, password):
+def generate_data_thread(username, password, connection):
     print(f'thread {threading.current_thread().name} is running...')
     
     
