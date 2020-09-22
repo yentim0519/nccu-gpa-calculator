@@ -52,8 +52,10 @@ def index():
 
 # get data
 def generate_data_thread(username, password):
-    for i in range(10):
-        print("fuck")
+    print(f'thread {threading.current_thread().name} is running...')
+    for i in range(100):
+        print(threading.current_thread().name, i)
+        time.sleep(0.5)
     
     # cur = connection.cursor()
     # target_url = 'https://i.nccu.edu.tw/Home.aspx'
