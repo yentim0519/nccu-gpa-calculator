@@ -72,7 +72,7 @@ def generate_data_thread(username, password, connection):
 
     try:
         cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    except OperationalError:
+    except MySQLdb._exceptions.OperationalError:
         global mysql 
         connection = mysql.connection
         cur = connection.cursor()
