@@ -179,12 +179,13 @@ def generate_data_thread(username, password):
 @application.route('/thread_status/', methods=["POST"])
 def thread_status():
     task_id = flask.request.form['task_id']
+    print(task_id)
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
-    task = Job.fetch(job_key, connection=conn)
+    task = Job.fetch(task_id, connection=conn)
 
-    if job.is_finished:
+    if task.is_finished:
         return "true"
     
 

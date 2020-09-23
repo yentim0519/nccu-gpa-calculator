@@ -5,12 +5,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <meta id="task_id" data-name= "{{task_id}}" >
+        
         <script>
+        var task_id = $('#my-data').data();
         $(document).ready(function() {
             var refresh_id = setInterval(function() {
                 $.post(
                 "{{ url_for('thread_status') }}", 
-                // { task_id: f"{{task_id}}" },
+                { task_id: task_id },
 
                 /*這邊的data就是url return 的值*/
                 function(data) { 
