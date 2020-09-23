@@ -8,7 +8,8 @@
         <meta id="task_id" data-name= "{{task_id}}" >
         
         <script>
-        var task_id = $('#my-data').data();
+        alert($('#task_id').data())
+        var task_id = $('#task_id').data();
         $(document).ready(function() {
             var refresh_id = setInterval(function() {
                 $.post(
