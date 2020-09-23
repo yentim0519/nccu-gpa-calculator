@@ -188,6 +188,8 @@ def thread_status():
     
     if task.is_finished:
         return "true"
+    else:
+        return "false"
         
     
 
