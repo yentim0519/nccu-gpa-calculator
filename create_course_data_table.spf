@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>heroku_1c0dd00304530b3</string>
+			<key>host</key>
+			<string>us-cdbr-east-02.cleardb.com</string>
+			<key>name</key>
+			<string>us-cdbr-east-02.cleardb.com</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>b85e882ee53df8</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilterV2</key>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>filterClass</key>
+				<string>groupNode</string>
+				<key>isConjunction</key>
+				<true/>
+			</dict>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGoCwwXGBkaHiVVJG51bGzTDQ4PEBMWV05TLmtleXNaTlMu
+			b2JqZWN0c1YkY2xhc3OiERKAAoADohQVgASABYAHVHR5cGVUcm93
+			c18QHVNlbGVjdGlvbkRldGFpbFR5cGVOU0luZGV4U2V00hsPHB1c
+			TlNSYW5nZUNvdW50EACABtIfICEiWiRjbGFzc25hbWVYJGNsYXNz
+			ZXNaTlNJbmRleFNldKIjJFpOU0luZGV4U2V0WE5TT2JqZWN00h8g
+			JidcTlNEaWN0aW9uYXJ5oiYkAAgAEQAaACQAKQAyADcASQBMAFEA
+			UwBcAGIAaQBxAHwAgwCGAIgAigCNAI8AkQCTAJgAnQC9AMIAzwDR
+			ANMA2ADjAOwA9wD6AQUBDgETASAAAAAAAAACAQAAAAAAAAAoAAAA
+			AAAAAAAAAAAAAAABIw==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {695, 481}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>CREATE TABLE course_data(
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000)
+);
+
+ALTER TABLE course_data CONVERT TO CHARACTER SET UTF8;</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>222.5</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>select * from course_data</string>
+		<string>CREATE TABLE course_data(
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000)
+)</string>
+		<string>CREATE TABLE course_data(
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000)
+)
+
+ALTER TABLE course_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>CREATE TABLE course_data(
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000)
+)</string>
+		<string>CREATE TABLE course_data(
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000),
+)</string>
+		<string>-- ALTER TABLE course_data CONVERT TO CHARACTER SET UTF8;</string>
+		<string>ALTER TABLE course_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>CREATE TABLE course_data(
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000),
+)
+
+ALTER TABLE course_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>CREATE TABLE course_data(
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000),
+),
+
+ALTER TABLE perfume_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>CREATE TABLE course_data(
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+data VARCHAR(20000),
+)
+
+ALTER TABLE perfume_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>select * from perfume_data</string>
+		<string>CREATE TABLE perfume_data(
+id INT NOT NULL AUTO_INCREMENT,
+product_brand VARCHAR(100),
+product_name VARCHAR(100),
+fragrance_notes VARCHAR(100),
+top_notes VARCHAR(100),
+middle_notes VARCHAR(100),
+base_notes VARCHAR(100),
+product_url VARCHAR(100),
+PRIMARY KEY(ID)
+)</string>
+		<string>CREATE TABLE perfume_data(
+id INT NOT NULL AUTO_INCREMENT,
+product_brand VARCHAR(100),
+product_name VARCHAR(100),
+fragrance_notes VARCHAR(50),
+top_notes VARCHAR(50),
+middle_notes VARCHAR(50),
+base_notes VARCHAR(50),
+product_url VARCHAR(100),
+PRIMARY KEY(ID)
+)</string>
+		<string>Select * from perfume_data1</string>
+		<string>Select *</string>
+		<string>Delete from perfume_data1</string>
+		<string>Select &amp; from perfume_data1</string>
+		<string>CREATE TABLE perfume_data1(
+id INT NOT NULL AUTO_INCREMENT,
+product_brand VARCHAR(100),
+product_name VARCHAR(100),
+fragrance_notes VARCHAR(50),
+top_notes VARCHAR(50),
+middle_notes VARCHAR(50),
+base_notes VARCHAR(50),
+product_url VARCHAR(100),
+PRIMARY KEY(ID)
+)</string>
+		<string>CREATE TABLE perfume_data1(
+id INT NOT NULL AUTO_INCREMENT,
+product_brand VARCHAR(100),
+product_name VARCHAR(100),
+fragrance_notes VARCHAR(50),
+top_notes VARCHAR(50),
+middle_notes VARCHAR(50),
+base_notes VARCHAR(50),
+product_url VARCHAR(100),
+PRIMARY KEY(ID)
+)
+
+ALTER TABLE perfume_data CONVERT TO CHARACTER SET UTF8</string>
+		<string>select *</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.62-log</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
