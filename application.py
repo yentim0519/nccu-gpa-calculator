@@ -183,7 +183,7 @@ def thread_status():
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
-    # task = Job.fetch(task_id, connection=conn)
+    task = Job.fetch(task_id, connection=conn)
 
     if task.is_finished:
         return "true"
