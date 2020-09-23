@@ -12,6 +12,7 @@ import threading
 from flask_mysqldb import MySQL
 from flask_session import Session
 from rq import Queue
+from rq.job import Job
 from worker import conn
 
 
@@ -55,7 +56,7 @@ def index():
         # grad_or_not = flask.request.form['password']
 
         task = q.enqueue(generate_data_thread, username, password)
-        # job.get_id()
+        task_id = task.get_id()
 
         # mysql和application都傳不進去，connection可以
         # global mysql
@@ -66,7 +67,7 @@ def index():
         # thread.start()
         # print("when start active_threading",threading.active_count())
 
-        return flask.render_template('loading_page.html')
+        return flask.render_template('loading_page.html', task_id=task_id)
 
     return flask.render_template('index.html')
 
@@ -175,14 +176,17 @@ def generate_data_thread(username, password):
 
     
 
-@application.route('/thread_status/')
+@application.route('/thread_status/', methods=["POST"])
 def thread_status():
-    
+    task_id = flask.request.form['task_id']
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
-    print(task.status.get_id())
-    return "hello"
+    task = Job.fetch(job_key, connection=conn)
+
+    if job.is_finished:
+        return "true"
+    
 
 
 

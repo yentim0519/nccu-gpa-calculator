@@ -8,8 +8,10 @@
         <script>
         $(document).ready(function() {
             var refresh_id = setInterval(function() {
-                $.get(
+                $.post(
                 "{{ url_for('thread_status') }}", 
+                // { task_id: f"{{task_id}}" },
+
                 /*這邊的data就是url return 的值*/
                 function(data) { 
                     console.log(data);
@@ -24,6 +26,6 @@
         </script>
     </head>
     <body>
-        Wait a sec, it's loading, do not refresh this page!
+        Wait a sec, it's loading, do not refresh this page! {{ task_id }}
     </body>
 </html>
