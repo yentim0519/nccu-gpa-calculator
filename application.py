@@ -12,7 +12,7 @@ import threading
 from flask_mysqldb import MySQL
 from flask_session import Session
 
-
+#
 application = flask.Flask(__name__)
 
 application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
