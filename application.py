@@ -185,6 +185,7 @@ def thread_status():
     #     finished = "True"
     task = Job.fetch(task_id, connection=conn)
     print(task.is_finished)
+    
     if task.is_finished:
         return "true"
         
@@ -201,7 +202,9 @@ def result():
     # data = cur.fetchall()
 
     # finished = "False"
-    return flask.render_template('page1.html', data_all = session.get("data"))
+    task_id = flask.request.form['task_id']
+    task = Job.fetch(task_id, connection=conn)
+    return flask.render_template('page1.html', data_all = task.result)
     
 
             
