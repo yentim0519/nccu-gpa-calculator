@@ -31,6 +31,9 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 SESSION_TYPE = 'filesystem'
 Session(application)
 
+# Set the secret key to some random bytes. Keep this really secret!
+application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 
 # mysql = MySQL(application)
 
