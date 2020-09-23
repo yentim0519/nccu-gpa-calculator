@@ -11,10 +11,13 @@ import time
 import threading
 from flask_mysqldb import MySQL
 from flask_session import Session
+from rq import Queue
+from worker import conn
 
-#
+
 application = flask.Flask(__name__)
-print(0)
+q = Queue(connection=conn)
+
 # application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
 # application.config['MYSQL_USER'] = 'b85e882ee53df8'
 # application.config['MYSQL_PASSWORD'] = '0cc7e169'
@@ -51,13 +54,16 @@ def index():
         password = flask.request.form['password']
         # grad_or_not = flask.request.form['password']
 
+        task = q.enqueue(generate_data_thread, username, password)
+        # job.get_id()
+
         # mysql和application都傳不進去，connection可以
         # global mysql
         # connection = mysql.connection 
-        session["finished"] = "false"
-        thread = threading.Thread(target=generate_data_thread, args=(username, password))
+        # session["finished"] = "false"
+        # thread = threading.Thread(target=generate_data_thread, args=(username, password))
         # thread.daemon = True # 這會讓執行緒跟主程式一起結束
-        thread.start()
+        # thread.start()
         # print("when start active_threading",threading.active_count())
 
         return flask.render_template('loading_page.html')
@@ -155,8 +161,7 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
-    session["data"] = data
-    session["finished"] = "true"
+    return data
 
 
     # # 將資料存入database
@@ -176,8 +181,8 @@ def thread_status():
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
-    print(session.get('finished'))
-    return session.get('finished')
+    print(task.status.get_id())
+    return "hello"
 
 
 

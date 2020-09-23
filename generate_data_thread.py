@@ -1,3 +1,11 @@
+import os
+from bs4 import BeautifulSoup
+import requests
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select 
+from selenium.webdriver.common.keys import Keys
+import selenium.webdriver.support.ui as ui
+
 def generate_data_thread(username, password):
    
             
@@ -66,9 +74,6 @@ def generate_data_thread(username, password):
     data.append(table_data)
     driver.close()
 
-    global finished
-    finished = "True"
 # return flask.render_template('page1.html')
-    return flask.render_template('page1.html', data_all = data)
-
-        
+    # return flask.render_template('page1.html', data_all = data)
+    return data
