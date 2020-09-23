@@ -15,11 +15,11 @@ from flask_session import Session
 #
 application = flask.Flask(__name__)
 print(0)
-application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
-application.config['MYSQL_USER'] = 'b85e882ee53df8'
-application.config['MYSQL_PASSWORD'] = '0cc7e169'
-application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
-application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+# application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
+# application.config['MYSQL_USER'] = 'b85e882ee53df8'
+# application.config['MYSQL_PASSWORD'] = '0cc7e169'
+# application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
+# application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 # print(1)
 # 要先設定global session variables
@@ -28,8 +28,8 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
 # print(2)
-SESSION_TYPE = 'filesystem'
-Session(application)
+# SESSION_TYPE = 'filesystem'
+# Session(application)
 
 # Set the secret key to some random bytes. Keep this really secret!
 application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
