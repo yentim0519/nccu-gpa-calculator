@@ -28,8 +28,8 @@ application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
 # print(2)
-# SESSION_TYPE = 'filesystem'
-# Session(application)
+SESSION_TYPE = 'filesystem'
+Session(application)
 
 
 # mysql = MySQL(application)
