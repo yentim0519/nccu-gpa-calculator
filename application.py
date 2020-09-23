@@ -32,6 +32,7 @@ print(0)
 # Session(application)
 
 # Set the secret key to some random bytes. Keep this really secret!
+# 一定要加這行，幫session簽名 
 application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
@@ -67,7 +68,7 @@ def index():
 
 
 # get data
-def generate_data_thread(username, password, connection):
+def generate_data_thread(username, password):
     print(f'thread {threading.current_thread().name} is running...')
     
     
@@ -175,7 +176,7 @@ def thread_status():
     # global thread
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
-    
+    print(session.get('finished'))
     return session.get('finished')
 
 
