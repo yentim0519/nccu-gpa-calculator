@@ -55,7 +55,7 @@ def index():
         password = flask.request.form['password']
         # grad_or_not = flask.request.form['password']
 
-        task = q.enqueue(generate_data_thread, username, password)
+        task = q.enqueue(generate_data_thread, args=(username,password))
         task_id = task.get_id()
 
         # mysql和application都傳不進去，connection可以
