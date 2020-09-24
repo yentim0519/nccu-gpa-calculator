@@ -163,7 +163,7 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
-    return f"{table}"
+    return "[1, 2, 3]"
     # return "hello"
 
 
@@ -212,9 +212,9 @@ def result():
     task_id = flask.request.form['task_id']
     print("result", task_id)
     task = Job.fetch(task_id, connection=conn)
-    print(type(task.result))
+    print(task.result)
     result_list = json.loads(task.result) 
-    #  d dprint(result_list)
+    print(result_list)
 
     return flask.render_template('page1.html', data_all = result_list)
     
