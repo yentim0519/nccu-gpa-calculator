@@ -7,3 +7,4 @@ flask_mysqldb
 flask_session
 redis
 rq
+Json

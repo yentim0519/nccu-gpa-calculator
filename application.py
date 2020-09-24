@@ -14,6 +14,7 @@ from flask_session import Session
 from rq import Queue
 from rq.job import Job
 from worker import conn
+import json 
 
 
 application = flask.Flask(__name__)
@@ -145,24 +146,24 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    # data = [] #要存進database
-    # all_table = soup.find_all("table")
-    # for table in all_table[5:]:
+    data = [] #要存進database
+    all_table = soup.find_all("table")
+    for table in all_table[5:]:
         
-    #     table_data = []
-    #     all_tr = table.find_all("tr")
-    #     for tr in all_tr[2:]:
+        table_data = []
+        all_tr = table.find_all("tr")
+        for tr in all_tr[2:]:
             
-    #         tr_data = []
-    #         all_td = tr.find_all("td")
-    #         for td in all_td:
-    #             tr_data.append(td.string)
+            tr_data = []
+            all_td = tr.find_all("td")
+            for td in all_td:
+                tr_data.append(td.string)
 
-    #         table_data.append(tr_data)
-    #     data.append(table_data)
-    # driver.close()
+            table_data.append(tr_data)
+        data.append(table_data)
+    driver.close()
 
-    return f"{soup}"
+    return f"{table}"
     # return "hello"
 
 
@@ -211,9 +212,10 @@ def result():
     task_id = flask.request.form['task_id']
     print("result", task_id)
     task = Job.fetch(task_id, connection=conn)
-    print(task.result)
+    result_list = json.loads(task.result) 
+    print(result_list)
 
-    return flask.render_template('page1.html', data_all = task.result)
+    return flask.render_template('page1.html', data_all = result_list)
     
 
             
