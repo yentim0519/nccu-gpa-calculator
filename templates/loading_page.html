@@ -13,7 +13,7 @@
         <script>
         
         var task_id = "{{task_id}}"; 
-        alert(task_id)
+        // alert(task_id)
         $(document).ready(function() {
             var refresh_id = setInterval(function() {
                 $.post(
@@ -49,6 +49,6 @@
         </script>
     </head>
     <body>
-        Wait a sec, it's loading, do not refresh this page! {{ task_id }}
+        Wait a sec, it's loading, do not refresh this page! 
     </body>
 </html>
