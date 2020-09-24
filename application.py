@@ -163,7 +163,7 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
-    return "[1, 2, 3]"
+    return f"{data}"
     # return "hello"
 
 
