@@ -162,6 +162,7 @@ def generate_data_thread(username, password):
     #     data.append(table_data)
     # driver.close()
 
+    # return data
     return "hello"
 
 
@@ -184,7 +185,7 @@ def thread_status():
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
     task = Job.fetch(task_id, connection=conn)
-    print(task.get_status())
+    # print(task.get_status())
 
     
     if task.is_finished:
