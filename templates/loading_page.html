@@ -16,11 +16,11 @@
                 $.post(
                 "{{ url_for('thread_status') }}", 
                 { task_id: task_id },
-
+            
                 /*這邊的data就是url return 的值*/
                 function(data) { 
                     console.log(data);
-                    
+                    alert(data)
                     if (data == "true") {
                         // $.post("{{ url_for('result') }}", { task_id: task_id });
                         // window.location.replace("{{ url_for('result') }}");
