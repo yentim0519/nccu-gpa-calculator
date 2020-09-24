@@ -84,6 +84,7 @@ def generate_data_thread(username, password):
     # print('cur', threading.current_thread().name)
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
+
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
