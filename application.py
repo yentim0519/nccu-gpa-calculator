@@ -145,24 +145,24 @@ def generate_data_thread(username, password):
     html = driver.page_source
     soup = BeautifulSoup(html)
 
-    data = [] #要存進database
-    all_table = soup.find_all("table")
-    for table in all_table[5:]:
+    # data = [] #要存進database
+    # all_table = soup.find_all("table")
+    # for table in all_table[5:]:
         
-        table_data = []
-        all_tr = table.find_all("tr")
-        for tr in all_tr[2:]:
+    #     table_data = []
+    #     all_tr = table.find_all("tr")
+    #     for tr in all_tr[2:]:
             
-            tr_data = []
-            all_td = tr.find_all("td")
-            for td in all_td:
-                tr_data.append(td.string)
+    #         tr_data = []
+    #         all_td = tr.find_all("td")
+    #         for td in all_td:
+    #             tr_data.append(td.string)
 
-            table_data.append(tr_data)
-        data.append(table_data)
-    driver.close()
+    #         table_data.append(tr_data)
+    #     data.append(table_data)
+    # driver.close()
 
-    return data
+    return soup
     # return "hello"
 
 
