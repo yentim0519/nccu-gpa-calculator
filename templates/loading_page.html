@@ -40,7 +40,7 @@
                     //             $('<form action="'+location+'" method="POST">'+form+'</form>').submit();
                     //         }
                     //     });
-                    $.redirect("www.google.com")
+                        $.redirect("{{ url_for('result') }}", {task_id: task_id}, "POST")
                     }
                 }
                 )}
