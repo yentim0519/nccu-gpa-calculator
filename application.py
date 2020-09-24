@@ -134,17 +134,20 @@ def generate_data_thread(username, password):
 
 @application.route('/thread_status/', methods=["POST"])
 def thread_status():
-    task_id = flask.request.form['task_id']
-    print(task_id)
-    task = Job.fetch(task_id, connection=conn)
-    print(task.get_status())
-    print(task.is_finished)
+    if request.method == 'POST':
+        task_id = flask.request.form['task_id']
+        print(task_id)
+        task = Job.fetch(task_id, connection=conn)
+        print(task.get_status())
+        print(task.is_finished)
 
-    
-    if task.is_finished:
-        return "true"
+        
+        if task.is_finished:
+            return "true"
+        else:
+            return "false"
     else:
-        return "false"
+        return flask.render_template('index.html')
         
     
 
