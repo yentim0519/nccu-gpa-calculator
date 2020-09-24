@@ -212,8 +212,9 @@ def result():
     task_id = flask.request.form['task_id']
     print("result", task_id)
     task = Job.fetch(task_id, connection=conn)
+    print(type(task.result))
     result_list = json.loads(task.result) 
-    print(result_list)
+    #  d dprint(result_list)
 
     return flask.render_template('page1.html', data_all = result_list)
     
