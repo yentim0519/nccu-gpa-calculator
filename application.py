@@ -185,7 +185,8 @@ def thread_status():
     # if thread.is_alive == False: # 這裏無法確定有吃到
     #     finished = "True"
     task = Job.fetch(task_id, connection=conn)
-    # print(task.get_status())
+    print(task.get_status())
+    print(task.is_finished)
 
     
     if task.is_finished:
