@@ -162,7 +162,7 @@ def generate_data_thread(username, password):
     #     data.append(table_data)
     # driver.close()
 
-    return soup
+    return f"{soup}"
     # return "hello"
 
 
