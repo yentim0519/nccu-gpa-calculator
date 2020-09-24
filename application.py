@@ -190,12 +190,7 @@ def thread_status():
 
     
     if task.is_finished:
-        # task_id = flask.request.form['task_id']
-        print("result", task_id)
-        # task = Job.fetch(task_id, connection=conn)
-        print(task.result) 
-
-        return flask.render_template('page1.html', data_all = task.result)
+        return "true"
     else:
         return "false"
         
