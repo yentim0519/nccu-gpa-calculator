@@ -197,7 +197,7 @@ def thread_status():
 
 
 
-@application.route('/result', methods=["POST"]) 
+@application.route('/result', methods=["POST", "GET"]) 
 def result():  
     # username 和 password從browser拿來
     # cur = mysql.connection.cursor()
