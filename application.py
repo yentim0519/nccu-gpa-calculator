@@ -81,88 +81,88 @@ def generate_data_thread(username, password):
     
     # cur = connection.cursor()
     # print('cur', threading.current_thread().name)
-    target_url = 'https://i.nccu.edu.tw/Home.aspx'
+    # target_url = 'https://i.nccu.edu.tw/Home.aspx'
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
-    chrome_options.add_argument("--headless") #無頭模式
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_options.add_argument("--no-sandbox") # 這個放前面才不會crash (尚未證實
+    # chrome_options.add_argument("--headless") #無頭模式
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--no-sandbox")
 
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-    driver.get(target_url)
+    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    # driver.get(target_url)
 
-    # try:
-    #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    # except Exception:
-    #     global mysql # mysql傳不進去，但又會有斷線的問題
-    #     connection = mysql.connection
-    #     cur = connection.cursor()
-    #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # # try:
+    # #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
+    # # except Exception:
+    # #     global mysql # mysql傳不進去，但又會有斷線的問題
+    # #     connection = mysql.connection
+    # #     cur = connection.cursor()
+    # #     cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
 
 
-    # print('cur_execute', threading.current_thread().name)
-    # connection.commit()
-    # print('commit', threading.current_thread().name)
-    # print("active_threading:",threading.active_count(),threading.current_thread().name)
-    
-    # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
-    # connection.commit()
-
-    # cur.close()
-    # connection.close()
-    # driver.close()
-    # print("driver close:",threading.active_count(),threading.current_thread().name)
-    
-    wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
-    wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
-
+    # # print('cur_execute', threading.current_thread().name)
     # # connection.commit()
+    # # print('commit', threading.current_thread().name)
+    # # print("active_threading:",threading.active_count(),threading.current_thread().name)
     
-    # # 這邊要try catch一下
-    driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
-    driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
-    driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
-
+    # # cur.execute("INSERT INTO course_data (username, password) VALUES (%s,%s)", (username, password))
     # # connection.commit()
 
-    wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
-    driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
+    # # cur.close()
+    # # connection.close()
+    # # driver.close()
+    # # print("driver close:",threading.active_count(),threading.current_thread().name)
+    
+    # wait = ui.WebDriverWait(driver,100) # 100秒內，每500毫秒掃描一次
+    # wait.until(lambda driver: driver.find_element_by_id("captcha_Login1_UserName"))
+
+    # # # connection.commit()
+    
+    # # # 這邊要try catch一下
+    # driver.find_element_by_id("captcha_Login1_UserName").send_keys(username)
+    # driver.find_element_by_id("captcha_Login1_Password").send_keys(password)
+    # driver.find_element_by_id("captcha_Login1_ckbLogin").send_keys(Keys.ENTER)
+
+    # # # connection.commit()
+
+    # wait.until(lambda driver: driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1"))
+    # driver.find_element_by_id("WidgetContainer730150_Widget730150_HyperLink1").send_keys(Keys.ENTER)
     
 
-    # # connection.commit()
+    # # # connection.commit()
 
-    driver.switch_to.window(driver.window_handles[-1])
-    time.sleep(3) # 改成wait until
-    driver.switch_to_alert().dismiss()
-    # print(driver.current_url)
-    wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
-    driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
+    # driver.switch_to.window(driver.window_handles[-1])
+    # time.sleep(3) # 改成wait until
+    # driver.switch_to_alert().dismiss()
+    # # print(driver.current_url)
+    # wait.until(lambda driver: driver.find_elements_by_xpath("//li[@class='nav2']")[1])
+    # driver.find_elements_by_xpath("//li[@class='nav2']")[1].click()
 
-    # # connection.commit()
+    # # # connection.commit()
 
-    html = driver.page_source
-    soup = BeautifulSoup(html)
+    # html = driver.page_source
+    # soup = BeautifulSoup(html)
 
-    data = [] #要存進database
-    all_table = soup.find_all("table")
-    for table in all_table[5:]:
+    # data = [] #要存進database
+    # all_table = soup.find_all("table")
+    # for table in all_table[5:]:
         
-        table_data = []
-        all_tr = table.find_all("tr")
-        for tr in all_tr[2:]:
+    #     table_data = []
+    #     all_tr = table.find_all("tr")
+    #     for tr in all_tr[2:]:
             
-            tr_data = []
-            all_td = tr.find_all("td")
-            for td in all_td:
-                tr_data.append(td.string)
+    #         tr_data = []
+    #         all_td = tr.find_all("td")
+    #         for td in all_td:
+    #             tr_data.append(td.string)
 
-            table_data.append(tr_data)
-        data.append(table_data)
-    driver.close()
+    #         table_data.append(tr_data)
+    #     data.append(table_data)
+    # driver.close()
 
-    return data
+    return "hello"
 
 
     # # 將資料存入database
