@@ -206,6 +206,7 @@ def result():
     # data = cur.fetchall()
 
     # finished = "False"
+    
     task_id = flask.request.form['task_id']
     print("result", task_id)
     task = Job.fetch(task_id, connection=conn)

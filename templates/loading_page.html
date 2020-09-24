@@ -22,8 +22,9 @@
                     console.log(data);
                     
                     if (data == "true") {
-                        $.post("{{ url_for('result') }}", { task_id: task_id });
-                        window.location.replace("{{ url_for('result') }}");
+                        // $.post("{{ url_for('result') }}", { task_id: task_id });
+                        // window.location.replace("{{ url_for('result') }}");
+                        $.redirect("{{ url_for('result') }}", { task_id: task_id });
                     }
                 }
                 )}
