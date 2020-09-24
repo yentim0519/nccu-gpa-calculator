@@ -76,7 +76,7 @@ def index():
 
 # get data
 def generate_data_thread(username, password):
-    print(f'thread {threading.current_thread().name} is running...')
+    # print(f'thread {threading.current_thread().name} is running...')
     
     
     # cur = connection.cursor()
