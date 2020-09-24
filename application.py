@@ -186,10 +186,10 @@ def thread_status():
     task = Job.fetch(task_id, connection=conn)
     print(task.is_finished)
     
-    if task.is_finished:
-        return "true"
-    else:
-        return "false"
+    # if task.is_finished:
+    return "true"
+    # else:
+    #     return "false"
         
     
 
