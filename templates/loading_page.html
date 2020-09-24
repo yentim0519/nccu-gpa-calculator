@@ -24,7 +24,8 @@
                     if (data == "true") {
                         // $.post("{{ url_for('result') }}", { task_id: task_id });
                         // window.location.replace("{{ url_for('result') }}");
-                        $.redirect("{{ url_for('result') }}", { task_id: task_id });
+                        alert(finished)
+                        // $.redirect("{{ url_for('result') }}", { task_id: task_id });
                     }
                 }
                 )}
