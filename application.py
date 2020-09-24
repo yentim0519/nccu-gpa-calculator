@@ -164,7 +164,7 @@ def generate_data_thread(username, password):
         data.append(table_data)
     driver.close()
 
-    return f"{data}"
+    return json.dumps(data)
     # return "hello"
 
 
