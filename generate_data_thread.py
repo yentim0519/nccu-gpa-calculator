@@ -64,6 +64,8 @@ def generate_data_thread(username, password):
                 continue
             elif tr_data[6] == "通過":
                 continue
+            elif tr_data[6] == "成績未到或無成績":
+                continue
             else:
                 total_credit += int(float(tr_data[5])) 
                 total_score_4point3 += score_to_gpa_4point3(float(tr_data[6])) * int(float(tr_data[5])) 

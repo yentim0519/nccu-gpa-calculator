@@ -64,13 +64,12 @@
       
       if (course[i].checked) {
         
-        // 沒有處理「通過」和「汽修」
         var row = course[i].parentNode.parentNode;
         credit = row.getElementsByTagName("td")[6].textContent
         score = row.getElementsByTagName("td")[7].textContent
         
         // 「服務學習」跟「棄修」的不要算
-        if (score == "通過" | score == "棄修"){
+        if (score == "通過" | score == "棄修" | score == "成績未到或無成績"){
           continue
         }
         else{
@@ -83,7 +82,7 @@
       }
     }
     
-    gpa0 = total_score_4point3/total_credit
+    gpa0 = Math.round(total_score_4point3/total_credit)
 	  document.getElementById("gpa0").innerHTML = gpa0;
   }
 
