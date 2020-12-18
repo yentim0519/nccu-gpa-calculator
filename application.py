@@ -21,32 +21,8 @@ import json
 application = flask.Flask(__name__)
 q = Queue(connection=conn)
 
-# application.config['MYSQL_HOST'] = 'us-cdbr-east-02.cleardb.com'
-# application.config['MYSQL_USER'] = 'b85e882ee53df8'
-# application.config['MYSQL_PASSWORD'] = '0cc7e169'
-# application.config['MYSQL_DB'] = 'heroku_1c0dd00304530b3'
-# application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-
-# print(1)
-# 要先設定global session variables
-# session["finished"] = "false"
-# session["data"] = 0
-
-
-# print(2)
-# SESSION_TYPE = 'filesystem'
-# Session(application)
-
-# Set the secret key to some random bytes. Keep this really secret!
 # 一定要加這行，幫session簽名 
 application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
-
-# mysql = MySQL(application)
-
-# 測試用pymysql
-# import pymysql
-# conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='35278479', db= 'us_states', charset='utf8')
 
 
 
@@ -107,6 +83,7 @@ def generate_data_thread(username, password):
 
         html = driver.page_source
         soup = BeautifulSoup(html)
+        print(soup)
 
         data = [] #要存進database
         all_table = soup.find_all("table")
