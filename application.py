@@ -3,6 +3,7 @@ from flask import request, jsonify,session
 import os
 from bs4 import BeautifulSoup
 import requests
+import selenium
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select 
 from selenium.webdriver.common.keys import Keys
@@ -125,6 +126,7 @@ def generate_data_thread(username, password):
         driver.close()
     except selenium.common.exceptions.WebDriverException:
         driver.close()
+        return flask.render_template('error_page.html')
 
     return json.dumps(data) # 這邊要轉成json檔，result才能decode回來
 
@@ -175,18 +177,14 @@ if __name__ == '__main__':
 
 
 # Must:
-# data這個變數每個人都可以access
-# handle還沒修過的
 # 密碼會加密（不會讓人看到
 # handle result要按很多次才能跑出來
 # 手機版的可以把不重要的資訊拿掉，讓table變小
 
 
-
-# handle計算gpa進位
+# Nice to have:
 # handle 一個學期全選
 # handle 在generate時refresh
-# handle 有時result跑出來會什麼都沒有，要refresh url才有東西
 # handle 晚上學校系統維修的狀況
 # 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
