@@ -2,15 +2,12 @@ import flask
 from flask import request, jsonify,session
 import os
 from bs4 import BeautifulSoup
-import requests
 import selenium
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select 
 from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
-import threading
-from flask_mysqldb import MySQL
 from flask_session import Session
 from rq import Queue
 from rq.job import Job
@@ -47,7 +44,6 @@ def index():
 def generate_data_thread(username, password):
 
     target_url = 'https://i.nccu.edu.tw/Home.aspx'
-
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -119,6 +115,10 @@ def thread_status():
         task = Job.fetch(task_id, connection=conn)
         print(task.get_status())
         print(task.is_finished)
+        registry = StartedJobRegistry('default', connection=conn)
+        running_job_ids = registry.get_job_ids() 
+        print(running_job_ids)
+
 
         
         if task.is_finished:
