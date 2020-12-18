@@ -120,14 +120,14 @@ def thread_status():
         running_job_ids = registry.get_job_ids() 
         print(running_job_ids)
 
-
+        if(task.get_status() == "failed"):
+            return flask.render_template('error_page.html')
         
         if task.is_finished:
             return "true"
         else:
             return "false"
-    else:
-        return flask.render_template('index.html')
+    
         
     
 
@@ -139,9 +139,9 @@ def result():
     task_id = flask.request.form['task_id']
     print("result", task_id)
     task = Job.fetch(task_id, connection=conn)
-    print(task.result)
+    # print(task.result)
     result_list = json.loads(task.result) 
-    print(result_list)
+    # print(result_list)
 
     return flask.render_template('page1.html', data_all = result_list)
     
@@ -167,3 +167,4 @@ if __name__ == '__main__':
 # 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
 # 給延畢生
+# 中間弄個進度條，讓人知道等待時間
