@@ -1,5 +1,6 @@
 import flask
 from flask import request, jsonify,session
+from flask_session import Session
 import os
 from bs4 import BeautifulSoup
 import selenium
@@ -8,9 +9,9 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
 import time
-from flask_session import Session
 from rq import Queue
 from rq.job import Job
+from rq.registry import StartedJobRegistry
 from worker import conn
 import json 
 
