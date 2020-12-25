@@ -29,10 +29,15 @@ application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 def index():
     if request.method == 'POST':
         file = request.files['file']
+        print(1)
         if file and allowed_file(file.filename):
+            print(2)
             filename = secure_filename(file.filename)
+            print(3)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            print(4)
             file.save(file_path)
+            print(5)
 
         task = q.enqueue(generate_data_thread, args=(file_path))
         task_id = task.get_id()
