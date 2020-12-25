@@ -29,7 +29,7 @@ application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 def index():
     if request.method == 'POST':
         print(0)
-        file = request.files.get['file']
+        file = request.files.get('file', None)
         print(1)
         if file and allowed_file(file.filename):
             print(2)
