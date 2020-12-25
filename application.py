@@ -28,6 +28,7 @@ application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 @application.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'POST':
+        print(0)
         file = request.files['file']
         print(1)
         if file and allowed_file(file.filename):
