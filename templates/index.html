@@ -14,19 +14,11 @@
         NCCU GPA CALCULATOR
     </div>
 
-    
-    <form action="{{ url_for('index') }}" method="post">
-
-        <!-- <input id="input-b1" name="file" type="file" class="file" data-browse-on-zone-click="true">
-
-        <div class="form-group">
-            <button class="btn btn-outline-secondary">Calculate</button>
-        </div> -->
-        <form action="" method=post enctype=multipart/form-data>
-            <p><input type=file name=file>
-               <input type=submit value=Upload>
-        </form>
+    <form action="{{ url_for('index') }}" method="post" enctype=multipart/form-data>
+        <p><input type=file name=file>
+            <input type=submit value=Upload>
     </form>
+    
 </div>
 
 
