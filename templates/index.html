@@ -14,16 +14,10 @@
         NCCU GPA CALCULATOR
     </div>
 
+    
     <form action="{{ url_for('index') }}" method="post">
 
-        <!-- Search form -->
-        <div class="active-pink-3 active-pink-4 mb-4">
-            <input class="form-control" name = "username" type="text" placeholder="學號" aria-label="Search">
-        </div>
-
-        <div class="active-pink-3 active-pink-4 mb-4">
-            <input class="form-control" name = "password" type="password" placeholder="iNCCU密碼" aria-label="Search">
-        </div>
+        <input id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true">
 
         <div class="form-group">
             <button class="btn btn-outline-secondary">Calculate</button>
@@ -31,10 +25,6 @@
     </form>
 </div>
 
-<div>
-    ＊此網站不會儲存你的資料，資料來源為inccu的全人系統，若跑不出來，可能為學校網站的因素 <br>
-    ＊目前尚未支援畢業生
-</div>
 
 <div class = 'designer'>
     Designed by Tim Yen
