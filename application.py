@@ -1,5 +1,5 @@
 import flask
-from flask import request, jsonify, session, redirect, url_for
+from flask import request, jsonify, session, redirect, url_for, flash
 from flask_session import Session
 import os
 from bs4 import BeautifulSoup
