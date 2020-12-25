@@ -21,8 +21,8 @@ application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file
 ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif']) # limitation of upload file format
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
+application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 
 
 @application.route('/', methods=["GET", "POST"])
