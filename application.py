@@ -20,7 +20,7 @@ application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file
-ALLOWED_EXTENSIONS = set(['html']) # limitation of upload file format
+ALLOWED_EXTENSIONS = set(['html', 'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif']) # limitation of upload file format
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 
@@ -28,13 +28,17 @@ application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 @application.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'POST':
-        print(0)
-        file = request.files.get('file', None)
-        print(1)
+        file = request.files.get('file', None) # 這邊一直get不到file
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        
         if file and allowed_file(file.filename):
             print(2)
             filename = secure_filename(file.filename)
-            print(3)
+            if file.filename == '':
+                flash('No selected file')
+
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             print(4)
             file.save(file_path)
