@@ -28,10 +28,11 @@ application.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 @application.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'POST':
-        file = request.files.get('file', None) # 這邊一直get不到file
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
+            
+        file = request.files.get('file', None) # 這邊一直get不到file
         
         if file and allowed_file(file.filename):
             print(2)
