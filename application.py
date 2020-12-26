@@ -26,7 +26,7 @@ def index():
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
-            
+        print("2222", request.files)
         file = request.files.get('file', None) # 這邊一直get不到file
         print("1111",file)
 
