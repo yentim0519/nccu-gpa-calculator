@@ -45,7 +45,7 @@ def index():
             file.save(file_path)
             print(5)
 
-        task = q.enqueue(generate_data_thread, args=(file_path))
+        task = q.enqueue(generate_data_thread, file_path)
         task_id = task.get_id()
         return flask.render_template('loading_page.html', task_id=task_id)
     else:
