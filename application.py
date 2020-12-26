@@ -33,6 +33,7 @@ def index():
             return redirect(request.url)
             
         file = request.files.get('file', None) # 這邊一直get不到file
+
         
         if file and allowed_file(file.filename):
             print(2)
@@ -45,9 +46,32 @@ def index():
             file.save(file_path)
             print(5)
 
-        task = q.enqueue(generate_data_thread, file_path)
-        task_id = task.get_id()
-        return flask.render_template('loading_page.html', task_id=task_id)
+        # task = q.enqueue(generate_data_thread, file_path)
+        # task_id = task.get_id()
+
+        with open(html_file_path, encoding="utf-8") as f:
+            data0 = f.read()
+            soup = BeautifulSoup(data0, 'html.parser')
+
+        data = [] #要存進database
+        all_table = soup.find_all("table")
+        for table in all_table[5:]:
+            
+            table_data = []
+            all_tr = table.find_all("tr")
+            for tr in all_tr[2:]:
+                
+                tr_data = []
+                all_td = tr.find_all("td")
+                for td in all_td:
+                    tr_data.append(td.string)
+
+                table_data.append(tr_data)
+            data.append(table_data)
+        
+        # return json.dumps(data) # 這邊要轉成json檔，result才能decode回來
+        # return flask.render_template('loading_page.html', task_id=task_id)
+        return flask.render_template('page1.html', data_all = json.loads(json.dumps(data)))
     else:
         return flask.render_template('index.html')
 
