@@ -3,6 +3,13 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
 {% endblock head %}
 
 
@@ -22,15 +29,6 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-
-
-    <script>
-        // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function() {
-          var fileName = $(this).val().split("\\").pop();
-          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
 </div>
 
 <!-- <form method=post enctype=multipart/form-data>

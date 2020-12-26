@@ -60,6 +60,7 @@
       }
       else if (score >= score_interval[4] & score < score_interval[3]){
           return 0.0;    
+    }
   }
 
   
@@ -102,7 +103,7 @@
     gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
     gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
 	  document.getElementById("gpa0").innerHTML = gpa0;
-    // document.getElementById("gpa1").innerHTML = gpa1;
+    document.getElementById("gpa1").innerHTML = gpa1;
   }
 
 </script>
@@ -116,6 +117,11 @@
   </div>
 
   <div>
+    <span id = "navbar_words0">GPA</span>
+    <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
+    <span id = "navbar_words0">/</span>
+    <span id = "navbar_words0">4.3</span>
+    <span id = "navbar_words0"></span>
     <span id = "navbar_words0">GPA</span>
     <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
     <span id = "navbar_words0">/</span>
