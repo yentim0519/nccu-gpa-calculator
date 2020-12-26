@@ -40,7 +40,7 @@ def index():
             if file.filename == '':
                 flash('No selected file')
 
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file_path = os.path.join(application.config['UPLOAD_FOLDER'], filename)
             print(4)
             file.save(file_path)
             print(5)
