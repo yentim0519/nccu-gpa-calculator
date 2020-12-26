@@ -26,6 +26,7 @@ def index():
         file = request.files.get('file', None) 
 
         if file.filename == '':
+            flash("No file upload!")
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
