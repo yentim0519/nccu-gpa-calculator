@@ -68,18 +68,6 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
     
         
-
-
-@application.route('/result', methods=["POST", "GET"]) 
-def result():  
-    task_id = flask.request.form['task_id']
-    print("result", task_id)
-    task = Job.fetch(task_id, connection=conn)
-    # print(task.result)
-    result_list = json.loads(task.result) 
-    # print(result_list)
-
-    return flask.render_template('page1.html', data_all = result_list)
     
 
             
