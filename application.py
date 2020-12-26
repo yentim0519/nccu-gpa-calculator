@@ -49,7 +49,7 @@ def index():
         # task = q.enqueue(generate_data_thread, file_path)
         # task_id = task.get_id()
 
-        with open(html_file_path, encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             data0 = f.read()
             soup = BeautifulSoup(data0, 'html.parser')
 
