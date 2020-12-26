@@ -44,6 +44,24 @@
       }
   }
 
+  function score_to_gpa_4() {
+      var score_interval = [80, 70, 60, 50];
+      if (score >= score_interval[0]){
+          return 4.0; 
+      }
+      else if (score >= score_interval[1] & score < score_interval[0]){
+          return 3.0;
+      }
+      else if (score >= score_interval[2] & score < score_interval[1]){
+          return 2.0;
+      }
+      else if (score >= score_interval[3] & score < score_interval[2]){
+          return 1.0;
+      }
+      else if (score >= score_interval[4] & score < score_interval[3]){
+          return 0.0;    
+  }
+
   
   
   // 一開始就算一次
@@ -74,16 +92,17 @@
         }
         else{
           total_credit += parseInt(parseFloat(credit)) 
-          // total_credit0 += score_to_gpa_4point3(total_credit)
           total_score_4point3 += score_to_gpa_4point3(parseFloat(score)) * parseInt(parseFloat(credit)) 
-          // total_score_4 += score_to_gpa_4(float(row[6])) * int(float(row[5].innertHTML)) 
+          total_score_4 += score_to_gpa_4(parseFloat(score)) * parseInt(parseFloat(credit)) 
         }
         
       }
     }
     
     gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
+    gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
 	  document.getElementById("gpa0").innerHTML = gpa0;
+    document.getElementById("gpa1").innerHTML = gpa1;
   }
 
 </script>
@@ -101,6 +120,11 @@
     <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
     <span id = "navbar_words0">/</span>
     <span id = "navbar_words0">4.3</span>
+    <span id = "navbar_words0"></span>
+    <span id = "navbar_words0"></span>
+    <span id = "gpa1" style="color:rgb(0, 0, 0);"></span>
+    <span id = "navbar_words0">/</span>
+    <span id = "navbar_words0">4.0</span>
   </div>
   
 </nav>
@@ -165,4 +189,3 @@
 
 
 {% endblock body %}
-
