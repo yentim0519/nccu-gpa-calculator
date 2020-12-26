@@ -28,9 +28,8 @@ def index():
             return redirect(request.url)
             
         file = request.files.get('file', None) # 這邊一直get不到file
-        print(file)
+        print("1111",file)
 
-        
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             if file.filename == '':
