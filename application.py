@@ -28,12 +28,15 @@ def index():
             flash("No file upload!")
             return redirect(request.url)
 
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+        if file and allowed_file(file.filename): # allowed_file會根據allow extension限制
+            filename = secure_filename(file.filename) # never trust user input
             if file.filename == '':
                 flash('No selected file')
             file_path = os.path.join(application.config['UPLOAD_FOLDER'], filename)
             file.save(file_path)
+        else:
+            flash("Wrong Format! The format has to be HTML or HTM.")
+            return redirect(request.url) 
 
 
         with open(file_path, encoding="utf-8") as f:
@@ -77,13 +80,13 @@ if __name__ == '__main__':
 
 
 # Must:
-# handle result要按很多次才能跑出來
-# 手機版的可以把不重要的資訊拿掉，讓table變小
+# tutorial
+
+
 
 
 # Nice to have:
 # handle 一個學期全選
-# handle 在generate時refresh
-# 符合各平台版本 --> 在手機上要大一點
 # 紀錄使用人次
-# 中間弄個進度條，讓人知道等待時間
+# 等文字load完再呈現頁面
+
