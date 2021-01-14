@@ -29,13 +29,20 @@
     color:black;
 }
 
-.submit_button{
-    text-align: center;
+.submit_button_div {
+	text-align: center;
 }
+  
 
-.designer{
+
+/* .buttom_part{
     text-align: center;
     position: fixed;
     bottom: 10px;
     width: 100%;
-}
+} */
+
+
+	
+
+

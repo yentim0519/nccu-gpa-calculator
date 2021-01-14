@@ -7,8 +7,26 @@
 } */
 
 
-
+/* 
 #gpa0{
     color:black;
-}  
+}  */
+
+thead th {
+    background-color: #006DCC;
+    color: blue;
+}
+
+.upper_div{
+    height: 200px;
+}
+
+.navbar{
+    background-color: transparent;
+}
+
+
+
+
+
 

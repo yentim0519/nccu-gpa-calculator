@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 application = flask.Flask(__name__)
 
 # 一定要加這行，幫session簽名 
-application.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+application.secret_key = b'_5#y2L"F4Q8z\n\xec]/' #最好遮掉
 
 
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file

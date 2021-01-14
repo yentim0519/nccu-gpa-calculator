@@ -111,33 +111,33 @@
 
 {% block body %}
 
-<nav class="navbar fixed-bottom navbar-light" style="background-color:#00e699;">
-  <div>
-    <a id="nav-brand">NCCU GPA CALCULATOR</a>
-  </div>
+<nav class="navbar fixed-bottom navbar-light">
+  <div style="margin-left: auto; margin-right: 0;">
+    <span id = "navbar_words0">GPA</span><br>
 
-  <div>
-    <span id = "navbar_words0">GPA</span>
-    <span id = "navbar_words0"></span>
-    <span id = "navbar_words0">###</span>
-    <span id = "navbar_words0"></span>
     <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
     <span id = "navbar_words0">/</span>
-    <span id = "navbar_words0">4.3</span>
-    <span id = "navbar_words0"></span>
-    <span id = "navbar_words0">###</span>
-    <span id = "navbar_words0"></span>
+    <span id = "navbar_words0">4.3</span><br>
+
     <span id = "gpa1" style="color:rgb(0, 0, 0);"></span>
     <span id = "navbar_words0">/</span>
     <span id = "navbar_words0">4.0</span>
   </div>
-  
 </nav>
 
 
+<div style = "position: sticky;position: -webkit-sticky; /* Safari */;top: 0;">
+  <p>hello</p>
+</div>
 
-<table class="table" data-toggle="table">
-  <thead>
+
+
+<div class="container">
+<!-- <div class="row">
+<div class="col-sm" id = "table">  -->
+<div class="col-lg-11 mx-auto bg-white rounded shadow">
+<table class="table table-fixed" data-toggle="table" >  
+  <thead style = "position: sticky;top: 0; background-color:white;">
     <tr>
       <th scope="col">選擇</th>
       <th scope="col">學年</th>
@@ -148,13 +148,13 @@
       <th scope="col">學分數</th>
       <th scope="col">成績</th>
       <th scope="col">備註</th>
+      
     </tr>
   </thead>
-        
   <tbody>
     {% for semester in data_all %} 
       <tr class="table-light">
-        <td></td>
+        <td class="bs-checkbox"><input class="select-all checkbox" type="checkbox"></td>
         <td>{{ semester[0][0] }}</td>
         <td>{{ semester[0][1] }}</td>
         <td></td>
@@ -163,6 +163,7 @@
         <td></td>
         <td></td>
         <td></td>
+        
       </tr>
       {% for semester_data in semester %}
       <tr>
@@ -175,22 +176,24 @@
         <td class = "credit">{{ semester_data[5] }}</td>
         <td class = "score">{{ semester_data[6] }}</td>
         <td>{{ semester_data[7] }}</td>
+        
       </tr>
       {% endfor %}
     {% endfor %}
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
   </tbody>
 </table>
+
+<!-- </div id = "gpa_block">
+
+<div class="col-sm">
+  <p>hello</p>
+</div>
+
+</div> -->
+
+</div>
+</div>
+
 
 
 {% endblock body %}
