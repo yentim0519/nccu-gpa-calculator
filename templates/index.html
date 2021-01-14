@@ -1,63 +1,157 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCCU GPA Calculator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
+        <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='message.ico') }}">  -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+        <style>
+            @font-face {
+                font-family: kaushan_script;
+                src: url(../static/KaushanScript-Regular.ttf);
+            }
+        
+        </style>
+    </head>
 
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-{% endblock head %}
-
-
-{% block body %}
-<div class="alert_container">
-    {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        {{ message }}
-    </div>
-    {% endfor %}
-</div>
-
-<div class='whole-block'>
-    <div class = 'title'>
-        NCCU GPA CALCULATOR
-    </div>
-
-    <form method=post enctype=multipart/form-data>
-        <div class="custom-file">
-          <input type="file" name = "file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose file</label>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                 
+                  <li class="nav-item">
+                    <!-- Button trigger modal -->
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModalScrollable" href="#">Tutorial</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
+                  </li>
+                </ul>
+              </div>
+        </nav>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Tutorial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        1. 登入iNCCU<br>
+                        2. 點擊「進入我的全人」<br>
+                        3. 點擊左邊欄位的「課業學習」<br>
+                        4. 下載此頁的html檔案<br>
+                        5. 將此html檔案匯入，並按下Calculate<br>
+                        <br>
+                        <u>如何下載html檔案</u>
+                        <br>
+                        Mac<br>
+                        <ul>
+                            <li>Safari： Command + S, 格式選擇「網頁原始檔」</li>
+                            <li>Chrome： Command + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
+                        </ul>  
+        
+                        Windows<br>
+                        <ul>
+                            <li>Safari：</li>
+                            <li>Chrome： </li>
+                            <li>IE：</li>
+                        </ul>  
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
+
+        <!-- alert if no file upload -->
+        <div class="alert_container">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
         </div>
-        <div class="submit_button">
-            <button type="submit" class="btn btn-primary">Calculate</button>
+
+        <!-- main block -->
+        <div class='whole-block'>
+            <div class = 'title'>
+                NCCU GPA CALCULATOR
+            </div>
+
+            <form method=post enctype=multipart/form-data>
+                <div class="custom-file">
+                    <input type="file" name = "file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <div class="text-center" style="margin-top:20px;">
+                    <button type="submit" class="btn btn-outline-secondary">Calculate</button>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
 
-<script>
-    // Add the following code if you want the name of the file appear on select
-    $(".custom-file-input").on("change", function() {
-      var fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-</script>
+        <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
 
-<!-- <form method=post enctype=multipart/form-data>
-  <p><input type=file name=file>
-     <input type=submit value=Upload>
-</form> -->
+        <script>
+            $(document).ready(function () {
+
+                // if user clicked on button, the overlay layer or the dialogbox, close the dialog	
+                $('a.btn-ok, #dialog-overlay, #dialog-box').click(function () {		
+                    $('#dialog-overlay, #dialog-box').hide();		
+                    return false;
+                });
+
+                // if user resize the window, call the same function again
+                // to make sure the overlay fills the screen and dialogbox aligned to center	
+                $(window).resize(function () {
+                    
+                    //only do it if the dialog box is not hidden
+                    if (!$('#dialog-box').is(':hidden')) popup();		
+                });	
 
 
-<div class = 'designer'>
-    Designed by Tim Yen
-</div>
-{% endblock body %}
+            });
+
+            //Popup dialog
+            function popup(message) {
+                    
+                // get the screen height and width  
+                var maskHeight = $(document).height();  
+                var maskWidth = $(window).width();
+
+                // calculate the values for center alignment
+                var dialogTop =  (maskHeight/3) - ($('#dialog-box').height());  
+                var dialogLeft = (maskWidth/2) - ($('#dialog-box').width()/2); 
+
+                // assign values to the overlay and dialog box
+                $('#dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
+                $('#dialog-box').css({top:dialogTop, left:dialogLeft}).show();
+
+                // display the message
+                $('#dialog-message').html(message);
+                        
+            }
+
+        </script>
+
+    </body>
+</html> 
         
 
 
