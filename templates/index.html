@@ -21,15 +21,21 @@
         </style>
 
         <script>
+            //一開始就pop tutorial
             window.addEventListener('load', call_tutorial,false);
             function call_tutorial(){
                 document.getElementById("tutorial_button").click();
+                $(".cover").hide();
             }
+
+            //等whole block都load完成再show page
+
         </script>
             
     </head>
 
     <body>
+    <div id="cover">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -108,7 +114,7 @@
             </form>
         </div>
 
-        <script>
+       <script>
             // Add the following code if you want the name of the file appear on select
             $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
@@ -116,48 +122,7 @@
             });
         </script>
 
-        <script>
-            $(document).ready(function () {
-
-                // if user clicked on button, the overlay layer or the dialogbox, close the dialog	
-                $('a.btn-ok, #dialog-overlay, #dialog-box').click(function () {		
-                    $('#dialog-overlay, #dialog-box').hide();		
-                    return false;
-                });
-
-                // if user resize the window, call the same function again
-                // to make sure the overlay fills the screen and dialogbox aligned to center	
-                $(window).resize(function () {
-                    
-                    //only do it if the dialog box is not hidden
-                    if (!$('#dialog-box').is(':hidden')) popup();		
-                });	
-
-
-            });
-
-            //Popup dialog
-            function popup(message) {
-                    
-                // get the screen height and width  
-                var maskHeight = $(document).height();  
-                var maskWidth = $(window).width();
-
-                // calculate the values for center alignment
-                var dialogTop =  (maskHeight/3) - ($('#dialog-box').height());  
-                var dialogLeft = (maskWidth/2) - ($('#dialog-box').width()/2); 
-
-                // assign values to the overlay and dialog box
-                $('#dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
-                $('#dialog-box').css({top:dialogTop, left:dialogLeft}).show();
-
-                // display the message
-                $('#dialog-message').html(message);
-                        
-            }
-
-        </script>
-
+    </div> 
     </body>
 </html> 
         
