@@ -102,9 +102,24 @@
     
     gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
     gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
-	  document.getElementById("gpa0").innerHTML = gpa0;
-    document.getElementById("gpa1").innerHTML = gpa1;
+	  document.getElementById("gpa0").innerHTML = gpa0.toFixed(2);
+    document.getElementById("gpa1").innerHTML = gpa1.toFixed(2);
   }
+
+// interminate checkbox
+function check_uncheck_checkbox(isChecked, sub_checkbox) {
+  console.log(sub_checkbox) //印東西在console
+	if(isChecked) {
+		$(`input[id=${sub_checkbox}`).each(function() { 
+			this.checked = true; 
+		});
+	} else {
+		$(`input[id=${sub_checkbox}`).each(function() {
+			this.checked = false;
+		});
+	}
+}
+
 
 </script>
 {% endblock head %}
@@ -147,8 +162,9 @@
   <tbody>
     {% for semester in data_all %} 
       <tr class="table-light">
-        <!-- <td class="bs-checkbox"><input class="select-all checkbox" type="checkbox"></td> -->
-        <td></td>
+        <td class="bs-checkbox"><input class="select-all checkbox" id="check_all{{ semester[0][0] }}{{ semester[0][1] }}" 
+          type="checkbox" checked onClick="check_uncheck_checkbox(this.checked, 'check{{ semester[0][0] }}{{ semester[0][1] }}')"></td>
+        <!-- <td></td> -->
         <td>{{ semester[0][0] }}</td>
         <td>{{ semester[0][1] }}</td>
         <td></td>
@@ -157,11 +173,12 @@
         <td></td>
         <td></td>
         <td></td>
-        
       </tr>
+
+
       {% for semester_data in semester %}
       <tr>
-        <td class="bs-checkbox"><input class="course" type="checkbox" onclick="calculate_gpa()" checked></td>
+        <td class="bs-checkbox"><input class="course" id="check{{ semester[0][0] }}{{ semester[0][1] }}" type="checkbox" onclick="calculate_gpa()" checked></td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
