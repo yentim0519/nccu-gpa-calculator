@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-949XTM0399"></script>
+         <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-949XTM0399');
+        </script>
+        
         <title>NCCU GPA Calculator</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
@@ -30,16 +40,6 @@
             //等whole block都load完成再show page
             //$("#cover").hide();
 
-        </script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-949XTM0399"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-949XTM0399');
         </script>
                     
     </head>
