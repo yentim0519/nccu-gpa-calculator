@@ -3,8 +3,6 @@
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
 
-
-
 <script>
 
   function score_to_gpa_4point3() {
@@ -126,8 +124,8 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
 
 {% block body %}
 
-<nav class="navbar fixed-bottom navbar-light">
-  <div style="margin-left: auto; margin-right: 0;">
+<nav class="navbar fixed-top navbar-light">
+  <div style="margin-left: 0; margin-right: auto;">
     <span id = "navbar_words0">GPA</span><br>
 
     <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
@@ -141,8 +139,6 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
 </nav>
 
 <div class="container">
-<!-- <div class="row">
-<div class="col-sm" id = "table">  -->
 <div class="col-lg-11 mx-auto bg-white rounded shadow">
 <table class="table table-fixed" data-toggle="table" >  
   <thead style = "position: sticky;top: 0; background-color:white;">
@@ -191,25 +187,20 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
         <td class = "credit">{{ semester_data[5] }}</td>
         <td class = "score">{{ semester_data[6] }}</td>
         <td>{{ semester_data[7] }}</td>
-        
       </tr>
       {% endfor %}
     {% endfor %}
   
   </tbody>
 </table>
-
-<!-- </div id = "gpa_block">
-
-<div class="col-sm">
-  <p>hello</p>
-</div>
-
-</div> -->
-
 </div>
 </div>
 
+<!-- google form -->
+<div class="col text-center">
+  <a class="btn btn-outline-info btn-lg" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank" role="button">Advice</a>
+  <p></p>
+</div>
 
 
 {% endblock body %}
