@@ -31,20 +31,30 @@
         </style>
 
         <script>
-            //一開始就pop tutorial
-            window.addEventListener('load', call_tutorial,false);
+            //一開始就pop tutorial，但只有第一次loaded才pop
+            if (!localStorage.getItem("listenerLoaded")) {
+                window.addEventListener('load', call_tutorial)
+                localStorage.setItem("listenerLoaded", true);
+            }
+
             function call_tutorial(){
                 document.getElementById("tutorial_button").click();
             }
 
-            //等whole block都load完成再show page
-            //$("#cover").hide();
-
-        </script>
-                    
+        </script>            
     </head>
 
     <body>
+    <!-- alert flash messages-->
+    <div class="alert_container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+
     <div id="cover">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -103,15 +113,7 @@
             </div>
         </div>
 
-        <!-- alert if no file upload -->
-        <div class="alert_container">
-            {% for message in get_flashed_messages() %}
-            <div class="alert alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
+        
 
         <!-- main block -->
         <div class='whole-block'>

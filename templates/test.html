@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
 
 
 
@@ -102,113 +102,20 @@
     
     gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
     gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
-	  document.getElementById("gpa0").innerHTML = gpa0.toFixed(2);
-    document.getElementById("gpa1").innerHTML = gpa1.toFixed(2);
+	  document.getElementById("gpa0").innerHTML = gpa0;
+    document.getElementById("gpa1").innerHTML = gpa1;
   }
-
-// interminate checkbox
-function check_uncheck_checkbox(isChecked, sub_checkbox) {
-  console.log(sub_checkbox) //印東西在console
-	if(isChecked) {
-		$(`input[id=${sub_checkbox}`).each(function() { 
-			this.checked = true; 
-		});
-	} else {
-		$(`input[id=${sub_checkbox}`).each(function() {
-			this.checked = false;
-		});
-	}
-}
-
 
 </script>
 {% endblock head %}
 
 {% block body %}
 
-<nav class="navbar fixed-bottom navbar-light">
-  <div style="margin-left: auto; margin-right: 0;">
-    <span id = "navbar_words0">GPA</span><br>
 
-    <span id = "gpa0" style="color:rgb(0, 0, 0);"></span>
-    <span id = "navbar_words0">/</span>
-    <span id = "navbar_words0">4.3</span><br>
-
-    <span id = "gpa1" style="color:rgb(0, 0, 0);"></span>
-    <span id = "navbar_words0">/</span>
-    <span id = "navbar_words0">4.0</span>
-  </div>
-</nav>
-
-<div class="container">
-<!-- <div class="row">
-<div class="col-sm" id = "table">  -->
-<div class="col-lg-11 mx-auto bg-white rounded shadow">
-<table class="table table-fixed" data-toggle="table" >  
-  <thead style = "position: sticky;top: 0; background-color:white;">
-    <tr>
-      <th scope="col">選擇</th>
-      <th scope="col">學年</th>
-      <th scope="col">學期</th>
-      <th scope="col">科目代號</th>
-      <th scope="col">科目名稱</th>
-      <th scope="col">修別</th>
-      <th scope="col">學分數</th>
-      <th scope="col">成績</th>
-      <th scope="col">備註</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    
-    {% for semester in data_all %} 
-      <tr class="table-light">
-        <td class="bs-checkbox">
-          <input id="check-all" type="checkbox" data-show-indeterminate="true">
-          <!-- <input class="select-all checkbox" id="check_all{{ semester[0][0] }}{{ semester[0][1] }}" 
-          type="checkbox" checked onClick="check_uncheck_checkbox(this.checked, 'check{{ semester[0][0] }}{{ semester[0][1] }}')"> -->
-        </td>
-        <!-- <td></td> -->
-        <td>{{ semester[0][0] }}</td>
-        <td>{{ semester[0][1] }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-
-      {% for semester_data in semester %}
-      <tr>
-        <td class="bs-checkbox"><input class="course" id="check{{ semester[0][0] }}{{ semester[0][1] }}" type="checkbox" onclick="calculate_gpa()" checked></td>
-        <td>{{ semester_data[0] }}</td>
-        <td>{{ semester_data[1] }}</td>
-        <td>{{ semester_data[2] }}</td>
-        <td>{{ semester_data[3] }}</td>
-        <td>{{ semester_data[4] }}</td>
-        <td class = "credit">{{ semester_data[5] }}</td>
-        <td class = "score">{{ semester_data[6] }}</td>
-        <td>{{ semester_data[7] }}</td>
-        
-      </tr>
-      {% endfor %}
-    {% endfor %}
-  
-  </tbody>
-</table>
-
-<!-- </div id = "gpa_block">
-
-<div class="col-sm">
-  <p>hello</p>
-</div>
-
-</div> -->
-
-</div>
-</div>
+<p class = "one">
+    hello
+</p>
+ 
 
 
 

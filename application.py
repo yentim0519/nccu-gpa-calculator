@@ -43,7 +43,8 @@ def index():
             data0 = f.read()
             soup = BeautifulSoup(data0, 'html.parser')
 
-        data = [] #要存進database
+        # 將data存到一個list中
+        data = [] 
         all_table = soup.find_all("table")
         for table in all_table[5:]:
             
@@ -60,6 +61,7 @@ def index():
             data.append(table_data)
         
         return flask.render_template('page1.html', data_all = data)
+        
     else:
         return flask.render_template('index.html')
 
@@ -67,11 +69,7 @@ def index():
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
-    
-        
-    
 
-            
 
 
 if __name__ == '__main__':
