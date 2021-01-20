@@ -40,7 +40,7 @@
       else if (score >= score_interval[10] & score < score_interval[9]){
           return 0.0;
       }
-  }
+  };
 
   function score_to_gpa_4() {
       var score_interval = [80, 70, 60, 50];
@@ -59,7 +59,7 @@
       else if (score < score_interval[3]){
           return 0.0;    
     }
-  }
+  };
 
   
   
@@ -69,6 +69,7 @@
 
   // 計算的function
   function calculate_gpa() {
+    console.log("calculate_gpa()")
     
     var total_score_4point3 = 0;
     var total_score_4 = 0;
@@ -76,6 +77,7 @@
     var gpa0 = 0;
 
     var course = document.getElementsByClassName("course");
+    // console.log(course)
     
     for (var i = 0; i < course.length; i++) {
       
@@ -84,6 +86,8 @@
         var row = course[i].parentNode.parentNode;
         credit = row.getElementsByTagName("td")[6].textContent
         score = row.getElementsByTagName("td")[7].textContent
+        // console.log(credit)
+        // console.log(score)
         
         // 「服務學習」跟「棄修」的不要算
         if (score == "通過" | score == "棄修" | score == "成績未到或無成績"){
@@ -97,27 +101,69 @@
         
       }
     }
+
+    // total_credit == 0 時不能除，否則NaN
+    if(total_credit == 0){
+      var zero = 0;
+      document.getElementById("gpa0").innerHTML = zero.toFixed(2);
+      document.getElementById("gpa1").innerHTML = zero.toFixed(2);
+    }
+    else{
+      gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
+      gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
+      console.log(gpa0, gpa1);
+	    document.getElementById("gpa0").innerHTML = gpa0.toFixed(2);
+      document.getElementById("gpa1").innerHTML = gpa1.toFixed(2);
+    }
+  };
+
+  // interminate checkbox
+  $(document).ready(function() { 
+    var year = document.querySelectorAll('#year');
+    var semester = document.querySelectorAll('#semester');
+
+    // var checkboxes = document.querySelectorAll('#check')
+
+   
+    var arr_checkboxes = []  // 先把每個學期的tag分別存到一個array裡，放便後面取用
+    var arr_checkall = []
     
-    gpa0 = Math.round(((total_score_4point3/total_credit) + Number.EPSILON) * 100) / 100
-    gpa1 = Math.round(((total_score_4/total_credit) + Number.EPSILON) * 100) / 100
-	  document.getElementById("gpa0").innerHTML = gpa0.toFixed(2);
-    document.getElementById("gpa1").innerHTML = gpa1.toFixed(2);
-  }
 
-// interminate checkbox
-function check_uncheck_checkbox(isChecked, sub_checkbox) {
-  console.log(sub_checkbox) //印東西在console
-	if(isChecked) {
-		$(`input[id=${sub_checkbox}`).each(function() { 
-			this.checked = true; 
-		});
-	} else {
-		$(`input[id=${sub_checkbox}`).each(function() {
-			this.checked = false;
-		});
-	}
-}
+    for (let i = 0; i < year.length; i++) {
+        console.log(year[i].childNodes[0].nodeValue)
 
+        var check_all = document.getElementById(`check_all${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}`)
+        var check_boxes0 = document.getElementsByClassName(`check${year[i].childNodes[0].nodeValue} ${semester[i].childNodes[0].nodeValue}`)
+        
+        //先將arr_checkboxes變成array這樣後面才能用index
+        let check_boxes = Array.prototype.slice.call(check_boxes0) 
+        
+        console.log(check_all)
+        console.log(check_boxes)
+        
+        // 將i記錄起來才能放到onclick的function裡
+        // var x = i  
+        
+        for (var k = 0; k < check_boxes.length; k++) {
+          //一開始就把function配給每個checkbox
+          console.log(`check${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}:checked`)
+          check_boxes[k].onclick = function() { 
+            console.log(`check${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}:checked`)
+            var checkedCount = document.getElementsByClassName(`check${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}:checked`).length;
+            
+            check_all.checked = checkedCount > 0;
+            check_all.indeterminate = checkedCount > 0 && checkedCount < check_boxes.length;
+          }
+        }
+
+        check_all.onclick = function() {        
+          for (var l = 0; l < check_boxes.length; l++) {
+            check_boxes[l].checked = this.checked;
+          }
+          calculate_gpa();
+        }
+    };
+  });
 
 </script>
 {% endblock head %}
@@ -152,7 +198,6 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
       <th scope="col">學分數</th>
       <th scope="col">成績</th>
       <th scope="col">備註</th>
-      
     </tr>
   </thead>
   <tbody>
@@ -160,13 +205,13 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
     {% for semester in data_all %} 
       <tr class="table-light">
         <td class="bs-checkbox">
-          <input id="check-all" type="checkbox" data-show-indeterminate="true">
-          <!-- <input class="select-all checkbox" id="check_all{{ semester[0][0] }}{{ semester[0][1] }}" 
-          type="checkbox" checked onClick="check_uncheck_checkbox(this.checked, 'check{{ semester[0][0] }}{{ semester[0][1] }}')"> -->
+          <!-- <input id="check-all" type="checkbox" data-show-indeterminate="true"> -->
+          <input class="select-all checkbox" id="check_all{{ semester[0][0] }}{{ semester[0][1] }}" 
+          type="checkbox" checked >
         </td>
         <!-- <td></td> -->
-        <td>{{ semester[0][0] }}</td>
-        <td>{{ semester[0][1] }}</td>
+        <td id = "year">{{ semester[0][0] }}</td>
+        <td id = "semester">{{ semester[0][1] }}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -178,7 +223,7 @@ function check_uncheck_checkbox(isChecked, sub_checkbox) {
 
       {% for semester_data in semester %}
       <tr>
-        <td class="bs-checkbox"><input class="course" id="check{{ semester[0][0] }}{{ semester[0][1] }}" type="checkbox" onclick="calculate_gpa()" checked></td>
+        <td class="bs-checkbox"><input class="course check{{ semester[0][0] }}{{ semester[0][1] }}"  type="checkbox" onchange="calculate_gpa()" checked></td>
         <td>{{ semester_data[0] }}</td>
         <td>{{ semester_data[1] }}</td>
         <td>{{ semester_data[2] }}</td>
