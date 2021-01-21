@@ -132,8 +132,8 @@
     for (let i = 0; i < year.length; i++) {
         console.log(year[i].childNodes[0].nodeValue)
 
-        var check_all = document.getElementById(`check_all${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}`)
-        var check_boxes0 = document.getElementsByClassName(`check${year[i].childNodes[0].nodeValue} ${semester[i].childNodes[0].nodeValue}`)
+        let check_all = document.getElementById(`check_all${year[i].childNodes[0].nodeValue}${semester[i].childNodes[0].nodeValue}`)
+        let check_boxes0 = document.getElementsByClassName(`check${year[i].childNodes[0].nodeValue} ${semester[i].childNodes[0].nodeValue}`)
         
         //先將arr_checkboxes變成array這樣後面才能用index
         let check_boxes = Array.prototype.slice.call(check_boxes0) 
