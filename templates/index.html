@@ -73,7 +73,10 @@
                  
                   <li class="nav-item">
                     <!-- Button trigger modal -->
-                    <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#exampleModalScrollable" href="#">Tutorial</a>
+                    <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#tutorial" href="#">Tutorial</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#gpa_methods" href="#">GPA Calculating Methods</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
@@ -82,8 +85,8 @@
               </div>
         </nav>
   
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <!-- Tutorial Modal -->
+        <div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -119,6 +122,32 @@
                             <!-- <li>IE：</li> -->
                         </ul>  
                         
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GPA算法介紹 -->
+        <div class="modal fade" id="gpa_methods" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">GPA Calculation Methods</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>
+                                4.3制計算方法（政大官網）<br>
+                                <img src="/static/nccu_gpa_43.png" style="width:700px;"/><br>
+                            </li>
+                            <li>
+                                4.0制計算方法
+                                <img src="/static/gpa_4.png" style="width:700px;"/>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
