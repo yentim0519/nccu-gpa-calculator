@@ -31,12 +31,17 @@
         </style>
 
         <script>
+            $(document).ready(function() {
+                $('#body').show();
+                $('#msg').hide();
+            });
+
             //一開始就pop tutorial，但只有第一次loaded才pop
             if (!localStorage.getItem("listenerLoaded")) {
                 window.addEventListener('load', call_tutorial)
                 localStorage.setItem("listenerLoaded", true);
             }
-
+            // call tutorial 的 function
             function call_tutorial(){
                 document.getElementById("tutorial_button").click();
             }
@@ -45,6 +50,12 @@
     </head>
 
     <body>
+        <div id="msg" style="font-size:largest;">
+            <!-- you can set whatever style you want on this -->
+            Loading, please wait...
+        </div>
+
+    <div id="body" style="display:none;">
     <!-- alert flash messages-->
     <div class="alert_container">
         {% for message in get_flashed_messages() %}
@@ -103,9 +114,9 @@
         
                         Windows<br>
                         <ul>
-                            <li>Safari：</li>
-                            <li>Chrome： </li>
-                            <li>IE：</li>
+                            <li>Safari： Ctrl + S, 格式選擇「網頁原始檔」</li>
+                            <li>Chrome： Ctrl + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
+                            <!-- <li>IE：</li> -->
                         </ul>  
                         
                     </div>
@@ -144,6 +155,7 @@
         </script>
 
     </div> 
+    </div>
     </body>
 </html> 
         
