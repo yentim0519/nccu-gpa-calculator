@@ -39,13 +39,12 @@
             //一開始就pop tutorial，但只有第一次loaded才pop
             if (!localStorage.getItem("listenerLoaded")) {
                 window.addEventListener('load', call_tutorial)
-                localStorage.setItem("listenerLoaded", true);
+                localStorage.setItem("listenerLoaded", true); //用來記住已經load過使用者
             }
             // call tutorial 的 function
             function call_tutorial(){
                 document.getElementById("tutorial_button").click();
             }
-
         </script>            
     </head>
 
@@ -56,6 +55,7 @@
         </div>
 
     <div id="body" style="display:none;">
+
     <!-- alert flash messages-->
     <div class="alert_container">
         {% for message in get_flashed_messages() %}
@@ -76,7 +76,10 @@
                     <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#tutorial" href="#">Tutorial</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#gpa_methods" href="#">GPA Calculating Methods</a>
+                    <a class="nav-link" id = "gpa_methods_button"data-toggle="modal" data-target="#gpa_methods" href="#">GPA Calculating Methods</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id = "updates_button"data-toggle="modal" data-target="#updates" href="#">Updates</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
@@ -153,6 +156,32 @@
             </div>
         </div>
 
+        <!-- update -->
+        <div class="modal fade" id="updates" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Updates</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>非常感謝同學們的建議，以下是我做的修正及回覆:</p>
+                        <ul>
+                            <li>
+                                修正服務學習若為「未過」時GPA顯示NaN的問題
+                            </li>
+                            <li>
+                                有同學建議用selenium幫同學做自動登入，其實我之前以經寫好這段code了，但覺得會有資安問題因此選擇讓同學自己登入並下載成績檔案
+                            </li>
+                        </ul>
+                        <p>若還有遇到任何狀況再麻煩點擊Advice和我說，感謝！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         
 
         <!-- main block -->
@@ -183,8 +212,8 @@
             });
         </script>
 
-    </div> 
-    </div>
+        </div> 
+        </div>
     </body>
 </html> 
         
