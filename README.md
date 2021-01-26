@@ -1,8 +1,9 @@
 # NCCU GPA Calculator
-This is an open source project for calculating NCCU (National Chengchi University) students' GPA (Grade Point Average), <br>
-including cumulative, major and last 60 GPA.<br>
-The goal of this project is to benefit those students of NCCU who need these GPA information but can only use online GPA calculators which you have to type in <br>
+This is an open source project for calculating NCCU (National Chengchi University) students' GPA (Grade Point Average), including cumulative, major and last 60 GPA.<br>
+<br>
+The goal of this project is to benefit those students of NCCU who need these GPA information but can only use online GPA calculators which you have to type in 
 course names, credits, and scores all by yourself which is very inconvenient!<br>
+<br>
 Feel free to fork this project and produce your own GPA calculator for your school!<br>
 歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器。
 
