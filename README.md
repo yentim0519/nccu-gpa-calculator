@@ -1,7 +1,9 @@
 # NCCU GPA Calculator
-This is an open source project for calculating NCCU (National Chengchi University) students' GPA (Grade Point Average), including cumulative, major and last 60 GPA.
-The goal of this project is to benefit those who need these GPA information but can only use the GPA calculators online which you have to 
-Feel free to fork this project and produce your own GPA calculator for your school!
+This is an open source project for calculating NCCU (National Chengchi University) students' GPA (Grade Point Average), <br>
+including cumulative, major and last 60 GPA.<br>
+The goal of this project is to benefit those students of NCCU who need these GPA information but can only use online GPA calculators which you have to type in <br>
+course names, credits, and scores all by yourself which is very inconvenient!<br>
+Feel free to fork this project and produce your own GPA calculator for your school!<br>
 歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器。
 
 **Website**: https://nccu-gpa-calculator.herokuapp.com
@@ -29,10 +31,10 @@ git push heroku master
 
 ## Tech Stack
 
-* [Flask]
+* [Flask] (https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python
 * [docker-compose](https://docs.docker.com/compose/) - For multi-container Docker applications
 * [heroku.yml](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml) - New feature from Heroku to build Docker Images with self defined manifest
 
 ## Contributor
-[Yen Ting](https://github.com/yentim0519)
+* [Yen Ting](https://github.com/yentim0519)
 
