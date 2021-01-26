@@ -48,171 +48,174 @@
         </script>            
     </head>
 
-    <body>
+    <body style="margin: 0;height: 100vh; ">
         <div id="msg" style="font-size:largest;">
             <!-- you can set whatever style you want on this -->
             Loading, please wait...
         </div>
 
-    <div id="body" style="display:none;">
+        <div id="body" style="display:none;">
 
-    <!-- alert flash messages-->
-    <div class="alert_container">
-        {% for message in get_flashed_messages() %}
-        <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-        </div>
-        {% endfor %}
-    </div>
+            <!-- alert flash messages-->
+            <div class="alert_container">
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
 
-    <div id="cover">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                 
-                  <li class="nav-item">
-                    <!-- Button trigger modal -->
-                    <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#tutorial" href="#">Tutorial</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id = "gpa_methods_button"data-toggle="modal" data-target="#gpa_methods" href="#">GPA Calculating Methods</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id = "updates_button"data-toggle="modal" data-target="#updates" href="#">Updates</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
-                  </li>
-                </ul>
-              </div>
-        </nav>
-  
-        <!-- Tutorial Modal -->
-        <div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Tutorial</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <u>宗旨</u><br>
-                        此網站提供政大學生快速計算GPA（包含4.3制、4.0制、Last60、Major等GPA)<br>
-                        <p style="color:red">＊目前只支援電腦</p>
-                        <br>
-                        <u>使用步驟</u><br>
-                        1. 登入<a href="http://i.nccu.edu.tw" target="_blank">iNCCU</a><br>
-                        2. 點擊「進入我的全人」<br>
-                        3. 點擊左邊欄位的「課業學習」<br>
-                        4. 下載此頁的html檔案<br>
-                        5. 將此html檔案匯入此網站，並按下Calculate<br>
-                        <br> 
-                        <u>如何下載html檔案</u><br>
-                        <!-- <p style="color:red">可能會因版本問題而不適用</p> -->
-                        Mac<br>
-                        <ul>
-                            <li>Safari： Command + S, 格式選擇「網頁原始檔」</li>
-                            <li>Chrome： Command + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
-                        </ul>  
-        
-                        Windows<br>
-                        <ul>
-                            <li>Safari： Ctrl + S, 格式選擇「網頁原始檔」</li>
-                            <li>Chrome： Ctrl + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
-                            <!-- <li>IE：</li> -->
-                        </ul>  
-                        
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                        <!-- Button trigger modal -->
+                        <a class="nav-link" id = "tutorial_button"data-toggle="modal" data-target="#tutorial" href="#">Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id = "gpa_methods_button"data-toggle="modal" data-target="#gpa_methods" href="#">GPA Calculating Methods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id = "updates_button"data-toggle="modal" data-target="#updates" href="#">Updates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Tutorial Modal -->
+            <div class="modal fade" id="tutorial" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Tutorial</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <u>宗旨</u><br>
+                            此網站提供政大學生快速計算GPA（包含4.3制、4.0制、Last60、Major等GPA)<br>
+                            <p style="color:red">＊目前只支援電腦</p>
+                            <br>
+                            <u>使用步驟</u><br>
+                            1. 登入<a href="http://i.nccu.edu.tw" target="_blank">iNCCU</a><br>
+                            2. 點擊「進入我的全人」<br>
+                            3. 點擊左邊欄位的「課業學習」<br>
+                            4. 下載此頁的html檔案<br>
+                            5. 將此html檔案匯入此網站，並按下Calculate<br>
+                            <br> 
+                            <u>如何下載html檔案</u><br>
+                            <!-- <p style="color:red">可能會因版本問題而不適用</p> -->
+                            Mac<br>
+                            <ul>
+                                <li>Safari： Command + S, 格式選擇「網頁原始檔」</li>
+                                <li>Chrome： Command + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
+                            </ul>  
+            
+                            Windows<br>
+                            <ul>
+                                <li>Safari： Ctrl + S, 格式選擇「網頁原始檔」</li>
+                                <li>Chrome： Ctrl + S, 格式選擇「僅限網頁的HTML部分」或「完整的網頁」</li>
+                                <!-- <li>IE：</li> -->
+                            </ul>  
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- GPA算法介紹 -->
-        <div class="modal fade" id="gpa_methods" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">GPA Calculation Methods</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <ul>
-                            <li>
-                                4.3制計算方法（政大官網）<br>
-                                <img src="/static/nccu_gpa_43.png" style="width:700px;"/><br>
-                            </li>
-                            <li>
-                                4.0制計算方法
-                                <img src="/static/gpa_4.png" style="width:700px;"/>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- update -->
-        <div class="modal fade" id="updates" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Updates</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>非常感謝同學們的建議，以下是我做的修正及回覆:</p>
-                        <ul>
-                            <li>
-                                修正服務學習若為「未過」時GPA顯示NaN的問題
-                            </li>
-                            <li>
-                                有同學建議用selenium幫同學做自動登入，其實我之前以經寫好這段code了，但覺得會有資安問題因此選擇讓同學自己登入並下載成績檔案
-                            </li>
-                        </ul>
-                        <p>若還有遇到任何狀況再麻煩點擊Advice和我說，感謝！</p>
+            <!-- GPA算法介紹 -->
+            <div class="modal fade" id="gpa_methods" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">GPA Calculation Methods</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li>
+                                    4.3制計算方法（政大官網）<br>
+                                    <img src="/static/nccu_gpa_43.png" style="width:700px;"/><br>
+                                </li>
+                                <li>
+                                    4.0制計算方法
+                                    <img src="/static/gpa_4.png" style="width:700px;"/>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        
-
-        <!-- main block -->
-        <div class='whole-block'>
-            <!-- <div class = 'title'>
-                NCCU GPA CALCULATOR
-            </div> -->
-            <div class = 'title'>
-                NCCU Gpa Calculator 
+            <!-- update -->
+            <div class="modal fade" id="updates" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Updates</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>非常感謝同學們的建議，以下是我做的修正及回覆:</p>
+                            <ul>
+                                <li>
+                                    修正服務學習若為「未過」時GPA顯示NaN的問題
+                                </li>
+                                <li>
+                                    有同學建議用selenium幫同學做自動登入，其實我之前以經寫好這段code了，但覺得會有資安問題因此選擇讓同學自己登入並下載成績檔案
+                                </li>
+                            </ul>
+                            <p>若還有遇到任何狀況再麻煩點擊Advice和我說，感謝！</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <form method=post enctype=multipart/form-data>
-                <div class="custom-file">
-                    <input type="file" name = "file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+            
+
+            <!-- main block -->
+            <div class='whole-block'>
+                <!-- <div class = 'title'>
+                    NCCU GPA CALCULATOR
+                </div> -->
+                <div class = 'title'>
+                    NCCU Gpa Calculator 
                 </div>
-                <div class="text-center" style="margin-top:20px;">
-                    <button type="submit" class="btn btn-outline-secondary">Calculate</button>
-                </div>
-            </form>
+
+                <form method=post enctype=multipart/form-data>
+                    <div class="custom-file">
+                        <input type="file" name = "file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <div class="text-center" style="margin-top:20px;">
+                        <button type="submit" class="btn btn-outline-secondary">Calculate</button>
+                    </div>
+                </form>
+            </div>
+
+            <script>
+                // Add the following code if you want the name of the file appear on select
+                $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            </script>   
+            
         </div>
 
-       <script>
-            // Add the following code if you want the name of the file appear on select
-            $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-        </script>
-
-        </div> 
+        <div style="position:fixed;; bottom: 0px; width: 100%; text-align: center;">
+            &copy;Copyright YenTing 2021
         </div>
     </body>
 </html> 
