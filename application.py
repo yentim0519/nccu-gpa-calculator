@@ -1,9 +1,7 @@
 import flask
-from flask import request, jsonify, session, redirect, url_for, flash
+from flask import request, redirect, flash
 import os
 from bs4 import BeautifulSoup
-import time
-import json 
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 
@@ -85,14 +83,5 @@ if __name__ == '__main__':
     application.run(host='0.0.0.0',threaded=True)
 
 
-# Must:
-# tutorial
 
-
-
-
-# Nice to have:
-# handle 一個學期全選
-# 紀錄使用人次
-# 等文字load完再呈現頁面
 
