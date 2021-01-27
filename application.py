@@ -8,8 +8,8 @@ from werkzeug.exceptions import RequestEntityTooLarge
 
 application = flask.Flask(__name__)
 
-# 一定要加這行，幫session簽名 
-application.secret_key = b'_5#y2L"F4Q8z\n\xec]/' #最好遮掉
+# 一定要加這行，幫session簽名的密鑰 
+application.secret_key = b'_5#y2L"F4Q8z\n\xec]/' 
 
 # 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file
@@ -71,7 +71,7 @@ def index():
 
 
 
-
+# Make sure the file is in the correct formats (ex. .html, .htm)
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
