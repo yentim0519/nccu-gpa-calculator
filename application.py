@@ -11,7 +11,7 @@ application = flask.Flask(__name__)
 # 一定要加這行，幫session簽名 
 application.secret_key = b'_5#y2L"F4Q8z\n\xec]/' #最好遮掉
 
-
+# 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file
 ALLOWED_EXTENSIONS = set(['html', 'htm']) # limitation of upload file format
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
