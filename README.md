@@ -9,32 +9,10 @@ Feel free to fork this project and produce your own GPA calculator for your scho
 
 **Website**: https://nccu-gpa-calculator.herokuapp.com
 
-## Deployment
-
-### Deploy Locally
-
-All the deployment is done in one line. Visit `localhost:5000` to see the results.
-
-```
-docker-compose up -d
-```
-
-If you would like to build and parse all the articles from scratch, set `BUILD_FROM_SCRATCH` to `True` in the `settings.py` file. Building from scratch takes around a minute.
-
-
-### Deploy on Heroku
-```
-heroku apps:create ptt-studyabroad-api
-heroku addons:create heroku-postgresql:hobby-dev
-heroku stack:set container
-git push heroku master 
-```
-
 ## Tech Stack
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python
-* [docker-compose](https://docs.docker.com/compose/) - For multi-container Docker applications
-* [heroku.yml](https://devcenter.heroku.com/articles/build-docker-images-heroku-yml) - New feature from Heroku to build Docker Images with self defined manifest
+* [Heroku](https://www.heroku.com) - a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
 ## Contributor
 * [Yen Ting](https://github.com/yentim0519)
