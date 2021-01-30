@@ -4,8 +4,8 @@ This is an open source project for calculating NCCU (National Chengchi Universit
 The goal of this project is to benefit those students of NCCU who need these GPA information but can only use online GPA calculators which users have to type in 
 course names, credits, and scores all by themselves, which is very inconvenient!<br>
 <br>
-Feel free to fork this project and produce your own GPA calculator for your school!<br>
-歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器。
+Feel free to fork this project and produce your own GPA calculator for your school or make a PR (Pull Request) to make this project better!<br>
+歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器，或者可以提交PR (Pull Request)幫助!
 
 **Website**: https://nccu-gpa-calculator.herokuapp.com
 
