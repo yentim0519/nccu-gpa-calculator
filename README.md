@@ -7,8 +7,10 @@ course names, credits, and scores all by themselves, which is very inconvenient!
 Feel free to fork this project and developed a GPA calculator for your school or make a PR (Pull Request) to make this project better!<br>
 歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器，或者可以提交PR (Pull Request)幫助改善此專案!
 
-**Website**: https://nccu-gpa-calculator.herokuapp.com
-
+**Website**: https://nccu-gpa-calculator.herokuapp.com 
+<br>
+<br>
+**Demo Video**
 ![image](https://github.com/yentim0519/nccu-gpa-calculator/blob/master/nccu-gpa-calculator-demo-video.gif)
 
 ## Tech Stack
