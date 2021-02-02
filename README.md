@@ -9,6 +9,8 @@ Feel free to fork this project and developed a GPA calculator for your school or
 
 **Website**: https://nccu-gpa-calculator.herokuapp.com
 
+![image](https://github.com/yentim0519/nccu-gpa-calculator/blob/master/nccu-gpa-calculator.gif)
+
 ## Tech Stack
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python
