@@ -1,29 +1,34 @@
-/* #navbar-brand { 
-    text-align: left;
-    font-size: 300%;
-    font-family:kaushan_script;
-    min-height:65px;
-    color:white !important;
-} */
-
-
-/* 
-#gpa0{
-    color:black;
-}  */
-
-/* thead th {
-    background-color: #006DCC;
-    color: blue;
-} */
-
-.upper_div{
-    height: 200px;
+.sidenav-left {
+    width: 90px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    background: #ffffcc;
+    overflow-x: hidden;
+    padding: 8px 0;
 }
 
-.navbar{
-    background-color: transparent;
+.sidenav-right {
+    width: 90px;
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    overflow-x: hidden;
+    padding: 8px 0;
 }
+
+a .fas {
+    color: #777;
+}
+
+a .fas:hover {
+    color: rgb(70, 69, 69);
+}
+  
+  
+  
 
 
 

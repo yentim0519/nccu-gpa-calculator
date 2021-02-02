@@ -1,0 +1,1836 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<html>
+<head>
+<title>職業生涯發展中心</title>
+<meta charset="utf-8">
+<link href="css/div1.css" rel="stylesheet" type="text/css" /> 
+<link href="css/center1.css" rel="stylesheet" type="text/css" />
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/new_nav/css/new_nav.css?v=181005" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="js/selfDevelop.js"></script>
+    
+
+    
+	<script>
+		function download()
+		{
+			answer = confirm('本功能提供同學自行下載個人之「全人發展與自我管理」八大類完整資料。\n資料處理需要一段時間，請耐心等候。\n下載後執行操作與線上系統一樣，但資料並不同步。\n如需更新最新資料，請一段時間後重新下載。\n\n下載後操作說明：\n1. 指定路徑\n2. 解開壓縮檔案\n3. 執行 _Main 即可\n');
+			if (answer)
+			location.href="http://webapp.nccu.edu.tw/SelfDevelopWebExport/login.aspx?personal=6B4934393257466C73524E614E4D43536C7549753873676D5A39527A396C2B7A";
+		}
+	</script>
+</head>
+
+<body class="theme1" onLoad="MM_preloadImages('images/NO1/nav/nav1-on.jpg','images/NO1/nav/nav2-on.jpg','images/NO1/nav/nav3-on.jpg','images/NO1/nav/nav4-on.jpg','images/NO1/nav/nav5-on.jpg','images/NO1/nav/nav6-on.jpg','images/NO1/nav/nav7-on.jpg','images/NO1/nav/nav8-on.jpg','images/NO1/nav/nav9-on.jpg')">
+<!--container start -->
+<div id="container">
+<!--header start -->
+<div id="header"></div>
+<!--header end -->
+<!--content start -->
+<div id="content1">
+<!--nav start -->
+
+
+
+<div id="nav">
+<ul>
+<li class="nav1">
+    <a href="personalDataList.selfDevelop">
+    <span>基本資料</span>
+    <span class="en">Personal Information</span>
+    </a>
+</li>
+<li class="nav2">
+    <a href="registerhistoryDataList.selfDevelop">
+    <span>學籍歷程</span>
+    <span class="en">Register History</span>
+    </a>
+</li>
+
+<li class="nav2">
+    <a href="lessionStudyDataList.selfDevelop">
+    <span>課業學習</span>
+    <span class="en">Academic Performance</span>
+    </a>
+</li>
+
+<li class="nav3">
+    <a href="capabilityDataList.selfDevelop">
+    <span>能力發展</span>
+    <span class="en">Capability Development</span>
+    </a>
+</li>
+
+<li class="nav4">
+    <a href="healthManagementDataList.selfDevelop">
+    <span>健康管理</span>
+    <span class="en">Health Management</span>
+    </a>
+</li>
+
+<li class="nav5">
+    <a href="diversifiedLifeDataList.selfDevelop">
+    <span>多元生活</span>
+    <span class="en">Diverse Life</span>
+    </a>
+</li>
+
+<li class="nav6">
+    <a href="mildDataList.selfDevelop">
+    <span>心靈互動</span>
+    <span class="en">Mental Interaction</span>
+    </a>
+</li>
+
+<li class="nav7">
+    <a href="honorAndServiceDataList.selfDevelop">
+    <span>榮譽服務</span>
+    <span class="en">Honors and Services</span>
+    </a>
+</li>
+
+
+
+   
+   <!--  <li class="nav8"><a href="stuResumeDataList.selfDevelop"></a></li> -->
+	<li class="nav8">
+	    <a href="https://moltke.nccu.edu.tw/SSO/startApplication.sso?url=https://moltke.nccu.edu.tw/sturesume_SSO/login.sturesume">
+	    <span>我的履歷</span>
+	    <span class="en">Personal Resume</span>
+	    </a>
+	
+	</li>
+   
+
+
+<li class="nav9">
+    <a href="careerDevDataList.selfDevelop">
+    <span>職涯發展</span>
+    <span class="en">Career Development</span>
+    </a>
+</li>
+
+    
+        
+			<li class="nav10">
+			    <a href="learningMapDataList.selfDevelop">
+			    <span>修課計畫</span>
+			    <span class="en">Course Planning</span>
+			    </a>
+			</li>
+	    
+    
+    
+
+</ul>
+</div>
+
+<!--nav end -->
+<!--center start -->
+  
+                
+                                 
+                
+                  
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    $("#btnPrint").click(function () {
+        var contents = $("#block").html();
+        var frame1 = $('<iframe />');
+        frame1[0].name = "frame1";
+        frame1.css({ "position": "absolute", "top": "-1000000px" });
+        $("body").append(frame1);
+        var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+        frameDoc.document.open();
+        //Create a new HTML document.
+        frameDoc.document.write('<html><head><title>DIV Contents</title>');
+        //Append the external CSS file.
+        frameDoc.document.write('<link href="css/div1.css" rel="stylesheet" type="text/css" />');
+        frameDoc.document.write('<link href="css/center98.css" rel="stylesheet" type="text/css" />');
+        frameDoc.document.write('<link href="css/reset.css" rel="stylesheet" type="text/css" />');
+        frameDoc.document.write('</head><body>');
+        //Append the DIV contents.
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            frame1.remove();
+        }, 500);
+    });
+});
+</script>
+
+</head>
+<!--center start -->
+<div class="inside">
+<!--九宮格top endstart -->
+<div class="in-top">
+ <div class="title"><span>課業學習</span><span class="en">Academic Performance</span></div>
+<div class="tag"><a href="#">Home</a> > 課業學習 Academic Performance</div></div>
+<input type="button" id="btnPrint" value=" 列 印  " />
+<!--九宮格top end -->
+<div id = "block">
+<div class="name">
+主修：
+                      
+                        
+                          經濟學系                                          
+                        
+                        
+                      
+                      
+<br />
+雙修：
+                      
+                        
+                        無
+                      
+<br />
+輔系：
+                      
+                        
+                        無
+                      
+<br />
+大學英文跳免修：
+                      
+                        
+                         
+                        
+                        
+                      
+<br />
+                
+                  
+                  
+                
+
+                  
+</div>
+
+<div class="row">
+<h3>學期1/2、2/3成績不及格預警　The Alert for the credits failed reached 1/2 or 2/3 of the taken credits</h3>
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody>
+<tr>
+<th width="60" valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+<th width="60" valign="top">學期<br /><span class="en_txt">Semester</span></th>
+<th width="100" valign="top">總修習學分數<br /><span class="en_txt">Taken Credits</span></th>
+<th width="80" valign="top">不及格學分數<br /><span class="en_txt">Failed Credits</span></th>
+<th width="80" valign="top">備註<br /><span class="en_txt">Remark</span></th>
+</tr>
+                  
+                    
+                    
+                      <tr><td colspan="5"><p class="contain_txt">無</p></td></tr>
+                    
+                  
+</tbody>
+</table><br />
+相關規定: 依學則第33條規定。<br />
+According to National Chengchi University Academic Regulations Article 33.
+</div>
+
+<div class="row">
+<h3>近一學年預警評量通知 Last two semesters Advance Alert for Evaluation</h3>
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody>
+<tr>
+<th width="60" valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+<th width="60" valign="top">學期<br /><span class="en_txt">Semester</span></th>
+<th width="100" valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+<th width="80" valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+<th width="100" valign="top">授課教師<br /><span class="en_txt">Instructor</span></th>
+<th valign="top">預警理由<br /><span class="en_txt">Reason of Advance Alert</span></th>
+</tr>
+                  
+                    
+                    
+                      <tr><td colspan="6"><p class="contain_txt">無</p></td></tr>
+                    
+                  
+</tbody>
+</table>
+</div>
+<div class="row">
+<h3>抵免紀錄 Waived Courses Record</h3>
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody>
+<tr>
+<th width="60" valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+<th width="60" valign="top">學期<br /><span class="en_txt">Semester</span></th>
+<th width="100" valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+<th width="100" valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+<th width="60" valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+<th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+</tr>
+                  
+                    
+                    
+                      <td colspan="7"><p class="contain_txt">無</p></td>
+                    
+                  
+</tbody>
+</table>
+</div>
+<div class="row">
+<h3>成績紀錄 Scores Record</h3>
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody>
+  
+  
+    
+          109學年下學期成績於04月之後開放查詢。
+          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">109 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">109 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">002345011</div></td>
+                          <td><div align="left">體育[男女合班]—拳擊                                                            </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">1.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">64.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">109 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">703016001</div></td>
+                          <td><div align="left">作業系統                                                                        </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">80.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">109 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">703019001</div></td>
+                          <td><div align="left">計算機結構與組織                                                                </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">85.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                        <tr>
+                          <td><div align="left">109 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">781008001</div></td>
+                          <td><div align="left">資料庫應用                                                                      </div></td>
+                          <td><div align="left">群        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">79.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">108 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">002301021</div></td>
+                          <td><div align="left">體育[男女合班]—網球初級                                                        </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">76.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">300933002</div></td>
+                          <td><div align="left">數理統計學                                                                      </div></td>
+                          <td><div align="left">選        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">91.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">306859001</div></td>
+                          <td><div align="left">演算法                                                                          </div></td>
+                          <td><div align="left">選        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">95.20</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">701018001</div></td>
+                          <td><div align="left">計算機程式                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">99.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">108 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">207090001</div></td>
+                          <td><div align="left">線性代數                                                                        </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">78.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">207770001</div></td>
+                          <td><div align="left">物件導向程式設計                                                                </div></td>
+                          <td><div align="left">選        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">65.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">108 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">307917001</div></td>
+                          <td><div align="left">財務報表分析                                                                    </div></td>
+                          <td><div align="left">選        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">棄修</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">107 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000218022</div></td>
+                          <td><div align="left">總體經濟學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">90.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">002021011</div></td>
+                          <td><div align="left">體育[男]—籃球初級                                                              </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">85.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">003827021</div></td>
+                          <td><div align="left">全民國防教育軍事訓練—國防政策                                                  </div></td>
+                          <td><div align="left">選        </div></td>
+                          <td><div align="left">2.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">82.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">050229001</div></td>
+                          <td><div align="left">服務學習課程－動物園（寒假班）                                                  </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">通過</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        
+
+                        
+                        
+
+                        
+                      
+                      
+
+                        
+                        
+
+                       
+                      
+
+                        
+                        
+
+                        
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">107 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000218021</div></td>
+                          <td><div align="left">總體經濟學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">56.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000351051</div></td>
+                          <td><div align="left">投資學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">83.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">041123001</div></td>
+                          <td><div align="left">生命探索與宗教文化                                                              </div></td>
+                          <td><div align="left">群        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">86.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          	<td><div align="left">人文通</div></td>
+                          
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">107 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">043030001</div></td>
+                          <td><div align="left">數學、邏輯與人生                                                                </div></td>
+                          <td><div align="left">群        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">74</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          	<td><div align="left">自然通</div></td>
+                          
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        
+                      
+                      
+
+                        
+                        
+
+                      
+
+                        
+                        
+
+                        
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">106 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000215032</div></td>
+                          <td><div align="left">貨幣銀行學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">81.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000217012</div></td>
+                          <td><div align="left">個體經濟學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">95.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000321042</div></td>
+                          <td><div align="left">統計學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">92.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                      
+                      
+
+                        
+                        
+
+                      
+                      
+                      
+
+                        
+                        
+
+                        
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">010110001</div></td>
+                          <td><div align="left">中級會計學（二）                                                                </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">棄修</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">106 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000215031</div></td>
+                          <td><div align="left">貨幣銀行學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">90.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000217011</div></td>
+                          <td><div align="left">個體經濟學                                                                      </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">90.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">106 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000321041</div></td>
+                          <td><div align="left">統計學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">54.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                   
+                      
+                      
+
+                        
+                        
+
+                        
+                      
+
+                        
+                        
+
+                       
+                      
+                      
+
+                        
+                        
+
+                     
+                      
+                      
+
+                        
+                        
+
+                       
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">105 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000219002</div></td>
+                          <td><div align="left">經濟學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">86.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000318051</div></td>
+                          <td><div align="left">初級會計學（二）                                                                </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">75.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">000348081</div></td>
+                          <td><div align="left">管理學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">83.84</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">001001002</div></td>
+                          <td><div align="left">操行                                                                            </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">86.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                      
+                      
+
+                        
+                        
+
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">050178001</div></td>
+                          <td><div align="left">服務學習課程－經濟系系務活動參與及實踐                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">通過</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">2</div></td>
+                          <td><div align="left">208002002</div></td>
+                          <td><div align="left">微積分                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">90.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+                          
+                          
+                        	 </table>
+                          
+                          <br>
+                            
+                          <table border="0" cellpadding="0" cellspacing="1">
+                            <tr>
+                              <td  colspan="8">
+                                <div align="center">105 學年成績單</div>
+                                
+
+                              </td>
+                            </tr>
+                            <tr>
+								<th valign="top">學年<br /><span class="en_txt">Academic Year</span></th>
+						  <th valign="top">學期<br /><span class="en_txt">Semester</span></th>
+						  <th valign="top">科目代號<br /><span class="en_txt">Course Code</span></th>
+						  <th valign="top">科目名稱<br /><span class="en_txt">Course Name</span></th>
+						  <th valign="top">修別<br /><span class="en_txt">Required or Elective Course</span></th>
+						  <th valign="top">學分數<br /><span class="en_txt">Credit</span></th>
+						  <th valign="top">成績<br /><span class="en_txt">Score</span></th>
+								<th valign="top">備註<br /><span class="en_txt">Remark</span></th>
+
+                        
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000219001</div></td>
+                          <td><div align="left">經濟學                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">76.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000227021</div></td>
+                          <td><div align="left">國際關係                                                                        </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">80.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">000314051</div></td>
+                          <td><div align="left">初級會計學（一）                                                                </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">98.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">001001001</div></td>
+                          <td><div align="left">操行                                                                            </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">0.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">85.00</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                      
+
+                        
+                        
+
+                       
+                      
+
+                        
+                        
+
+                        
+                      
+                      
+
+                        
+                        
+
+                       
+                      
+
+                        
+                        
+
+                        
+                      
+                      
+
+                        
+                        
+
+                        <tr>
+                          <td><div align="left">105 </div></td>
+                          <td><div align="left">1</div></td>
+                          <td><div align="left">208002001</div></td>
+                          <td><div align="left">微積分                                                                          </div></td>
+                          <td><div align="left">必        </div></td>
+                          <td><div align="left">3.0</div></td>
+                          
+                            
+                              
+                                
+                                
+                                  <td><div align="left">90.95</div></td>
+                                
+                              
+                            
+                            
+                          
+                          
+                          
+                            <td><div style="visibility:hidden">無</div></td>
+                          
+                        </tr>
+                      
+                    
+                    
+                  
+</tbody>
+</table>
+</div>
+</div><!--列印  end -->
+<div id="bt">
+<ul>
+<li class="back" style="margin-right:5px;"><a href="index.jsp"></a></li>
+<li class="top"><a href="#"></a></li>
+</ul>
+</div>
+</div>
+<!--center end -->
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+<!--center end -->
+<!--right start -->
+<div id="right">
+<!--學員照片 srart -->
+<div class="stu">
+<div class="tittle">學員照片 <span>Student's Photo</span></div>
+<!--學員照片 end-->
+<!--相關連結 start-->
+<div class="stu">
+<div class="tittle">相關連結 <span>Related Links</span></div>
+<ul>
+
+
+	
+        
+
+<li><a href="choose.jsp" >個人版面設定</a></li>
+
+
+<li><a href="http://www.nccu.edu.tw/" target="_blank">政大首頁</a></li>
+<li><a href="https://www.nccu.edu.tw/var/file/0/1000/img/7/845326628.pdf" target="_blank">學生個人資料蒐集處理利用說明</a></li>
+<li><a href="#" onclick="window.open('http://cis.nccu.edu.tw/coursemap/students/ssologin.aspx?personal=6B4934393257466C73524D4A426647716959727A5A5157696F4E4B4C48744151');">課程地圖</a></li>
+
+		    
+<li><a href="javascript:download()" title="完整全人系統匯出供離線操作使用">系統封裝匯出</a></li>
+<li><a href="ucan.selfDevelop" target="_blank"><img src="images/ucanlogo.jpg" width="100" height="20"></a></li>
+
+
+
+
+
+
+
+<input type="text" id='exportbutton' value='aaa' style="border: 0px solid #000000;visibility:hidden"/>
+</ul>
+<div id="line"></div>
+<ul>
+
+                  
+                  
+                    
+                      
+                    
+                  
+                  
+                  
+                  
+                  
+                  
+        
+
+</ul>
+</div>
+<!--相關連結 end-->
+</div>
+<!--right end -->
+</div>
+<!--content end -->
+<div class="clean"></div>
+<!--fooder start -->
+<div id="fooder">
+<div id="text"> ‧校址：11605 台北市文山區指南路二段64號<br />‧緊急重大事件通聯窗口：校內分機 66119、66110   </div>
+<div id="text2">‧總機電話：02-29393091 ‧傳真：02-29379611<br />
+  ‧總值日室 02-29387132　駐警衛室 02-29387129 <a href="https://moltke.nccu.edu.tw/SSO/startApplication.sso?url=https://140.119.229.200/sturesume_SSO/login.sturesume">.</a></div>
+</div>
+<!--fooder end -->
+</div>
+<!--container end -->
+<div id="container_down"></div>
+</body>
+</html>
+
+
+<div id="container_down"></div>
+</body>
+</html>
+
+
+</div>
+<!--container end -->
+<div id="container_down"></div>
+</body>
+</html>
+

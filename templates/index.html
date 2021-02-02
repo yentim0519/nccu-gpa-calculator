@@ -15,10 +15,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style0.css') }}">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
-        
+        <!-- modal的功能只有bootstrap4.5.2做出來的 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
         <style>
             @font-face {
@@ -82,6 +83,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="https://forms.gle/wsFBWpD1KL6Ly9U59" target="_blank">Advice</a>
                     </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/yentim0519/nccu-gpa-calculator" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
