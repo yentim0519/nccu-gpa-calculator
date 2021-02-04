@@ -9,7 +9,7 @@ from werkzeug.exceptions import RequestEntityTooLarge
 application = flask.Flask(__name__)
 
 # 一定要加這行，幫session簽名的密鑰 
-application.secret_key = b'_5#y2L"F4Q8z\n\xec]/' 
+application.secret_key = b'your_own_secret_key' 
 
 
 # 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
