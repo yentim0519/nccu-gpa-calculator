@@ -15,7 +15,7 @@ Feel free to fork this project and developed a GPA calculator for your school or
 ![image](https://github.com/yentim0519/nccu-gpa-calculator/blob/master/nccu-gpa-calculator-demo-video.gif)
 
 ## Deploy Locally
-Install pipenv 
+Install pipenv and clone this project to your computer.
 ```
 pip install pipenv
 ```
