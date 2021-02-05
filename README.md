@@ -21,10 +21,14 @@ pip install pipenv
 ```
 Go to the directory you clone and run the command from below.
 ```
-pipenv install // install the packages in Pipfile in your virtual enviornment
-pipenv shell // activate the virtual enviornment (After running this command, you are in the virtual enviorment)
-pip3 list // check the packages you install form Pipfile (you may see from here, it's different than your local pip3 list)
-python3 application.py // Run the Flask project
+// install the packages in Pipfile in your virtual enviornment
+pipenv install 
+// activate the virtual enviornment (After running this command, you are in the virtual enviorment)
+pipenv shell 
+// check the packages you install form Pipfile (you may see from here, it's different than your local pip3 list)
+pip3 list 
+// Run the Flask project
+python3 application.py 
 ```
 If you are not a student from NCCU, you can play around the website with the file "test_trascript" in this repository. 
 <br>
