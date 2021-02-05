@@ -5,6 +5,7 @@ The goal of this project is to benefit those students of NCCU who need these GPA
 course names, credits, and scores all by themselves, which is very inconvenient!<br>
 <br>
 Feel free to fork this project and developed a GPA calculator for your school or make a PR (Pull Request) to make this project better! (The file test_transcript is provided for people who can't access NCCU transcript html file for testing)<br>
+<br>
 歡迎fork這個專案，並開發成符合自己學校格式的GPA計算器，或者可以提交PR (Pull Request)幫助改善此專案!（test_transcript提供給無法獲取政大成績html檔的人做測試）
 
 **Website**: https://nccu-gpa-calculator.herokuapp.com 
