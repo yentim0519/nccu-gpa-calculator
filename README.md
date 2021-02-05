@@ -2,7 +2,7 @@
 This is an open source project for calculating NCCU (National Chengchi University) students' GPA (Grade Point Average), including cumulative, major and last 60 GPA.<br>
 <br>
 The goal of this project is to benefit those students of NCCU who need these GPA information but can only use online GPA calculators which users have to type in 
-course names, credits, and scores all by themselves, which is very inconvenient!<br>
+course names, credits, and scores all by themselves, which is very inconvenient.<br>
 <br>
 Feel free to fork this project and developed a GPA calculator for your school or make a PR (Pull Request) to make this project better! (The file test_transcript is provided for people who can't access NCCU transcript html file for testing)<br>
 <br>
@@ -19,15 +19,16 @@ Install pipenv first.
 ```
 pip install pipenv
 ```
-Go to the directory you clone and run the command below
+Go to the directory you clone and run the command from below.
 ```
 pipenv install // install the package in requirement.txt in your virtual enviornment
-python3 application.py // 運行此flask專案，並去CLI裡給你的網址即可看到正在運行的網站
+python3 application.py // 
 ```
+If you are not a student from NCCU, you can play around the website with the file "test_trascript" in this repository. 
 
 ## Tech Stack
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python.
 * [Heroku](https://www.heroku.com) - a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
 ## Contributor
