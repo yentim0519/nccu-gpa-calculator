@@ -14,6 +14,17 @@ Feel free to fork this project and developed a GPA calculator for your school or
 **Demo Video**
 ![image](https://github.com/yentim0519/nccu-gpa-calculator/blob/master/nccu-gpa-calculator-demo-video.gif)
 
+## Deploy Locally
+Install pipenv first.
+```
+pip install pipenv
+```
+Go to the directory you clone and run the command below
+```
+pipenv install // install the package in requirement.txt in your virtual enviornment
+python3 application.py // 運行此flask專案，並去CLI裡給你的網址即可看到正在運行的網站
+```
+
 ## Tech Stack
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python
