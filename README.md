@@ -30,7 +30,7 @@ pipenv shell
 // check the packages you install form Pipfile (you may see from here, it's different than your local pip3 list)
 pip3 list 
 
-// Run the Flask project
+// Run the Flask project (After clicking the link that come up, you should be able to access the website)
 python3 application.py 
 
 //Exit from the virtual enviornment when you are done.
