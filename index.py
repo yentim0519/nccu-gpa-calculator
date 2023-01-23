@@ -6,20 +6,20 @@ from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 
 
-application = flask.Flask(__name__)
+app = flask.Flask(__name__)
 
 # 一定要加這行，幫session簽名的密鑰 
-application.secret_key = b'your_own_secret_key' 
+app.secret_key = b'your_own_secret_key' 
 
 
 # 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
 UPLOAD_FOLDER = '/tmp' #folder route of uploading file
 ALLOWED_EXTENSIONS = set(['html', 'htm']) # limitation of upload file format
-application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-application.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
 
 
-@application.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index(): 
     return 'Hello World!'
     try:
@@ -35,7 +35,7 @@ def index():
                     filename = secure_filename(file.filename) # never trust user input
                     if file.filename == '':
                         flash('No selected file')
-                    file_path = os.path.join(application.config['UPLOAD_FOLDER'], filename)
+                    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                     file.save(file_path)
                 else:
                     flash("Wrong Format! The format has to be HTML or HTM.")
@@ -81,8 +81,8 @@ def allowed_file(filename):
 
 
 if __name__ == '__main__':
-    # application.debug=True
-    application.run(host='0.0.0.0',threaded=True, debug=True)
+    # app.debug=True
+    app.run(host='0.0.0.0',threaded=True, debug=True)
 
 
 
