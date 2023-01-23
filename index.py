@@ -1,9 +1,9 @@
 import flask
-# from flask import request, redirect, flash
-# import os
-# from bs4 import BeautifulSoup
-# from werkzeug.utils import secure_filename
-# from werkzeug.exceptions import RequestEntityTooLarge
+from flask import request, redirect, flash
+import os
+from bs4 import BeautifulSoup
+from werkzeug.utils import secure_filename
+from werkzeug.exceptions import RequestEntityTooLarge
 
 
 app = flask.Flask(__name__)
