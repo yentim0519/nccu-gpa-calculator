@@ -19,7 +19,7 @@ application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 application.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
 
 
-@application.route('/', methods=["GET", "POST"])
+@application.route('/')
 def index(): 
     return 'Hello World!'
     try:
