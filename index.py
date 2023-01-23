@@ -9,14 +9,14 @@ import flask
 app = flask.Flask(__name__)
 
 # # 一定要加這行，幫session簽名的密鑰 
-# app.secret_key = b'your_own_secret_key' 
+app.secret_key = b'your_own_secret_key' 
 
 
-# # 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
-# UPLOAD_FOLDER = '/tmp' #folder route of uploading file
-# ALLOWED_EXTENSIONS = set(['html', 'htm']) # limitation of upload file format
-# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-# app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
+# 這個folder是用來儲存client是否是第一次loading的counter(為了讓tutorial的modal不要每此redirect就跳出來)
+UPLOAD_FOLDER = '/tmp' #folder route of uploading file
+ALLOWED_EXTENSIONS = set(['html', 'htm']) # limitation of upload file format
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
 
 
 @app.route('/', methods=["GET", "POST"])
