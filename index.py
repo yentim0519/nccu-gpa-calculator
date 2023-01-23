@@ -21,6 +21,7 @@ application.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 1MB
 
 @application.route('/', methods=["GET", "POST"])
 def index(): 
+    return 'Hello World!'
     try:
         if request.method == 'POST':
             
