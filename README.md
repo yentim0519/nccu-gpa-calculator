@@ -42,7 +42,7 @@ If you are not a student from NCCU, you can play around the website with the fil
 ## Tech Stack
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - a micro web framework written in Python.
-* [Heroku](https://www.heroku.com) - a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+* [Vercel](https://vercel.com/) - a Frontend Cloud.
 
 ## Contributor
 * [Yen Ting](https://github.com/yentim0519)
